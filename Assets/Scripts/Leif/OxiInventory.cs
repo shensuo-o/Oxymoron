@@ -5,10 +5,10 @@ using UnityEngine.Rendering;
 
 public class OxiInventory : MonoBehaviour
 {
-    public GameObject[] Oximorones = new GameObject[20]; //Oximorones conseguidos
+    public GameObject[] Oximorones = new GameObject[20]; //Oximorones conseguidos.
     private int indexInv = 0;
 
-    public GameObject[] Equiped = new GameObject[4]; //Oximorones equipados para uso
+    public GameObject[] Equiped = new GameObject[4]; //Oximorones equipados para uso.
     private int indexEquip = 0;
 
     public void AddOximoron(GameObject oximoron) //Añade un oximoron al inventario, lo llamaria el GameManager o el objeto que sea que trigeree el evento de desbloquear un oximoron.
