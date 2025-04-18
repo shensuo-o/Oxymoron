@@ -8,6 +8,8 @@ public class Personaje : MonoBehaviour
     public float HP;
     public float Speed;
 
+    #region Variables Movimiento
+
     //variables para el movimiento
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float HorizontalInput;
@@ -32,10 +34,14 @@ public class Personaje : MonoBehaviour
     //Variables para agacharse
     [SerializeField] private float normalSpeed;
     [SerializeField] private float crouchSpeed;
+    [SerializeField] private BoxCollider leifCollider;
+
+    #endregion
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        leifCollider = GetComponentInChildren<BoxCollider>();
     }
 
     void Start()
@@ -124,10 +130,14 @@ public class Personaje : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftControl))
             {
                 Speed = crouchSpeed;
+                leifCollider.center = new Vector3(0, -0.6f, 0);
+                leifCollider.size = new Vector3(1, 0.8f, 1);
             }
             else
             {
                 Speed = normalSpeed;
+                leifCollider.center = new Vector3(0, 0, 0);
+                leifCollider.size = new Vector3(1, 2, 1);
             }
         }
     }
