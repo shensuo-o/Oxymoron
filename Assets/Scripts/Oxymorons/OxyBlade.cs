@@ -6,7 +6,7 @@ public class OxyBlade : Oxymorones
 {
     [SerializeField] public GameObject Weapon; //Espada.
 
-    protected void CheckE()
+    protected virtual void CheckE()
     {
         if (gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.E))
         {

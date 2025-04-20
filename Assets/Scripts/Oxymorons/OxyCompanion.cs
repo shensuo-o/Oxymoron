@@ -39,7 +39,7 @@ public class OxyCompanion : Oxymorones
             OxyPartTwo = true;
         }
     }
-    protected void CheckQ()
+    protected virtual void CheckQ()
     {
         if (gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Q))
         {
