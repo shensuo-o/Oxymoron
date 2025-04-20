@@ -14,6 +14,7 @@ public class OxiInventory : MonoBehaviour
     public void AddOximoron(GameObject oximoron) //Añade un oximoron al inventario, lo llamaria el GameManager o el objeto que sea que trigeree el evento de desbloquear un oximoron.
     {
         Oximorones[indexInv] = oximoron;
+        Instantiate(oximoron, this.transform.position, Quaternion.identity);
         indexInv++;
     }
 

@@ -12,7 +12,7 @@ public class Personaje : MonoBehaviour
 
     //variables para el movimiento
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float HorizontalInput;
+    public float HorizontalInput;
 
     //variables para el salto
     [SerializeField] private float jumpForce;

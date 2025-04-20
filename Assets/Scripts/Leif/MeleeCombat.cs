@@ -1,18 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject right;
+    [SerializeField] private GameObject left;
+    [SerializeField] private GameObject leif;
+    [SerializeField] private float direction;
+    [SerializeField] private bool look = true;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        leif = GameObject.Find("Leif");
+    }
     void Update()
     {
-        
+        direction = leif.GetComponent<Personaje>().HorizontalInput;
+        if (direction == 1 )
+        {
+            look = true;
+        }
+
+        if (direction == -1)
+        {
+            look = false;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine("Attack");
+        }
+    }
+
+    IEnumerator Attack()
+    {
+        if (look)
+        {
+            right.SetActive(true);
+            yield return new WaitForSeconds(0.4f);
+            right.SetActive(false);
+        }
+
+        if (!look)
+        {
+            left.SetActive(true);
+            yield return new WaitForSeconds(0.4f);
+            left.SetActive(false);
+        }
     }
 }
