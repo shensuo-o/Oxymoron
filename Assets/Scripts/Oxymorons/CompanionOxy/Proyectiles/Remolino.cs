@@ -54,7 +54,7 @@ public class Remolino : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyPhysics"))
+        if (other.gameObject.layer == 10)
         {
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null && !enemigosLevantados.Contains(rb))
