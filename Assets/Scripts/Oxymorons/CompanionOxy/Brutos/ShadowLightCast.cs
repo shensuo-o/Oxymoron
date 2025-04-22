@@ -5,13 +5,15 @@ using UnityEngine;
 public class ShadowLight : MonoBehaviour
 {
     public GameObject proyectile;
-    public Transform target;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //target.position = Input.mousePosition;
-            Instantiate(proyectile, target);
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 10;
+            Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
+            Instantiate(proyectile, pos, Quaternion.identity);
         }
     }
 }

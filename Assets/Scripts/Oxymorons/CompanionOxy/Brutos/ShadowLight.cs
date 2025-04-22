@@ -7,7 +7,7 @@ public class ShadowLightCast : MonoBehaviour
     public int dmg;
     public float lifetime;
 
-    private void Update()
+    private void Start()
     {
         Destroy(this.gameObject, lifetime);
     }
