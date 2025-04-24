@@ -12,7 +12,7 @@ public class ColdFire : MonoBehaviour
 
     private void Start()
     {
-        companion = GameObject.Find("Leif").transform;
+        companion = GameObject.Find("Mira (1)").transform;
         target = GameObject.Find("BruteTarget").transform;
         Destroy(this.gameObject, lifeTime);
     }

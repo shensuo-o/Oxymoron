@@ -13,11 +13,11 @@ public class Enemy : MonoBehaviour
         RB = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.layer == 11)
+        if (HP <= 0)
         {
-            HP -= 10;
+            Destroy(this.gameObject);
         }
     }
 }
