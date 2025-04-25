@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4a2854d94296c4d91bd60bedb9bc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   Speed: 5
   RB: {fileID: 0}
 --- !u!54 &18426414
@@ -882,6 +882,7 @@ GameObject:
   - component: {fileID: 632003883}
   - component: {fileID: 632003882}
   - component: {fileID: 632003881}
+  - component: {fileID: 632003885}
   m_Layer: 13
   m_Name: Trigger
   m_TagString: Untagged
@@ -975,6 +976,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &632003885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632003880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16eb7587f9afd44d9be44d50072eb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 690603326}
+  open: 0
 --- !u!1 &663784061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1102,7 @@ GameObject:
   - component: {fileID: 690603328}
   - component: {fileID: 690603327}
   m_Layer: 6
-  m_Name: Cube (3)
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1531,9 +1546,9 @@ MonoBehaviour:
   rotateSpeed: 100
   maxDistancePredict: 100
   minDistancePredict: 5
-  maxTimePrediction: 5
-  deviationAmount: 30
-  deviationSpeed: 1
+  maxTimePrediction: 3
+  deviationAmount: 20
+  deviationSpeed: 2
   distance: 2
   animator: {fileID: 1360004145}
   isAiming: 0
