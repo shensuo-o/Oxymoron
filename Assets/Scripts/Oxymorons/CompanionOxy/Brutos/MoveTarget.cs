@@ -8,7 +8,7 @@ public class MoveTarget : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10;
-        Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector3 pos = Camera.main.WorldToScreenPoint(mousePos);
         transform.position = pos;   
     }
 }

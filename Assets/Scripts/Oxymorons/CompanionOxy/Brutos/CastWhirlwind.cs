@@ -14,6 +14,8 @@ public class CastWhirlwind : MonoBehaviour
     public GameObject leif;
     public bool dir;
 
+    public int charges;
+
     void Update()
     {
         if (leif.GetComponent<Personaje>().HorizontalInput == 1)
@@ -28,14 +30,19 @@ public class CastWhirlwind : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (dir)
+            if (charges >= 1)
             {
-                Instantiate(vientoR, spawnPointR.position, Quaternion.identity);
-            }
+                if (dir)
+                {
+                    Instantiate(vientoR, spawnPointR.position, Quaternion.identity);
+                }
 
-            if (!dir)
-            {
-                Instantiate(vientoL, spawnPointL.position, Quaternion.identity);
+                if (!dir)
+                {
+                    Instantiate(vientoL, spawnPointL.position, Quaternion.identity);
+                }
+
+                charges--;
             }
         }
 

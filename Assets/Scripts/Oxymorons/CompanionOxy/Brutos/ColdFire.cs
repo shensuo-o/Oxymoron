@@ -21,7 +21,6 @@ public class ColdFire : MonoBehaviour
     {
         transform.position = companion.position;
         Vector3 direction = Vector3.RotateTowards(transform.forward, target.position, speed, 0f);
-        Debug.Log(direction);
         transform.rotation = Quaternion.LookRotation(direction);
     }
 
