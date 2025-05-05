@@ -18,7 +18,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float JumpStartTime;
     [SerializeField] private float jumpTime;
-    [SerializeField] private bool isJumping;
+    [SerializeField] public bool isJumping;
     [SerializeField] private Transform groundDetector;
     [SerializeField] private Vector3 detectorDimensions;
     [SerializeField] private bool isGrounded;

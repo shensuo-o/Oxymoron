@@ -19,5 +19,10 @@ public class ShadowLightCast : MonoBehaviour
             other.gameObject.transform.position = transform.position + new Vector3 (Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), transform.position.z);
             other.gameObject.GetComponent<Enemy>().HP -= dmg * Time.deltaTime;
         }
+
+        if (other.gameObject.layer == 16)
+        {
+            other.gameObject.transform.position = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), transform.position.z);
+        }
     }
 }

@@ -5,84 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject CheckA1;
-    public GameObject CheckA2;
-    public GameObject CheckB1;
-    public GameObject CheckB2;
-    public GameObject CheckC1;
-    public GameObject CheckC2;
-    public GameObject CheckD1;
-    public GameObject CheckD2;
+    public GameManager instance;
+
+    public bool CheckAmarillo;
+    public bool CheckRojo;
+    public bool CheckVerde;
+    public bool CheckRosa;
+    public bool Death;
+    public bool Finish;
+
     public GameObject finalDoor;
-    public GameObject YellowDoor;
-    public GameObject EndLevel;
     public GameObject Leif;
-    public GameObject Water;
 
-    public bool CheckA;
-    public bool CheckB;
-    public bool CheckC;
-    public bool CheckD;
-    public bool WaterDie;
-    public bool End;
-
-    void Start()
+    private void Awake()
     {
-        CheckA = false;
-        CheckB = false;
-        CheckC = false;
-        CheckD = false;
+        instance = this;
+
+        CheckAmarillo = false;
+        CheckRojo = false;
+        CheckVerde = false;
+        CheckRosa = false;
     }
 
-    void Update()
+    private void Update()
     {
-        CheckA = CheckA1.GetComponent<Collider>().bounds.Intersects(CheckA2.GetComponent<Collider>().bounds);
-        CheckB = CheckB1.GetComponent<Collider>().bounds.Intersects(CheckB2.GetComponent<Collider>().bounds);
-        CheckC = CheckC1.GetComponent<Collider>().bounds.Intersects(CheckC2.GetComponent<Collider>().bounds);
-        CheckD = CheckD1.GetComponent<Collider>().bounds.Intersects(CheckD2.GetComponent<Collider>().bounds);
-        End = EndLevel.GetComponent<Collider>().bounds.Intersects(Leif.GetComponent<Collider>().bounds);
-        WaterDie = Leif.GetComponent<Collider>().bounds.Intersects(Water.GetComponent<Collider>().bounds);
-
-        if (CheckA && CheckB && CheckC && CheckD == true)
+        if(CheckAmarillo && CheckRojo && CheckRosa && CheckVerde)
         {
-            finalDoor.transform.position = new Vector3(finalDoor.transform.position.x, 30.5f, finalDoor.transform.position.z);
-        }
-        else
-        {
-            finalDoor.transform.position = new Vector3(finalDoor.transform.position.x, 25.5f, finalDoor.transform.position.z);
-        }
-
-        if (CheckA == true)
-        {
-            YellowDoor.transform.position = new Vector3(YellowDoor.transform.position.x, 21.5f, YellowDoor.transform.position.z);
-        }
-        else
-        {
-            YellowDoor.transform.position = new Vector3(YellowDoor.transform.position.x, 10.6f, YellowDoor.transform.position.z);
-        }
-
-        if (End)
-        {
-            RestartScene();
+            finalDoor.transform.position = new Vector3(31.6f, 31.6f, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RestartScene();
+            SceneManager.LoadScene("Sandbox1");
         }
 
-        if (WaterDie)
+        if (Finish)
         {
-            Leif.transform.position = new Vector3(10.9f, 0.6f, Leif.transform.position.z);
+            SceneManager.LoadScene("Sandbox1");
+        }
+
+        if(Death) 
+        {
+            Leif.transform.position = new Vector3(-12.98f, 18.23f, 0f);
+            Death = false;
         }
     }
-    void RestartScene()
-    {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
-    }
-
-
 }
 
 

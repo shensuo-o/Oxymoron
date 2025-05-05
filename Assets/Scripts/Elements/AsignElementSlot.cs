@@ -32,47 +32,47 @@ public class AsignElementSlot : MonoBehaviour
     {
         if (slot.elements[0] == null)
         {
-            Debug.Log("1");
+            Debug.Log("Asigned element.");
             return true;
         }
         else if (ElementType == slot.elements[0])
         {
-            Debug.Log("2");
+            Debug.Log("Cant have the same element twice in 1 slot.");
             return false;
         }
         else if (ElementType == "Fire" && slot.elements[0] == "Space")
         {
-            Debug.Log("3");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else if (ElementType == "Space" && slot.elements[0] == "Fire")
         {
-            Debug.Log("4");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else if (ElementType == "Ice" && slot.elements[0] == "Space")
         {
-            Debug.Log("5");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else if (ElementType == "Space" && slot.elements[0] == "Ice")
         {
-            Debug.Log("6");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else if (ElementType == "Ice" && slot.elements[0] == "Darkness")
         {
-            Debug.Log("7");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else if (ElementType == "Darkness" && slot.elements[0] == "Ice")
         {
-            Debug.Log("8");
+            Debug.Log("Cant mix those elements.");
             return false;
         }
         else
         {
-            Debug.Log("9");
+            Debug.Log("Asigned element.");
             return true;
         }
     }

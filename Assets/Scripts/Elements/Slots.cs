@@ -17,9 +17,12 @@ public class Slots : MonoBehaviour
 
     public GameObject companion;
 
+    public Color LightGrey;
+
     private void Start()
     {
         elements = new string[2];
+        LightGrey = new Color (113f, 113f, 113f, 255f);
     }
 
     public void Show()
@@ -92,7 +95,7 @@ public class Slots : MonoBehaviour
         }
         else
         {
-            icon.color= Color.black;
+            icon.color= Color.grey;
         }
     }
 
@@ -100,32 +103,32 @@ public class Slots : MonoBehaviour
     {
         if (elements[0] == null)
         {
-            element1.color = Color.black;
+            element1.color = LightGrey;
         }
         if (elements[1] == null)
         {
-            element2.color = Color.black;
+            element2.color = LightGrey;
         }
 
         if (icon.color == Color.cyan && Input.GetKeyDown(KeyCode.Alpha2))
         {
             elements[0] = null;
             elements[1] = null;
-            icon.color = Color.black;
+            icon.color = Color.grey;
         }
 
         if (icon.color == Color.yellow && Input.GetKeyDown(KeyCode.Alpha1))
         {
             elements[0] = null;
             elements[1] = null;
-            icon.color = Color.black;
+            icon.color = Color.grey;
         }
 
         if (icon.color == Color.blue && Input.GetKeyDown(KeyCode.Alpha3))
         {
             elements[0] = null;
             elements[1] = null;
-            icon.color = Color.black;
+            icon.color = Color.grey;
         }
     }
 }
