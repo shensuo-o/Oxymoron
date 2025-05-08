@@ -9,10 +9,12 @@ public class ColdFire : MonoBehaviour
     public float speed;
     public Transform companion;
     public Transform target;
+    public Camera cam;
 
     private void Start()
     {
         companion = GameObject.Find("Mira (1)").transform;
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         target = GameObject.Find("BruteTarget").transform;
         Destroy(this.gameObject, lifeTime);
     }
@@ -20,8 +22,9 @@ public class ColdFire : MonoBehaviour
     void Update()
     {
         transform.position = companion.position;
-        Vector3 direction = Vector3.RotateTowards(transform.forward, target.position, speed, 0f);
-        transform.rotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = Quaternion.LookRotation(target.position.normalized, target.position.normalized);
+        
     }
 
     private void OnTriggerStay(Collider other)
