@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
 {
@@ -38,10 +39,14 @@ public class Personaje : MonoBehaviour
 
     #endregion
 
+    public Image healthBar;
+    public float barHP;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         leifCollider = GetComponentInChildren<BoxCollider>();
+        healthBar = GameObject.Find("Health").GetComponent<Image>();
     }
 
     void Start()
@@ -55,6 +60,7 @@ public class Personaje : MonoBehaviour
         HorizontalInput= Input.GetAxisRaw("Horizontal");
         Jump();
         Crouch();
+        healthBar.material.SetFloat("_Health", (barHP - HP) / 100);
     }
 
     private void FixedUpdate()
@@ -149,7 +155,7 @@ public class Personaje : MonoBehaviour
 
     #endregion
 
-    private void TakeDamage(int damage)//Llama a este script cada vez que recibe daño de algo.
+    public void TakeDamage(float damage)//Llama a este script cada vez que recibe daño de algo.
     {
         HP -= damage;
     }
