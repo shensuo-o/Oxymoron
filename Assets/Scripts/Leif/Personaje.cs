@@ -39,6 +39,7 @@ public class Personaje : MonoBehaviour
 
     #endregion
 
+    //Variables UI
     public Image healthBar;
     public float barHP;
 
