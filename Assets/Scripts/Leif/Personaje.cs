@@ -8,6 +8,7 @@ public class Personaje : MonoBehaviour
     //stats de Leif
     public float HP;
     public float Speed;
+    public float Damage;
 
     #region Variables Movimiento
 

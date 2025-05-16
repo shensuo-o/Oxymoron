@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 866145312304358256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 2, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   Speed: 4
+  Damage: 10
   rb: {fileID: 0}
   HorizontalInput: 0
   jumpForce: 10
@@ -212,7 +213,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5180939577989381233}
   - component: {fileID: 7334888124111976110}
-  - component: {fileID: 6494112128992503276}
   - component: {fileID: 4768690932133749789}
   m_Layer: 0
   m_Name: Item Camera
@@ -287,14 +287,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6494112128992503276
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4013797484369912867}
-  m_Enabled: 1
 --- !u!114 &4768690932133749789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,7 +928,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1048567
+    m_Bits: 3145719
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

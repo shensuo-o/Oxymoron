@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour
         {
             Leif.TakeDamage(Damage);
         }
+
+        if (collision.gameObject.layer == 21)
+        {
+            HP -= Leif.Damage;
+        }
     }
 
     private void OnTriggerStay(Collider collision)
