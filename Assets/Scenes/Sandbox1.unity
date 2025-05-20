@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &58516586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,12 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Press and Hold Space to Jump.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &58516587
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +646,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &96215474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,12 +660,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 2
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Now The Door is Opne.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &96215475
 Transform:
   m_ObjectHideFlags: 0
@@ -1698,7 +1696,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &241768669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1712,12 +1710,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Now try your new power.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &241768670
 Transform:
   m_ObjectHideFlags: 0
@@ -1965,7 +1962,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &254488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,12 +1976,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Try to solve this puzzle using your powers.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &254488644
 Transform:
   m_ObjectHideFlags: 0
@@ -2089,89 +2085,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 277636916}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &287156005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 287156006}
-  - component: {fileID: 287156008}
-  - component: {fileID: 287156007}
-  m_Layer: 20
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &287156006
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287156005}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1887077698}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &287156007
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287156005}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &287156008
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287156005}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &299636386
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,7 +3073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10681a590503dc04ba298cda89fa1cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
   CheckAmarillo: 0
   CheckRojo: 0
   CheckVerde: 0
@@ -3485,7 +3397,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &522021935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3499,12 +3411,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Try to move the cube consuming your new power.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &522021936
 Transform:
   m_ObjectHideFlags: 0
@@ -3828,7 +3739,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &582502960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3842,12 +3753,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Try to combine with a new element.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &582502961
 Transform:
   m_ObjectHideFlags: 0
@@ -4593,7 +4503,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &683580630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4607,12 +4517,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Equip a second element in a slot to get a new Power.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &683580631
 Transform:
   m_ObjectHideFlags: 0
@@ -6135,6 +6044,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814129218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &902720978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902720980}
+  - component: {fileID: 902720979}
+  m_Layer: 0
+  m_Name: InteractionsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &902720979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902720978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b774eec3c6535cf48b8a562a6e3c844a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tutorials:
+  - {fileID: 1798591360}
+  - {fileID: 58516585}
+  - {fileID: 1978675234}
+  - {fileID: 683580629}
+  - {fileID: 522021934}
+  - {fileID: 1139467068}
+  - {fileID: 96215473}
+  - {fileID: 1517763673}
+  - {fileID: 582502959}
+  - {fileID: 241768668}
+  - {fileID: 254488642}
+  index: 0
+--- !u!4 &902720980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902720978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907205374
 GameObject:
   m_ObjectHideFlags: 0
@@ -7561,7 +7527,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1139467069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7575,12 +7541,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Try to Move the Cube to the Trigger Below.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &1139467070
 Transform:
   m_ObjectHideFlags: 0
@@ -8025,89 +7990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1935783606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1242154953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1242154954}
-  - component: {fileID: 1242154956}
-  - component: {fileID: 1242154955}
-  m_Layer: 20
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1242154954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242154953}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1911577348}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1242154955
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242154953}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1242154956
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242154953}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1276076566
 GameObject:
   m_ObjectHideFlags: 0
@@ -10137,7 +10019,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1517763674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10151,12 +10033,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: You can also Attack enemies with your power.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &1517763675
 Transform:
   m_ObjectHideFlags: 0
@@ -12044,12 +11925,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 2
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: A and D to move Left to Right.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &1798591362
 Transform:
   m_ObjectHideFlags: 0
@@ -12525,58 +12405,6 @@ MonoBehaviour:
   GameManager: {fileID: 467377869}
   Trigger: AttackDetection
   isWater: 1
---- !u!1 &1887077697
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1887077698}
-  - component: {fileID: 1887077699}
-  m_Layer: 20
-  m_Name: TestItem
-  m_TagString: Items
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1887077698
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887077697}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.59, y: 17.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 287156006}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1887077699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887077697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ab3ed40d916124b84694cb976318c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Leif: {fileID: 0}
-  TriggerDistance: 1
-  prompt: {fileID: 678629464}
-  Type: Item
-  Message: .
-  timeToRead: 1
-  isRead: 0
 --- !u!1001 &1902643624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12660,58 +12488,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86b73e620500205438da2a2ee9b11c7d, type: 3}
---- !u!1 &1911577346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1911577348}
-  - component: {fileID: 1911577347}
-  m_Layer: 20
-  m_Name: TestItem (1)
-  m_TagString: Items
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1911577347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911577346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7ab3ed40d916124b84694cb976318c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Leif: {fileID: 0}
-  TriggerDistance: 1
-  prompt: {fileID: 678629464}
-  Type: Item
-  Message: .
-  timeToRead: 1
-  isRead: 0
---- !u!4 &1911577348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1911577346}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.45, y: 17.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1242154954}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918481018
 GameObject:
   m_ObjectHideFlags: 0
@@ -13002,7 +12778,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1978675235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13016,12 +12792,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
-  TriggerDistance: 3
+  TriggerDistance: 1
   prompt: {fileID: 734122679}
-  Type: Tutorial
   Message: Left Click for melee attacks.
-  timeToRead: 10
-  isRead: 0
+  timeToRead: 4
+  currentSpeed: 0
 --- !u!4 &1978675236
 Transform:
   m_ObjectHideFlags: 0
@@ -14432,6 +14207,7 @@ SceneRoots:
   - {fileID: 636166369}
   - {fileID: 850898797}
   - {fileID: 467377870}
+  - {fileID: 902720980}
   - {fileID: 1421071847}
   - {fileID: 97466054}
   - {fileID: 1473901664}
@@ -14439,7 +14215,5 @@ SceneRoots:
   - {fileID: 933744828}
   - {fileID: 1536228213}
   - {fileID: 1197306564}
-  - {fileID: 1887077698}
-  - {fileID: 1911577348}
   - {fileID: 1814129218}
   - {fileID: 1935783606}

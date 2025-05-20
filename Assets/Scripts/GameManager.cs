@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager instance;
+    public static GameManager Instance { get; private set; }
 
     public bool CheckAmarillo;
     public bool CheckRojo;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         CheckAmarillo = false;
         CheckRojo = false;
