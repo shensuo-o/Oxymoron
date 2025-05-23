@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2b520cf7a85bdc140aa9bd83c6d9e02b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: Space
   particles: {fileID: 8750912965196659679}
-  color: {r: 0.023606356, g: 0, b: 0.7169812, a: 0}
+  icon: {fileID: 21300000, guid: a1f9316e06c9cbb4e82b29dc05d3a3f3, type: 3}
 --- !u!135 &5406638232705639728
 SphereCollider:
   m_ObjectHideFlags: 0
