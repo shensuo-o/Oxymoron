@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(CheckAmarillo && CheckRojo && CheckRosa && CheckVerde)
+        if (CheckAmarillo && CheckRojo && CheckRosa && CheckVerde)
         {
             finalDoor.transform.position = new Vector3(31.6f, 31.6f, 0);
         }
@@ -44,13 +44,16 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Sandbox1");
         }
 
-        if(Death) 
+        if (Death)
         {
             Leif.transform.position = new Vector3(-12.98f, 18.23f, 0f);
             Death = false;
         }
     }
+
 }
+
+
 
 
 
