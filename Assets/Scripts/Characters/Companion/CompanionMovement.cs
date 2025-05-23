@@ -28,7 +28,7 @@ public class CompanionMovement : MonoBehaviour
 
     #endregion
 
-    void Start()
+    void Awake ()
     {
         target = GameObject.Find("CompTarget");
         rb = GetComponent<Rigidbody>();

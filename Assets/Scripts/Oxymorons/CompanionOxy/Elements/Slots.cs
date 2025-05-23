@@ -76,12 +76,11 @@ public class Slots : MonoBehaviour
         else if (elements[0] == "Fire" && elements[1] == "Darkness")
         {
             icon.color = Color.yellow;
-            companion.GetComponent<ShadowLight>().charges++;
+
         }
         else if (elements[1] == "Fire" && elements[0] == "Darkness")
         {
             icon.color = Color.yellow;
-            companion.GetComponent<ShadowLight>().charges++;
         }
         else if (elements[0] == "Space" && elements[1] == "Darkness")
         {

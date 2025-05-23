@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808268094955233512}
   - component: {fileID: 2843462155590313969}
-  - component: {fileID: 7574808006364909174}
+  - component: {fileID: 3946704860119038937}
   m_Layer: 15
   m_Name: ElementDetection
   m_TagString: Untagged
@@ -491,9 +491,9 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7574808006364909174
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &3946704860119038937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -502,27 +502,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4427828946233330133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2600e73ae93046e48bb1cdac4c7c7954, type: 3}
+  m_Script: {fileID: 11500000, guid: a4544adfcc263aa49bb53d18b7e56645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  textE: {fileID: 0}
-  imageE: {fileID: 0}
-  nameE: {fileID: 0}
-  buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fire: {r: 1, g: 0.31764707, b: 0, a: 1}
-  ice: {r: 0, g: 0.8745098, b: 1, a: 1}
-  darkness: {r: 0, g: 0.17254902, b: 0.2, a: 1}
-  space: {r: 0.3254902, g: 0, b: 0.7921569, a: 1}
-  type: 
+  prompt: {fileID: 0}
+  inventory: {fileID: 0}
+  can: 
+  canNot: 
+  foundElement: {fileID: 0}
+  elementFound: 0
 --- !u!1 &5489560037708361823
 GameObject:
   m_ObjectHideFlags: 0
