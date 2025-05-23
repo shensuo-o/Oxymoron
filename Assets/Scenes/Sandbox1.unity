@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &58516586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 3
   Message: Press and Space to Jump. Holding the bottom will grant you more height
   timeToRead: 4
   currentSpeed: 0
@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 58516585}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -110.9, y: -7.37, z: 0}
+  m_LocalPosition: {x: -113.35, y: -7.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 2
   Message: Now The Door is Opne.
   timeToRead: 4
   currentSpeed: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 2
   Message: Now try your new power.
   timeToRead: 4
   currentSpeed: 0
@@ -1429,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &254488643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,7 +2958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 1.5
   Message: Try to move the cube consuming your new power.
   timeToRead: 4
   currentSpeed: 0
@@ -3640,6 +3640,7 @@ MonoBehaviour:
   thingToMove: {fileID: 549331026}
   open: 0
   Vertical: 10.5
+  layer: 16
 --- !u!1 &636166367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,7 +4050,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &683580630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4064,7 +4065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 2
   Message: Wow, another glowing thing!! But... This one is different. (Equip a second
     element in a slot to get a new Power)
   timeToRead: 4
@@ -4078,7 +4079,7 @@ Transform:
   m_GameObject: {fileID: 683580629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.99, y: 9.33, z: 0}
+  m_LocalPosition: {x: 16.57, y: 9.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4864,7 +4865,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &769728183
 Transform:
   m_ObjectHideFlags: 0
@@ -4894,7 +4895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 2
   Message: Wow!! Why this object is shining? Come on, get closer!!
   timeToRead: 2
   currentSpeed: 0
@@ -5532,6 +5533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tutorials:
   - {fileID: 1798591360}
+  - {fileID: 769728182}
   - {fileID: 58516585}
   - {fileID: 1978675234}
   - {fileID: 683580629}
@@ -6983,7 +6985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 1.5
   Message: Try to Move the Cube to the Trigger Below.
   timeToRead: 4
   currentSpeed: 0
@@ -7492,7 +7494,7 @@ Transform:
   m_GameObject: {fileID: 1263431170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -91.68, y: -3.5, z: 0}
+  m_LocalPosition: {x: -91.5, y: -3.7, z: 0}
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7699,6 +7701,7 @@ MonoBehaviour:
   thingToMove: {fileID: 2001404205}
   open: 0
   Vertical: 5.5
+  layer: 16
 --- !u!65 &1306841141
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8636,6 +8639,7 @@ MonoBehaviour:
   thingToMove: {fileID: 521563681}
   open: 0
   Vertical: 1.25
+  layer: 16
 --- !u!65 &1425724775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9582,7 +9586,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1517763674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10068,6 +10072,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814129218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1592949832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1592949833}
+  - component: {fileID: 1592949835}
+  - component: {fileID: 1592949834}
+  m_Layer: 13
+  m_Name: Trigger (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592949833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592949832}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -89.5, y: -5, z: 0}
+  m_LocalScale: {x: 5, y: 0.59999996, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1814129218}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1592949834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592949832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16eb7587f9afd44d9be44d50072eb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingToMove: {fileID: 1263431170}
+  open: 0
+  Vertical: -3
+  layer: 7
+--- !u!65 &1592949835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592949832}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1595446785
 GameObject:
   m_ObjectHideFlags: 0
@@ -12630,7 +12704,7 @@ MonoBehaviour:
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
   TriggerDistance: 1
-  Message: Hello Down There!! Are You Heart? Can You Move? (Use A and D to move)
+  Message: Hello Down There!! Are You Hurt? Can You Move? (Use A and D to move)
   timeToRead: 2
   currentSpeed: 0
 --- !u!4 &1798591362
@@ -12775,8 +12849,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1798591362}
-  - {fileID: 58516587}
   - {fileID: 769728183}
+  - {fileID: 58516587}
   - {fileID: 1978675236}
   - {fileID: 683580631}
   - {fileID: 522021936}
@@ -12820,6 +12894,7 @@ Transform:
   - {fileID: 1926919617}
   - {fileID: 740968194}
   - {fileID: 1306841144}
+  - {fileID: 1592949833}
   - {fileID: 2083259447}
   - {fileID: 1291627075}
   - {fileID: 66766590}
@@ -12985,27 +13060,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cf37d340615d042af3ff8a356581f8, type: 3}
---- !u!1 &1877459934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7791172090475605016, guid: fc3ed42427b20194fa7e020fe04ea61a,
-    type: 3}
-  m_PrefabInstance: {fileID: 817282302430140615}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1877459939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877459934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d3caaa70b93364ea7213f9908c6a03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EmptyT1: {fileID: 1323377808}
-  EmptyT2: {fileID: 220940895}
-  DoorT: {fileID: 1263431170}
 --- !u!1 &1880670408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2866338145520034784, guid: fc3ed42427b20194fa7e020fe04ea61a,
@@ -17170,7 +17224,7 @@ GameObject:
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1978675235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17185,7 +17239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Leif: {fileID: 0}
   prompt: {fileID: 734122679}
-  TriggerDistance: 1
+  TriggerDistance: 2
   Message: Look Out!! (Left click to attack enemies)
   timeToRead: 4
   currentSpeed: 0
@@ -17198,7 +17252,7 @@ Transform:
   m_GameObject: {fileID: 1978675234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -83.36, y: 0.21, z: 0}
+  m_LocalPosition: {x: -80.65, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18474,14 +18528,30 @@ PrefabInstance:
       propertyPath: EmptyT2
       value: 
       objectReference: {fileID: 220940895}
+    - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: maxFallSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: JumpStartTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: globalGravity
+      value: 29.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7791172090475605016, guid: fc3ed42427b20194fa7e020fe04ea61a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1877459939}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3ed42427b20194fa7e020fe04ea61a, type: 3}
 --- !u!1001 &995557106824550042
 PrefabInstance:

@@ -53,7 +53,6 @@ public class Personaje : MonoBehaviour
 
     void Start()
     {
-        globalGravity = 9.8f;
         normalSpeed = Speed;
     }
 

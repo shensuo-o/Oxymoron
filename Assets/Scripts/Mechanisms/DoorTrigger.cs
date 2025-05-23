@@ -7,6 +7,7 @@ public class DoorTrigger : MonoBehaviour
     public GameObject thingToMove;
     public bool open;
     public float Vertical;
+    public int layer;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 16 && !open)
+        if (other.gameObject.layer == layer && !open)
         {
             thingToMove.transform.position += new Vector3(0, Vertical, 0);
 
@@ -25,7 +26,7 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 16 && open)
+        if (other.gameObject.layer == layer && open)
         {
             thingToMove.transform.position += new Vector3(0, -Vertical, 0);
 
