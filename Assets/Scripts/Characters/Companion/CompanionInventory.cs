@@ -45,7 +45,7 @@ public class CompanionInventory : MonoBehaviour
 
         if (!detector.elementFound && TakenElements.Count != 0) 
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 EquipElement(TakenElements.Peek());
             }

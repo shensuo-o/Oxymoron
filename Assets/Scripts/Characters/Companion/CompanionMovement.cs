@@ -23,22 +23,12 @@ public class CompanionMovement : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
-    [SerializeField] private bool isAiming;
-    [SerializeField] private Transform mira;
-
     #endregion
 
     void Awake ()
     {
         target = GameObject.Find("CompTarget");
         rb = GetComponent<Rigidbody>();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            isAiming = !isAiming;
-        }
     }
 
     #region Movement
@@ -47,7 +37,7 @@ public class CompanionMovement : MonoBehaviour
     {
         var Dis = Vector3.Distance(transform.position, target.transform.position);
 
-        if (Dis >= distance && !isAiming)
+        if (Dis >= distance)
         {
             animator.SetBool("IsIdle", false);
 
@@ -62,16 +52,10 @@ public class CompanionMovement : MonoBehaviour
 
             RotateComp();
         }
-        else if (Dis < distance && !isAiming) 
+        else if (Dis < distance) 
         {
             rb.velocity = new Vector3(0, 0, 0);
             animator.SetBool("IsIdle", true);
-        }
-        else if (isAiming)
-        {
-            transform.position = mira.transform.position;
-            animator.SetBool("IsIdle", false);
-            rb.velocity = new Vector3(0, 0, 0);
         }
     }
 

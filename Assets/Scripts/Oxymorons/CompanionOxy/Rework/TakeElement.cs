@@ -18,12 +18,18 @@ public class TakeElement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                prompt.SetActive(false);
-                inventory.AddElement(foundElement.GetComponent<Element>());
-                foundElement.SetActive(false);
-                elementFound = false;
+                StartCoroutine("GrabElement");
             }
         }
+    }
+
+    private IEnumerator GrabElement()
+    {
+        prompt.SetActive(false);
+        inventory.AddElement(foundElement.GetComponent<Element>());
+        foundElement.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        elementFound = false;
     }
 
     private void OnTriggerStay(Collider other)
