@@ -28,7 +28,7 @@ public class TakeElement : MonoBehaviour
         prompt.SetActive(false);
         inventory.AddElement(foundElement.GetComponent<Element>());
         foundElement.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         elementFound = false;
     }
 
