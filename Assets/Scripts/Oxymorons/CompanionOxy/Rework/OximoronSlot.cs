@@ -37,10 +37,25 @@ public class OximoronSlot : MonoBehaviour
                 OximoronInventory.Instance.allOximorons[i].neededElement2 == elements[1].elementType))
             {
                 equipedOximoron = OximoronInventory.Instance.allOximorons[i];
+                OximoronInventory.Instance.allOximorons[i].gameObject.SetActive(true);
+                OximoronInventory.Instance.allOximorons[i].slot = this;
                 oximoronIcon.sprite = equipedOximoron.icon;
+
                 return;
             }
         }
         return;
+    }
+
+    public void ClearSlot()
+    {
+        oximoronIcon.sprite = null;
+        element1.sprite = null;
+        element2.sprite = null;
+        for (int i = 0; i < elements.Length; i++)
+        {
+            elements[i] = null;
+        }
+        equipedOximoron = null;
     }
 }
