@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class CompanionInventory : MonoBehaviour
 {
+    public static CompanionInventory Instance { get; private set; }
+
     public OximoronSlot[] Slots;
     public Queue<Element> TakenElements;
-    [SerializeField] private int index;
+    [SerializeField] public int index;
     [SerializeField] private Image SelectIndicator;
 
     [SerializeField] private TakeElement detector;
@@ -16,6 +19,7 @@ public class CompanionInventory : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         TakenElements = new Queue<Element>(2);
     }
 

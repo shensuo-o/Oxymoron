@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowLightCast : MonoBehaviour
+public class ShadowLightCast : StatsOximorones
 {
-    public int dmg;
-    public float lifetime;
 
     private void Start()
     {
-        Destroy(this.gameObject, lifetime);
+        Destroy(this.gameObject, lifeTime);
     }
 
     private void OnTriggerStay(Collider other)
@@ -17,7 +15,6 @@ public class ShadowLightCast : MonoBehaviour
         if (other.gameObject.layer == 10)
         {
             other.gameObject.transform.position = transform.position + new Vector3 (Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), transform.position.z);
-            other.gameObject.GetComponent<Enemy>().HP -= dmg * Time.deltaTime;
         }
 
         if (other.gameObject.layer == 16)

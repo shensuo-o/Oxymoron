@@ -38,7 +38,8 @@ public class OximoronSlot : MonoBehaviour
             {
                 equipedOximoron = OximoronInventory.Instance.allOximorons[i];
                 OximoronInventory.Instance.allOximorons[i].gameObject.SetActive(true);
-                OximoronInventory.Instance.allOximorons[i].slot = this;
+                OximoronInventory.Instance.allOximorons[i].charges++;
+                OximoronInventory.Instance.allOximorons[i].slots[CompanionInventory.Instance.index] = this;
                 oximoronIcon.sprite = equipedOximoron.icon;
 
                 return;
