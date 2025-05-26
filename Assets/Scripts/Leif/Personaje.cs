@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,10 +34,16 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float maxFallSpeed;
     [SerializeField] private float timer = 1f;
 
-    //Variables para agacharse
+    //Variables para roll
+    [SerializeField] private float rollSpeed;
     [SerializeField] private float normalSpeed;
-    [SerializeField] private float crouchSpeed;
+    [SerializeField] private float rollTime;
+    [SerializeField] private float rollCoolDown;
+    [SerializeField] private bool canRoll;
+    [SerializeField] private bool isRolling;
+    [SerializeField] private float rollDirection;
     [SerializeField] private BoxCollider leifCollider;
+    [SerializeField] private CapsuleCollider leifAttackDetection;
 
     #endregion
 
@@ -51,22 +58,39 @@ public class Personaje : MonoBehaviour
         healthBar = GameObject.Find("Health").GetComponent<Image>();
     }
 
-    void Start()
-    {
-        normalSpeed = Speed;
-    }
-
     void Update()
     {
-        HorizontalInput= Input.GetAxisRaw("Horizontal");
-        Jump();
-        Crouch();
+        if (!isRolling)
+        {
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
+            if (HorizontalInput == -1)
+            {
+                rollDirection = -1;
+            }
+            if (HorizontalInput == 1)
+            {
+                rollDirection = 1;
+            }
+            Jump();
+        }
+
+        if (isGrounded && !isJumping && canRoll)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                StartCoroutine(Roll());
+            }
+        }
+
         healthBar.material.SetFloat("_Health", (barHP - HP) / 100);
     }
 
     private void FixedUpdate()
     {
-        Movement(HorizontalInput);
+        if (!isRolling)
+        {
+            Movement(HorizontalInput);
+        }
         Gravity();
         Grounded();
     }
@@ -76,7 +100,7 @@ public class Personaje : MonoBehaviour
     private void Movement(float dir)//Toma la variable de direccion y la usa para moverse con velocity del rigidbody.
     {
         var xVel = dir * Speed * 100 * Time.fixedDeltaTime;
-        Vector2 targetVelocity = new Vector2(xVel, rb.velocity.y);
+        Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
         rb.velocity = targetVelocity;
     } 
 
@@ -94,7 +118,7 @@ public class Personaje : MonoBehaviour
         {
             if (jumpTime > 0)
             {
-                rb.velocity = Vector2.up * jumpForce;
+                rb.velocity = Vector3.up * jumpForce;
                 jumpTime -= Time.deltaTime;
             }
             else
@@ -130,23 +154,34 @@ public class Personaje : MonoBehaviour
 
     }
 
-    private void Crouch()
+    private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox
     {
-        if (isGrounded && !isJumping)
-        {
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                Speed = crouchSpeed;
-                leifCollider.center = new Vector3(0, -0.6f, 0);
-                leifCollider.size = new Vector3(1, 0.8f, 1);
-            }
-            else
-            {
-                Speed = normalSpeed;
-                leifCollider.center = new Vector3(0, 0, 0);
-                leifCollider.size = new Vector3(1, 2, 1);
-            }
-        }
+        canRoll = false;
+        isRolling = true;
+
+        normalSpeed = Speed;
+        Speed = rollSpeed;
+
+        var xVel = rollDirection * Speed * 100 * Time.fixedDeltaTime;
+        Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
+        rb.velocity = targetVelocity;
+
+        leifCollider.center = new Vector3(0, -0.6f, 0);
+        leifCollider.size = new Vector3(1, 0.8f, 1);
+
+        leifAttackDetection.enabled = false;
+
+        yield return new WaitForSeconds(rollTime);
+
+        Speed = normalSpeed;
+        isRolling = false;
+        leifCollider.center = new Vector3(0, 0, 0);
+        leifCollider.size = new Vector3(1, 2, 1);
+        leifAttackDetection.enabled = true;
+
+        yield return new WaitForSeconds(rollCoolDown);
+
+        canRoll = true;
     }
 
     private void Grounded()//Detecta si el player esta parado en el piso o no.

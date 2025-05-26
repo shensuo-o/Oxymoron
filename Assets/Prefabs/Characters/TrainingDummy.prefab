@@ -205,3 +205,16 @@ MonoBehaviour:
   HP: 100
   Speed: 5
   RB: {fileID: 0}
+  node1: {fileID: 0}
+  node2: {fileID: 0}
+  currentNode: {fileID: 0}
+  Damage: 0
+  Leif: {fileID: 0}
+  IsChasing: 0
+  PlayerMask:
+    serializedVersion: 2
+    m_Bits: 384
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  IsOnGround: 1

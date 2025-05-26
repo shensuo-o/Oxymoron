@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float Damage;
     [SerializeField] private Personaje Leif;
     [SerializeField] private bool IsChasing;
-    [SerializeField] private LayerMask rayCastMask;
+    [SerializeField] private LayerMask PlayerMask;
+    [SerializeField] private LayerMask GroundMask;
+    [SerializeField] private bool IsOnGround;
 
     private Vector3 rotation;
 
@@ -32,7 +34,7 @@ public class Enemy : MonoBehaviour
         rotation = Vector3.RotateTowards(transform.right, new Vector3(dir.x, 0, 0), 100, 0f);
         Vector3 target = transform.position - Leif.transform.position;
 
-        if (!IsChasing)
+        if (!IsChasing || !IsOnGround)
         {
             Movement();
         }
@@ -47,18 +49,27 @@ public class Enemy : MonoBehaviour
             currentNode = node1;
         }
 
-        if (IsChasing)
+        if (IsChasing && IsOnGround)
         {
             Chase();
         }
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), 5, rayCastMask) || target.magnitude <= 5)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), 6, PlayerMask) || target.magnitude <= 2)
         {
             IsChasing = true;
         }
         else
         {
             IsChasing = false;
+        }
+
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 3, GroundMask))
+        {
+            IsOnGround = true;
+        }
+        else
+        {
+            IsOnGround = false;
         }
     }
 

@@ -30,11 +30,17 @@ public class MeleeCombat : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine("Attack");
+            //StartCoroutine("Attack");
+            Attack();
         }
     }
 
-    IEnumerator Attack()
+    private void Attack()
+    {
+
+    }
+
+    /*IEnumerator Attack()
     {
         if (look)
         {
@@ -49,5 +55,5 @@ public class MeleeCombat : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
             left.SetActive(false);
         }
-    }
+    }*/
 }
