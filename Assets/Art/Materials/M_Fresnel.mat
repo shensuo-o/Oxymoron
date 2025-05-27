@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Fresnel
-  m_Shader: {fileID: -6465566751694194690, guid: ca49782e36412c04e8ecafeb61e22b65, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ca49782e36412c04e8ecafeb61e22b65,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -117,7 +118,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.14285639, g: 0, b: 10.680627, a: 0}
+    - _FresnelColor: {r: 0.6202274, g: 0, b: 2.227451, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5473108865751934500
