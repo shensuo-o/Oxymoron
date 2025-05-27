@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
 
     private Vector3 rotation;
 
+    [SerializeField] private float knockBackForce;
+
     void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -87,6 +89,12 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(rot);
     }
 
+    private void KnockBack(Transform player, float force)
+    {
+        Vector3 dir = (transform.position - player.transform.position).normalized;
+        RB.velocity = dir * force;
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 7)
@@ -97,6 +105,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == 21)
         {
             HP -= Leif.Damage;
+            KnockBack(Leif.transform, knockBackForce);
             if (HP <= 0)
             {
                 Destroy(this.gameObject);

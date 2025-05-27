@@ -5,55 +5,40 @@ using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
-    [SerializeField] private GameObject right;
-    [SerializeField] private GameObject left;
-    [SerializeField] private GameObject leif;
-    [SerializeField] private float direction;
-    [SerializeField] private bool look = true;
+    [SerializeField] private Animator animator;
+    [SerializeField] private float attackRate;
+    [SerializeField] private float nextAttackT;
+    [SerializeField] private CapsuleCollider collision;
+    [SerializeField] public bool isAttacking;
 
     private void Start()
     {
-        leif = GameObject.Find("Leif");
+        collision.enabled = false;
+        isAttacking = false;
     }
     void Update()
     {
-        direction = leif.GetComponent<Personaje>().HorizontalInput;
-        if (direction == 1 )
-        {
-            look = true;
-        }
+        nextAttackT += Time.deltaTime;
 
-        if (direction == -1)
+        if (nextAttackT >= attackRate)
         {
-            look = false;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //StartCoroutine("Attack");
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(Attack());
+            }
         }
     }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
-
+        isAttacking = true;
+        nextAttackT = 0;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.08f);
+        collision.enabled = true;
+        yield return new WaitForSeconds(0.2f);
+        collision.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        isAttacking = false;
     }
-
-    /*IEnumerator Attack()
-    {
-        if (look)
-        {
-            right.SetActive(true);
-            yield return new WaitForSeconds(0.4f);
-            right.SetActive(false);
-        }
-
-        if (!look)
-        {
-            left.SetActive(true);
-            yield return new WaitForSeconds(0.4f);
-            left.SetActive(false);
-        }
-    }*/
 }
