@@ -1,32 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RingScaler : MonoBehaviour
 {
-    public Vector3 finalScale = new Vector3(1, 1, 1); // Que tan grandote va a tar el anillo (como el de tu senora)
-    public float duration = 2f; // Tiempo que tarda en escalarse.... como el anillo de tu senora
+    public Vector3 finalScale = new Vector3(1, 1, 1); // Que tan grandote va a tar el anillo
+    public float duration = 2f;
+    public float shrinkDuration = 2f;
+    public float totalVisibleTime = 8f;
 
     private void OnEnable()
     {
-        transform.localScale = Vector3.zero; // Empieza en tamaño 0, como tu senora
-        StartCoroutine(ScaleUp());
+        transform.localScale = Vector3.zero;
+        StartCoroutine(ScaleRoutine());
     }
 
-    private System.Collections.IEnumerator ScaleUp()
+    private IEnumerator ScaleRoutine()
+    {
+        yield return StartCoroutine(ScaleOverTime(Vector3.zero, finalScale, duration));
+
+        float waitTime = Mathf.Max(0f, totalVisibleTime - duration);
+        yield return new WaitForSeconds(waitTime);
+
+        yield return StartCoroutine(ScaleOverTime(finalScale, Vector3.zero, shrinkDuration));
+    }
+
+    private IEnumerator ScaleOverTime(Vector3 start, Vector3 end, float time)
     {
         float elapsed = 0f;
-        Vector3 initialScale = Vector3.zero;
-
-        while (elapsed < duration)
+        while (elapsed < time)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            transform.localScale = Vector3.Lerp(initialScale, finalScale, t);
+            float t = elapsed / time;
+            transform.localScale = Vector3.Lerp(start, end, t);
             yield return null;
         }
 
-        transform.localScale = finalScale; // Asegura que quede exacto al final, del tamano del anillo de tu senora
+        transform.localScale = end;
     }
 }
+
 
