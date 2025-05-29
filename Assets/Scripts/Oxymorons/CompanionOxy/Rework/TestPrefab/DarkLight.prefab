@@ -4854,8 +4854,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2767445365932531772}
-  - component: {fileID: 5020376960754757156}
-  m_Layer: 0
+  - component: {fileID: 914368852379346410}
+  - component: {fileID: 6174979061216101428}
+  m_Layer: 11
   m_Name: DarkLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4882,7 +4883,7 @@ Transform:
   - {fileID: 5980678284819951460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5020376960754757156
+--- !u!114 &914368852379346410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4891,20 +4892,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125792271751694946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c0def0c7819654a8d3dc879413615f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c8108cf2ef20d1448258963b7343fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededElement1: Darkness
-  neededElement2: Fire
-  icon: {fileID: 21300000, guid: 49178c5dcb87bb841a76126a932e2f6f, type: 3}
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  charges: 0
-  cooldown: 0
-  time: 0
+  lifeTime: 5
+  dmg: 5
+  force: 6
+--- !u!135 &6174979061216101428
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125792271751694946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2135613204022769217
 GameObject:
   m_ObjectHideFlags: 0

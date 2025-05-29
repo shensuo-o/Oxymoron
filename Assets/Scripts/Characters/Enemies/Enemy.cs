@@ -122,7 +122,11 @@ public class Enemy : MonoBehaviour
         
         if(collision.gameObject.layer == 11)
         {
-            HP -= collision.gameObject.GetComponent<StatsOximorones>().dmg * Time.deltaTime;
+            HP -= collision.gameObject.GetComponentInParent<StatsOximorones>().dmg * Time.deltaTime;
+            if (HP <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

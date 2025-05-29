@@ -11,6 +11,7 @@ public class Oximorons : MonoBehaviour
     public int charges;
     public float cooldown;
     public float time;
+    public GameObject proyectile;
 
     public void TurnOff()
     {

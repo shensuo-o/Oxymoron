@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShadowLight : Oximorons
 {
-    public GameObject proyectile;
-
     void Update()
     {
         time += Time.deltaTime;
@@ -16,7 +14,7 @@ public class ShadowLight : Oximorons
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
                 Vector3 mousePos = Input.mousePosition;
-                mousePos.z = 18;
+                mousePos.z = 50;
                 Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
                 Instantiate(proyectile, pos, Quaternion.identity);
                 charges--;

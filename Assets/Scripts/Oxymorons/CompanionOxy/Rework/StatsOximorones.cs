@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StatsOximorones : MonoBehaviour
 {
-    public float dmg;
     public float lifeTime;
+    public float dmg;
+    public float force;
 }
