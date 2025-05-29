@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9090756921535806365}
   - component: {fileID: 8456866094887315952}
   - component: {fileID: 1335191100156641445}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623684152866297463}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.85399395, y: -0.0103124995, z: -0.0041490695, w: 0.52016425}
-  m_LocalPosition: {x: 15.111858, y: 2.6259382, z: 2.7479353}
+  m_LocalRotation: {x: 0.8660254, y: 0, z: 0, w: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7496958525628581243}
-  m_LocalEulerAnglesHint: {x: -62.765, y: -169.202, z: 174.225}
+  m_LocalEulerAnglesHint: {x: -60, y: 180, z: 180}
 --- !u!198 &9090756921535806365
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -977,7 +977,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -4841,8 +4841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5a8dc0158956144b51eacab7aeccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScale: {x: 2, y: 2, z: 2}
-  duration: 5
+  finalScale: {x: 6, y: 6, z: 6}
+  duration: 1
+  shrinkDuration: 1
+  totalVisibleTime: 4
 --- !u!1 &2614228776820107405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,7 +4857,7 @@ GameObject:
   - component: {fileID: 3450675283683243154}
   - component: {fileID: 3604781241388488765}
   - component: {fileID: 2031796034772834506}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4870,13 +4872,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2614228776820107405}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7061674, y: -0.023228351, z: 0.000005853658, w: 0.7076638}
-  m_LocalPosition: {x: 15.11, y: 2.68, z: 2.77}
-  m_LocalScale: {x: -3.9692352, y: -1.9297663, z: -1.8379669}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7496958525628581243}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &3450675283683243154
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4960,7 +4962,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9684,8 +9686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5a8dc0158956144b51eacab7aeccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScale: {x: 1, y: 1, z: 1}
-  duration: 10
+  finalScale: {x: 6, y: 3, z: 3}
+  duration: 1
+  shrinkDuration: 1
+  totalVisibleTime: 4
 --- !u!1 &4165280002268832767
 GameObject:
   m_ObjectHideFlags: 0
@@ -9698,7 +9702,7 @@ GameObject:
   - component: {fileID: 1336613993058830509}
   - component: {fileID: 6412808891658551574}
   - component: {fileID: 2983168482085167500}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9713,13 +9717,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4165280002268832767}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.48424593, y: 0.04842477, z: 0.10367344, w: 0.8674173}
-  m_LocalPosition: {x: 15.0041275, y: 2.7095103, z: 2.744843}
-  m_LocalScale: {x: 1, y: 0.26512003, z: 1}
+  m_LocalRotation: {x: -0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7496958525628581243}
-  m_LocalEulerAnglesHint: {x: -57.966, y: 1.899, z: 18.161}
+  m_LocalEulerAnglesHint: {x: -60, y: 0, z: 0}
 --- !u!198 &1336613993058830509
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9974,8 +9978,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.45
-      minScalar: 0.3
+      scalar: 0.3
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14528,8 +14532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5a8dc0158956144b51eacab7aeccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScale: {x: 2, y: 2, z: 2}
-  duration: 5
+  finalScale: {x: 2, y: 1, z: 1}
+  duration: 1
+  shrinkDuration: 1
+  totalVisibleTime: 4
 --- !u!1 &4987600858582906881
 GameObject:
   m_ObjectHideFlags: 0
@@ -14539,7 +14545,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496958525628581243}
-  m_Layer: 0
+  - component: {fileID: -3978113478550935773}
+  - component: {fileID: -3202878440535596665}
+  m_Layer: 11
   m_Name: Luz Sombria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14566,6 +14574,41 @@ Transform:
   - {fileID: 1702158511260042459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3978113478550935773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987600858582906881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8108cf2ef20d1448258963b7343fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 5
+  lifeTime: 5
+--- !u!135 &-3202878440535596665
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987600858582906881}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6035335718812020861
 GameObject:
   m_ObjectHideFlags: 0
@@ -14579,7 +14622,7 @@ GameObject:
   - component: {fileID: 4675389730718028320}
   - component: {fileID: 1080674132647397158}
   - component: {fileID: 3514912762165594786}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14594,9 +14637,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6035335718812020861}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0022823669, y: -0.058305196, z: -0.016304132, w: 0.99816304}
-  m_LocalPosition: {x: 15.116, y: 2.749, z: 2.748}
-  m_LocalScale: {x: 0.7913714, y: 0.7913714, z: 0.7913714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7496958525628581243}
@@ -14684,8 +14727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5a8dc0158956144b51eacab7aeccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScale: {x: 1, y: 1, z: 1}
-  duration: 10
+  finalScale: {x: 0.8, y: 0.8, z: 0.8}
+  duration: 1
+  shrinkDuration: 1
+  totalVisibleTime: 4
 --- !u!1 &7025207175821508476
 GameObject:
   m_ObjectHideFlags: 0
@@ -14698,7 +14743,7 @@ GameObject:
   - component: {fileID: 5953243728781629649}
   - component: {fileID: 6839385632878068005}
   - component: {fileID: 4250099062350133834}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ElectricOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14713,13 +14758,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7025207175821508476}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.85494316, y: 0.035506353, z: 0.01879498, w: 0.51716363}
-  m_LocalPosition: {x: 15.11335, y: 2.6358683, z: 2.7379768}
+  m_LocalRotation: {x: -0.8660254, y: 0, z: 0, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7496958525628581243}
-  m_LocalEulerAnglesHint: {x: -62.44, y: -170.279, z: 181.035}
+  m_LocalEulerAnglesHint: {x: -60, y: -180, z: 180}
 --- !u!198 &5953243728781629649
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14974,8 +15019,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 4
+      scalar: 1.5
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19527,5 +19572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5a8dc0158956144b51eacab7aeccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalScale: {x: 1, y: 1, z: 1}
-  duration: 10
+  finalScale: {x: 2, y: 2, z: 2}
+  duration: 1
+  shrinkDuration: 1
+  totalVisibleTime: 4
