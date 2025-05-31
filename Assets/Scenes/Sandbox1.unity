@@ -2636,6 +2636,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 905181e415ff3e243a10094c17b59ead, type: 2}
+    - target: {fileID: 7555374779016647104, guid: 75cf37d340615d042af3ff8a356581f8,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 944671265}
     - target: {fileID: 7737366157275433630, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
       propertyPath: m_Name
@@ -3236,6 +3241,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ed2519a5a6543b4c8b3a09bb456b0b2,
     type: 3}
   m_PrefabInstance: {fileID: 493446066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &493803161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3961263349233009552, guid: 6a0178367b69656418f9f5ecd0e20ca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032665229}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &500536462 stripped
 Transform:
@@ -6226,6 +6237,7 @@ MonoBehaviour:
   SelectIndicator: {fileID: 370021213}
   detector: {fileID: 1974560522}
   errorPrompt: {fileID: 2145839054}
+  particles: []
 --- !u!114 &933744832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6242,6 +6254,12 @@ MonoBehaviour:
   - {fileID: 1591605673}
   - {fileID: 1249871198}
   - {fileID: 1613924634}
+--- !u!1 &944671265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1969003848424348113, guid: 75cf37d340615d042af3ff8a356581f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 384276571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &968849256
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6778,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7641622378896356164, guid: 6a0178367b69656418f9f5ecd0e20ca9,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 493803161}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9621,6 +9644,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1379834891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397913392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6807219910860175407, guid: 0150dfc3cf503384d8c80986da480251,
+    type: 3}
+  m_PrefabInstance: {fileID: 1416013117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1409377632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1654483560168204687, guid: 86b73e620500205438da2a2ee9b11c7d,
@@ -9645,6 +9674,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4410102222813362035, guid: 0150dfc3cf503384d8c80986da480251,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 1397913392}
     - target: {fileID: 5551866885093753792, guid: 0150dfc3cf503384d8c80986da480251,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11017,7 +11051,7 @@ PrefabInstance:
     - target: {fileID: 6811521053121585868, guid: 028b4b372d6d7f1498d8f65544058298,
         type: 3}
       propertyPath: neededElement1
-      value: Space
+      value: Wind
       objectReference: {fileID: 0}
     - target: {fileID: 6811521053121585868, guid: 028b4b372d6d7f1498d8f65544058298,
         type: 3}
@@ -11447,6 +11481,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0a74627e59bda459dcbd2a8c2a5cf3, type: 3}
+--- !u!1 &1637914276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1011095991162302995, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2083259446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1647730694
 GameObject:
   m_ObjectHideFlags: 0
@@ -19152,6 +19192,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1814129218}
     m_Modifications:
+    - target: {fileID: 378097913204724281, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
+        type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 1637914276}
     - target: {fileID: 797669090409667054, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
         type: 3}
       propertyPath: m_LocalPosition.x

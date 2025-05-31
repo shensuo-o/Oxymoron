@@ -14,10 +14,10 @@ public class Element : MonoBehaviour
     public IEnumerator TurnOffAndOn()
     {
         gameObject.GetComponent<SphereCollider>().enabled = false;
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        particles.SetActive(false);
         yield return new WaitForSeconds(coolDown);
         gameObject.GetComponent<SphereCollider>().enabled = true;
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        particles.SetActive(true);
     }
 
 }

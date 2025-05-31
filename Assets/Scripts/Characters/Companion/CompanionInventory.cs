@@ -16,10 +16,13 @@ public class CompanionInventory : MonoBehaviour
 
     [SerializeField] private GameObject errorPrompt;
 
+    [SerializeField] private GameObject[] particles;
+
     void Awake()
     {
         Instance = this;
         TakenElements = new Queue<Element>(2);
+        particles = new GameObject[2];
     }
 
     private void Update()
@@ -58,6 +61,14 @@ public class CompanionInventory : MonoBehaviour
     public void AddElement(Element element)
     {
         TakenElements.Enqueue(element);
+        if (TakenElements.Count == 1)
+        {
+            particles[0] = element.particles;
+        }
+        else if (TakenElements.Count == 2)
+        {
+            particles[1] = element.particles;
+        }
         Debug.Log(TakenElements + ",     " + TakenElements.Count);
     }
 
@@ -68,6 +79,7 @@ public class CompanionInventory : MonoBehaviour
             Slots[index].elements[0] = element;
             Slots[index].ShowElement();
             TakenElements.Dequeue();
+            Debug.Log(TakenElements + ",     " + TakenElements.Count);
             return;
         }
         else if (Slots[index].elements[1] == null)
