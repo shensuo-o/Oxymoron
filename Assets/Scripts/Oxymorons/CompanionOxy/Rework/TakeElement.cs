@@ -9,7 +9,7 @@ public class TakeElement : MonoBehaviour
     [SerializeField] private CompanionInventory inventory;
     [SerializeField] private string can;
     [SerializeField] private string canNot;
-    [SerializeField] private GameObject foundElement;
+    [SerializeField] private Element foundElement;
     [SerializeField] public bool elementFound;
 
     private void Update()
@@ -26,8 +26,8 @@ public class TakeElement : MonoBehaviour
     private IEnumerator GrabElement()
     {
         prompt.SetActive(false);
-        inventory.AddElement(foundElement.GetComponent<Element>());
-        foundElement.SetActive(false);
+        inventory.AddElement(foundElement);
+        foundElement.StartCoroutine("TurnOffAndOn");
         yield return new WaitForSeconds(0.1f);
         elementFound = false;
     }
@@ -43,7 +43,7 @@ public class TakeElement : MonoBehaviour
             }
             else
             {
-                foundElement = other.gameObject;
+                foundElement = other.gameObject.GetComponent<Element>();
                 prompt.gameObject.GetComponent<TextMeshProUGUI>().text = can;
                 elementFound = true;
             }

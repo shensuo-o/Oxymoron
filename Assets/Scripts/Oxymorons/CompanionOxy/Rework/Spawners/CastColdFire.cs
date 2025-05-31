@@ -15,14 +15,15 @@ public class CastColdFire : Oximorons
         {
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                 Instantiate(proyectile, target.position, Quaternion.identity);
-                    charges--;
-                    ResetCoolDown();
-                    if (charges <= 0)
-                    {
-                        TurnOff();
-                    }
-                    ClearSlot();
+                gameObject.GetComponentInParent<CompanionMovement>().setAim();
+                Instantiate(proyectile, target.position, Quaternion.identity);
+                charges--;
+                ResetCoolDown();
+                if (charges <= 0)
+                {
+                    TurnOff();
+                }
+                ClearSlot();
             }
         }
     }

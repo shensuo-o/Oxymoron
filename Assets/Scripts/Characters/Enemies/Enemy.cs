@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
 
     private void KnockBack(Transform player, float force)
     {
-        Vector3 dir = (transform.position - player.transform.position).normalized;
+        Vector3 dir = new Vector3(transform.position.x - player.transform.position.x, 0, 0).normalized;
         RB.velocity = dir * force;
     }
 

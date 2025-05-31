@@ -18,6 +18,9 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private float deviationSpeed;
     [SerializeField] private float distance;
 
+    [SerializeField] private bool isShooting;
+    [SerializeField] private Transform aim;
+
     private Vector3 prediction;
     private Vector3 deviation;
 
@@ -33,29 +36,39 @@ public class CompanionMovement : MonoBehaviour
 
     #region Movement
 
+    private void Update()
+    {
+        if (isShooting) 
+        {
+            MoveToAim();
+        }
+    }
     void FixedUpdate()
     {
         var Dis = Vector3.Distance(transform.position, target.transform.position);
 
-        if (Dis >= distance)
+        if (!isShooting)
         {
-            animator.SetBool("IsIdle", false);
+            if (Dis >= distance)
+            {
+                animator.SetBool("IsIdle", false);
 
-            rb.velocity = transform.forward * speed;
+                rb.velocity = transform.forward * speed;
 
-            var leadTimePercentage = Mathf.InverseLerp(minDistancePredict, minDistancePredict,
-                Vector3.Distance(transform.position, target.transform.position));
+                var leadTimePercentage = Mathf.InverseLerp(minDistancePredict, minDistancePredict,
+                    Vector3.Distance(transform.position, target.transform.position));
 
-            PredictMovement(leadTimePercentage);
+                PredictMovement(leadTimePercentage);
 
-            AddDeviation(leadTimePercentage);
+                AddDeviation(leadTimePercentage);
 
-            RotateComp();
-        }
-        else if (Dis < distance) 
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            animator.SetBool("IsIdle", true);
+                RotateComp();
+            }
+            else if (Dis < distance)
+            {
+                rb.velocity = new Vector3(0, 0, 0);
+                animator.SetBool("IsIdle", true);
+            }
         }
     }
 
@@ -82,6 +95,17 @@ public class CompanionMovement : MonoBehaviour
         var rotation = Quaternion.LookRotation(heading);
 
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * Time.deltaTime));
+    }
+
+    private void MoveToAim()
+    {
+        transform.position = aim.position;
+    }
+
+    public void setAim()
+    {
+        Debug.Log("change aim");
+        isShooting = !isShooting;
     }
 }
 

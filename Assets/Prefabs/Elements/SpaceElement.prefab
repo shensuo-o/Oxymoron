@@ -133,6 +133,7 @@ MonoBehaviour:
   elementType: Space
   particles: {fileID: 8750912965196659679}
   icon: {fileID: 21300000, guid: a1f9316e06c9cbb4e82b29dc05d3a3f3, type: 3}
+  coolDown: 5
 --- !u!135 &5406638232705639728
 SphereCollider:
   m_ObjectHideFlags: 0

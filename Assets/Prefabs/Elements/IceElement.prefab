@@ -4878,6 +4878,7 @@ MonoBehaviour:
   elementType: Ice
   particles: {fileID: 1045268609249377709}
   icon: {fileID: 21300000, guid: 5bf7c636e765c81478b645be8c5d9590, type: 3}
+  coolDown: 5
 --- !u!135 &322531372299407990
 SphereCollider:
   m_ObjectHideFlags: 0

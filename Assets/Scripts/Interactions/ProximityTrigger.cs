@@ -47,7 +47,7 @@ public class ProximityTrigger : MonoBehaviour
     {
         prompt.SetActive(false);
         Leif.GetComponent<Personaje>().Speed = currentSpeed;
-        InteractionsManager.Instance.SetNext();
+        //InteractionsManager.Instance.SetNext();
         gameObject.SetActive(false);
     }
 }

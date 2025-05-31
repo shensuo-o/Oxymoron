@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ColdFire : StatsOximorones
 {
     public float speed;
     public float normalSpeed;
-    public Transform companion;
+    public GameObject companion;
     public Transform target;
 
     [SerializeField] private Vector3 Dir;
 
     private void Start()
     {
-        companion = GameObject.Find("Companion").transform;
+        companion = GameObject.Find("Companion");
         Destroy(this.gameObject, lifeTime);
         target = GameObject.Find("BruteTarget").transform;
     }
 
     void Update()
     {
-        transform.position = companion.position;
+        transform.position = companion.transform.position;
 
         Dir = target.position - transform.position;
         float angle = Mathf.Atan2(Dir.y, Dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
+    }
+
+    private void OnDestroy()
+    {
+        companion.gameObject.GetComponent<CompanionMovement>().setAim();
     }
 
     private void OnTriggerEnter(Collider other)

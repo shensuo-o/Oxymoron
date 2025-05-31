@@ -50,6 +50,7 @@ MonoBehaviour:
   elementType: Darkness
   particles: {fileID: 7354447659344179326}
   icon: {fileID: 21300000, guid: 99e364db5d882c44ca94cba4d383ca68, type: 3}
+  coolDown: 5
 --- !u!135 &5798356631395075554
 SphereCollider:
   m_ObjectHideFlags: 0
