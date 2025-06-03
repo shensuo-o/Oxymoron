@@ -14,6 +14,12 @@ public class Element : MonoBehaviour
     {
         particles.GetComponent<ParticleSystem>().playbackSpeed += 0.05f;
     }
+
+    public void SpeedDown()
+    {
+        particles.GetComponent<ParticleSystem>().playbackSpeed = 1;
+    }
+
     public IEnumerator TurnOffAndOn()
     {
         particles.GetComponent<ParticleSystem>().playbackSpeed = 1;

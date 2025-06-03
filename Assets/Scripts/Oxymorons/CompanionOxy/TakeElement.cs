@@ -24,6 +24,7 @@ public class TakeElement : MonoBehaviour
         {
             timer = 0;
             clock.SetActive(false);
+            foundElement.SpeedDown();
         }
 
         if (elementFound)
@@ -71,14 +72,12 @@ public class TakeElement : MonoBehaviour
         {
             if (inventory.Slots[i].elements[0] == null)
             {
-                Debug.Log("vacio");
                 inventory.Slots[i].CanRecieveElement = true;
                 abailableSlots.Add(inventory.Slots[i]);
                 continue;
             }
             else if (inventory.Slots[i].elements[0].elementType == element.elementType)
             {
-                Debug.Log("repetido");
                 inventory.Slots[i].CanRecieveElement = false;
                 continue;
             }
@@ -92,13 +91,11 @@ public class TakeElement : MonoBehaviour
                         OximoronInventory.Instance.allOximorons[n].neededElement2 == element.elementType))
                     {
                         inventory.Slots[i].CanRecieveElement = true;
-                        Debug.Log("es compatible");
                         abailableSlots.Add(inventory.Slots[i]);
                         break;
                     }
                     else
                     {
-                        Debug.Log("no es compatible");
                         inventory.Slots[i].CanRecieveElement = false;
                         abailableSlots.Remove(inventory.Slots[i]);
                     }
@@ -126,6 +123,7 @@ public class TakeElement : MonoBehaviour
     {
         if (other.gameObject.layer == 14)
         {
+            foundElement.SpeedDown();
             foundElement = null;
             elementFound = false;
             abailableSlots.Clear();
