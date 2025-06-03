@@ -7374,6 +7374,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equipedOximoron: {fileID: 0}
+  CanRecieveElement: 0
 --- !u!1 &1155810399
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,6 +8747,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equipedOximoron: {fileID: 0}
+  CanRecieveElement: 0
 --- !u!1 &1323377808
 GameObject:
   m_ObjectHideFlags: 0
@@ -11322,6 +11324,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equipedOximoron: {fileID: 0}
+  CanRecieveElement: 0
 --- !u!1 &1626321376
 GameObject:
   m_ObjectHideFlags: 0
@@ -18974,6 +18977,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   equipedOximoron: {fileID: 0}
+  CanRecieveElement: 0
 --- !u!1 &2038805504
 GameObject:
   m_ObjectHideFlags: 0
@@ -19983,6 +19987,11 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 933744831}
+    - target: {fileID: 3946704860119038937, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: absorbTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4013797484369912867, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_TagString

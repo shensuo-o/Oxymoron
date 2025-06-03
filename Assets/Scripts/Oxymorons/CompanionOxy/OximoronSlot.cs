@@ -12,6 +12,7 @@ public class OximoronSlot : MonoBehaviour
     [SerializeField] public Element[] elements = new Element[2];
 
     public Oximorons equipedOximoron;
+    public bool CanRecieveElement;
 
     public void ShowElement()
     {

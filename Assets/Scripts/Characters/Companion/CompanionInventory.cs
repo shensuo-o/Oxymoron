@@ -8,7 +8,6 @@ public class CompanionInventory : MonoBehaviour
     public static CompanionInventory Instance { get; private set; }
 
     public OximoronSlot[] Slots;
-    public Queue<Element> TakenElements;
     [SerializeField] public int index;
     [SerializeField] private Image SelectIndicator;
 
@@ -21,7 +20,6 @@ public class CompanionInventory : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        TakenElements = new Queue<Element>(2);
         particles = new GameObject[2];
     }
 
@@ -30,13 +28,40 @@ public class CompanionInventory : MonoBehaviour
         SelectIndicator.transform.position = Slots[index].transform.position;
 
         var scrollInput = Input.GetAxisRaw("Mouse ScrollWheel");
- 
+
+        if (Slots[index].CanRecieveElement == false)
+        {
+            for (int i = 0; i < Slots.Length; i++)
+            {
+                if (Slots[index].CanRecieveElement == false)
+                {
+                    index++;
+                    if (index >= Slots.Length)
+                    {
+                        index = 0;
+                    }
+                }
+            }
+        }
+
         if (scrollInput > 0)
         {
             index++;
             if (index >= Slots.Length)
             {
                 index = 0;
+            }
+
+            for (int i = 0; i < Slots.Length; i++)
+            {
+                if (Slots[index].CanRecieveElement == false)
+                {
+                    index++;
+                    if (index >= Slots.Length)
+                    {
+                        index = 0;
+                    }
+                }
             }
         }
 
@@ -47,29 +72,19 @@ public class CompanionInventory : MonoBehaviour
             {
                 index = 3;
             }
-        }
 
-        if (!detector.elementFound && TakenElements.Count != 0) 
-        {
-            if (Input.GetKeyDown(KeyCode.E))
+            for (int i = 0; i < Slots.Length; i++)
             {
-                EquipElement(TakenElements.Peek());
+                if (Slots[index].CanRecieveElement == false)
+                {
+                    index--;
+                    if (index < 0)
+                    {
+                        index = 3;
+                    }
+                }
             }
         }
-    }
-
-    public void AddElement(Element element)
-    {
-        TakenElements.Enqueue(element);
-        if (TakenElements.Count == 1)
-        {
-            particles[0] = element.particles;
-        }
-        else if (TakenElements.Count == 2)
-        {
-            particles[1] = element.particles;
-        }
-        Debug.Log(TakenElements + ",     " + TakenElements.Count);
     }
 
     public void EquipElement(Element element)
@@ -78,39 +93,12 @@ public class CompanionInventory : MonoBehaviour
         {
             Slots[index].elements[0] = element;
             Slots[index].ShowElement();
-            TakenElements.Dequeue();
-            Debug.Log(TakenElements + ",     " + TakenElements.Count);
-            return;
         }
         else if (Slots[index].elements[1] == null)
         {
-            for (int i = 0; i < OximoronInventory.Instance.allOximorons.Length; i++)
-            {
-                if ((OximoronInventory.Instance.allOximorons[i].neededElement1 == element.elementType ||
-                    OximoronInventory.Instance.allOximorons[i].neededElement1 == Slots[index].elements[0].elementType) &&
-                    (OximoronInventory.Instance.allOximorons[i].neededElement2 == element.elementType ||
-                    OximoronInventory.Instance.allOximorons[i].neededElement2 == Slots[index].elements[0].elementType))
-                {
-                    Slots[index].elements[1] = element;
-                    Slots[index].ShowElement();
-                    Slots[index].EquipOximoron();
-                    TakenElements.Dequeue();
-                    return;
-                }
-            }
-            return;
+            Slots[index].elements[1] = element;
+            Slots[index].ShowElement();
+            Slots[index].EquipOximoron();
         }
-        else
-        {
-            StartCoroutine("CantEquip");
-            return;
-        }
-    }
-
-    private IEnumerator CantEquip()
-    {
-        errorPrompt.SetActive(true);
-        yield return new WaitForSeconds(1);
-        errorPrompt.SetActive(false);
     }
 }
