@@ -10,9 +10,13 @@ public class Element : MonoBehaviour
     public Sprite icon;
     [SerializeField] private float coolDown;
 
-
+    public void SpeedUp()
+    {
+        particles.GetComponent<ParticleSystem>().playbackSpeed += 0.05f;
+    }
     public IEnumerator TurnOffAndOn()
     {
+        particles.GetComponent<ParticleSystem>().playbackSpeed = 1;
         gameObject.GetComponent<SphereCollider>().enabled = false;
         particles.SetActive(false);
         yield return new WaitForSeconds(coolDown);

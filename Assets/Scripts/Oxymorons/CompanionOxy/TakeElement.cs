@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class TakeElement : MonoBehaviour
 {
@@ -14,13 +13,26 @@ public class TakeElement : MonoBehaviour
     [SerializeField] private float absorbTime;
     public List<OximoronSlot> abailableSlots;
 
+    [SerializeField] private GameObject clock;
+    [SerializeField] private Image fill;
+    [SerializeField] private GameObject redWarning;
+
     private void Update()
     {
+        fill.fillAmount = timer;
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            timer = 0;
+            clock.SetActive(false);
+        }
+
         if (elementFound)
         {
             if (Input.GetKey(KeyCode.E) && abailableSlots.Count >= 1)
             {
+                clock.SetActive(true);
                 timer += Time.deltaTime;
+                foundElement.SpeedUp();
                 if (timer >= absorbTime)
                 {
                     timer = 0;
@@ -30,6 +42,11 @@ public class TakeElement : MonoBehaviour
                     elementFound = false;
                     abailableSlots.Clear();
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && abailableSlots.Count <= 0)
+            {
+                StartCoroutine("CantGrab");
             }
         }
         else if (!elementFound)
@@ -41,6 +58,13 @@ public class TakeElement : MonoBehaviour
         }
     }
 
+    private IEnumerator CantGrab()
+    {
+        redWarning.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        redWarning.SetActive(false);
+    }
+
     private void CheckSlots(Element element)
     {
         for (int i = 0; i < inventory.Slots.Length; i++)
@@ -50,39 +74,40 @@ public class TakeElement : MonoBehaviour
                 Debug.Log("vacio");
                 inventory.Slots[i].CanRecieveElement = true;
                 abailableSlots.Add(inventory.Slots[i]);
+                continue;
             }
             else if (inventory.Slots[i].elements[0].elementType == element.elementType)
             {
                 Debug.Log("repetido");
                 inventory.Slots[i].CanRecieveElement = false;
+                continue;
             }
             else if (inventory.Slots[i].elements[1] == null)
             {
                 for (int n = 0; n < OximoronInventory.Instance.allOximorons.Length; n++)
                 {
-                    if ((OximoronInventory.Instance.allOximorons[n].neededElement1 == element.elementType || 
-                        OximoronInventory.Instance.allOximorons[n].neededElement1 == inventory.Slots[i].elements[0].elementType) && 
-                        (OximoronInventory.Instance.allOximorons[n].neededElement2 == element.elementType || 
-                        OximoronInventory.Instance.allOximorons[n].neededElement2 == inventory.Slots[i].elements[0].elementType))
+                    if ((OximoronInventory.Instance.allOximorons[n].neededElement1 == element.elementType &&
+                        OximoronInventory.Instance.allOximorons[n].neededElement2 == inventory.Slots[i].elements[0].elementType) || 
+                        (OximoronInventory.Instance.allOximorons[n].neededElement1 == inventory.Slots[i].elements[0].elementType && 
+                        OximoronInventory.Instance.allOximorons[n].neededElement2 == element.elementType))
                     {
                         inventory.Slots[i].CanRecieveElement = true;
                         Debug.Log("es compatible");
                         abailableSlots.Add(inventory.Slots[i]);
+                        break;
                     }
                     else
                     {
-                        if (inventory.Slots[i].CanRecieveElement == true)
-                        {
-                            continue;
-                        }
                         Debug.Log("no es compatible");
                         inventory.Slots[i].CanRecieveElement = false;
+                        abailableSlots.Remove(inventory.Slots[i]);
                     }
                 }
             }
             else
             {
                 inventory.Slots[i].CanRecieveElement = false;
+                continue;
             }
         }
     }
@@ -104,6 +129,8 @@ public class TakeElement : MonoBehaviour
             foundElement = null;
             elementFound = false;
             abailableSlots.Clear();
+            timer = 0;
+            clock.SetActive(false);
         }
     }
 }

@@ -48,14 +48,12 @@ public class Personaje : MonoBehaviour
     #endregion
 
     //Variables UI
-    public Image healthBar;
-    public float barHP;
+    [SerializeField] private Image healthBar;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         leifCollider = GetComponentInChildren<BoxCollider>();
-        healthBar = GameObject.Find("Health").GetComponent<Image>();
     }
 
     void Update()
@@ -82,7 +80,7 @@ public class Personaje : MonoBehaviour
             }
         }
 
-        healthBar.material.SetFloat("_Health", (barHP - HP) / 100);
+        healthBar.fillAmount = HP / 100f;
     }
 
     private void FixedUpdate()
