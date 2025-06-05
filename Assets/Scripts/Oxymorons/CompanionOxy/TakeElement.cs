@@ -24,11 +24,19 @@ public class TakeElement : MonoBehaviour
         {
             timer = 0;
             clock.SetActive(false);
-            foundElement.SpeedDown();
+            if(foundElement != null )
+            {
+                foundElement.SpeedDown();
+            }
         }
 
         if (elementFound)
         {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                CheckSlots(foundElement);
+            }
+
             if (Input.GetKey(KeyCode.E) && abailableSlots.Count >= 1)
             {
                 clock.SetActive(true);
@@ -114,7 +122,6 @@ public class TakeElement : MonoBehaviour
         if (other.gameObject.layer == 14)
         {
             foundElement = other.GetComponent<Element>();
-            CheckSlots(other.GetComponent<Element>());
             elementFound = true;
         }
     }
