@@ -9,13 +9,16 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private int clicks;
     [SerializeField] private bool canAttack;
     public bool isAttacking;
+    [SerializeField] private CapsuleCollider collision;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        collision = GameObject.Find("Sword").GetComponent<CapsuleCollider>();
         clicks = 0;
         canAttack = true;
         isAttacking = false;
+        collision.enabled = false;
     }
 
     private void Update()
@@ -37,6 +40,7 @@ public class MeleeCombat : MonoBehaviour
         if (clicks == 1)
         {
             animator.SetInteger("AttackCombo", 1);
+            collision.enabled = true;
         }
     }
 
@@ -50,11 +54,13 @@ public class MeleeCombat : MonoBehaviour
             canAttack = true;
             clicks = 0;
             isAttacking = false;
+            collision.enabled = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && clicks >= 2)
         {
             animator.SetInteger("AttackCombo", 2);
-            canAttack= true;
+            collision.enabled = true;
+            canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") && clicks == 2)
         {
@@ -62,10 +68,12 @@ public class MeleeCombat : MonoBehaviour
             canAttack = true;
             clicks = 0;
             isAttacking = false;
+            collision.enabled = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") && clicks >= 3)
         {
             animator.SetInteger("AttackCombo", 3);
+            collision.enabled = true;
             canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack3"))
@@ -74,41 +82,7 @@ public class MeleeCombat : MonoBehaviour
             canAttack = true;
             clicks = 0;
             isAttacking = false;
+            collision.enabled = false;
         }
     }
-    /*[SerializeField] private float attackRate;
-    [SerializeField] private float nextAttackT;
-    [SerializeField] private CapsuleCollider collision;
-    [SerializeField] public bool isAttacking;
-
-    private void Start()
-    {
-        collision.enabled = false;
-        isAttacking = false;
-    }
-    void Update()
-    {
-        nextAttackT += Time.deltaTime;
-
-        if (nextAttackT >= attackRate)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                StartCoroutine(Attack());
-            }
-        }
-    }
-
-    private IEnumerator Attack()
-    {
-        isAttacking = true;
-        nextAttackT = 0;
-        animator.SetTrigger("Attack1");
-        yield return new WaitForSeconds(0.08f);
-        collision.enabled = true;
-        yield return new WaitForSeconds(0.2f);
-        collision.enabled = false;
-        yield return new WaitForSeconds(0.1f);
-        isAttacking = false;
-    }*/
 }
