@@ -327,7 +327,7 @@
                 "m_Node": {
                     "m_Id": "589e5ae3b8054133843f463d374fcfc7"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -439,7 +439,7 @@
                 "m_Node": {
                     "m_Id": "97b0f288d67f4c3e98bfcb709366d619"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         },
         {
@@ -551,7 +551,7 @@
                 "m_Node": {
                     "m_Id": "97b0f288d67f4c3e98bfcb709366d619"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -705,7 +705,7 @@
                 "m_Node": {
                     "m_Id": "589e5ae3b8054133843f463d374fcfc7"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         },
         {
@@ -767,8 +767,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 1012.0000610351563,
-            "y": 405.0000305175781
+            "x": 1047.0,
+            "y": 403.0
         },
         "m_Blocks": [
             {
@@ -784,8 +784,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 1012.0000610351563,
-            "y": 605.0
+            "x": 1047.0,
+            "y": 603.0000610351563
         },
         "m_Blocks": [
             {
@@ -1676,10 +1676,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 597.0,
-            "y": -37.999996185302737,
-            "width": 105.0,
-            "height": 33.9999885559082
+            "x": 611.0,
+            "y": -44.00000762939453,
+            "width": 98.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1918,7 +1918,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "41313272d7a7422d9ca643ee6ecd52d4",
     "m_Id": 0,
-    "m_DisplayName": "Color",
+    "m_DisplayName": "Tint",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2545,10 +2545,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 717.0,
-            "y": 60.99999237060547,
+            "x": 725.0,
+            "y": 37.9999885559082,
             "width": 130.0,
-            "height": 117.99999237060547
+            "height": 118.00003051757813
         }
     },
     "m_Slots": [
@@ -3410,10 +3410,10 @@
     "m_Guid": {
         "m_GuidSerialized": "13bf8e7a-dd0b-4bc9-afad-f13c16cbcb66"
     },
-    "m_Name": "Color",
+    "m_Name": "Tint",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Color",
-    "m_DefaultReferenceName": "_Color",
+    "m_RefNameGeneratedByDisplayName": "Tint",
+    "m_DefaultReferenceName": "_Tint",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -3425,8 +3425,8 @@
     "m_Hidden": false,
     "m_Value": {
         "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "g": 0.0,
+        "b": 0.0,
         "a": 0.0
     },
     "isMainColor": false,
@@ -3469,8 +3469,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 729.0,
-            "y": -50.0,
+            "x": 773.0,
+            "y": -93.0,
             "width": 118.0,
             "height": 94.0
         }
@@ -3780,10 +3780,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 871.0,
-            "y": -6.0,
-            "width": 130.0,
-            "height": 118.0
+            "x": 914.0000610351563,
+            "y": 14.00000286102295,
+            "width": 129.99993896484376,
+            "height": 118.00001525878906
         }
     },
     "m_Slots": [
