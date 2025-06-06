@@ -136,8 +136,11 @@ public class TakeElement : MonoBehaviour
     {
         if (other.gameObject.layer == 14)
         {
-            foundElement.SpeedDown();
-            foundElement.LightDown();
+            if (foundElement != null) 
+            {
+                foundElement.SpeedDown();
+                foundElement.LightDown();
+            }
             foundElement = null;
             elementFound = false;
             abailableSlots.Clear();

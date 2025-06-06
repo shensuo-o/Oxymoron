@@ -49,6 +49,7 @@ public class MeleeCombat : MonoBehaviour
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
             clicks = 0;
+            isAttacking = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && clicks >= 2)
         {
@@ -60,6 +61,7 @@ public class MeleeCombat : MonoBehaviour
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
             clicks = 0;
+            isAttacking = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") && clicks >= 3)
         {
@@ -71,6 +73,7 @@ public class MeleeCombat : MonoBehaviour
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
             clicks = 0;
+            isAttacking = false;
         }
     }
     /*[SerializeField] private float attackRate;
