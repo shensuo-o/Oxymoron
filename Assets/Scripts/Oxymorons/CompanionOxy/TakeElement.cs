@@ -16,6 +16,7 @@ public class TakeElement : MonoBehaviour
     [SerializeField] private GameObject clock;
     [SerializeField] private Image fill;
     [SerializeField] private GameObject redWarning;
+    [SerializeField] private ParticleSystem absorbEffect;
 
     private void Update()
     {
@@ -35,6 +36,10 @@ public class TakeElement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CheckSlots(foundElement);
+                if (abailableSlots.Count != 0)
+                {
+                    absorbEffect.Play();
+                }
             }
 
             if (Input.GetKey(KeyCode.E) && abailableSlots.Count >= 1)
@@ -123,6 +128,7 @@ public class TakeElement : MonoBehaviour
         {
             foundElement = other.GetComponent<Element>();
             elementFound = true;
+            foundElement.LightUp();
         }
     }
 
@@ -131,6 +137,7 @@ public class TakeElement : MonoBehaviour
         if (other.gameObject.layer == 14)
         {
             foundElement.SpeedDown();
+            foundElement.LightDown();
             foundElement = null;
             elementFound = false;
             abailableSlots.Clear();

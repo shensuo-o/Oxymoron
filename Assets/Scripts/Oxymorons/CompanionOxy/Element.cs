@@ -10,6 +10,20 @@ public class Element : MonoBehaviour
     public Sprite icon;
     [SerializeField] private float coolDown;
 
+    [ColorUsage(hdr: true, showAlpha: true)]
+    [SerializeField] private Color particleColor;
+    [SerializeField] private float intensity;
+
+    public void LightUp()
+    {
+        particles.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material.SetColor("_Intensity", particleColor * intensity);
+    }
+
+    public void LightDown()
+    {
+        particles.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material.SetColor("_Intensity", particleColor);
+    }
+
     public void SpeedUp()
     {
         particles.GetComponent<ParticleSystem>().playbackSpeed += 0.05f;
@@ -22,7 +36,8 @@ public class Element : MonoBehaviour
 
     public IEnumerator TurnOffAndOn()
     {
-        particles.GetComponent<ParticleSystem>().playbackSpeed = 1;
+        SpeedDown();
+        LightDown();
         gameObject.GetComponent<SphereCollider>().enabled = false;
         particles.SetActive(false);
         yield return new WaitForSeconds(coolDown);

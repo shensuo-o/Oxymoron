@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 41f70ca8c8a343f428fed09a23679ec8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4936,6 +4936,8 @@ MonoBehaviour:
   particles: {fileID: 1969003848424348113}
   icon: {fileID: 21300000, guid: 7b84531a8411e824fa54cdf7fa9690a8, type: 3}
   coolDown: 5
+  particleColor: {r: 0.8784314, g: 0.14509805, b: 0, a: 1}
+  intensity: 2
 --- !u!135 &3101557707521207168
 SphereCollider:
   m_ObjectHideFlags: 0
