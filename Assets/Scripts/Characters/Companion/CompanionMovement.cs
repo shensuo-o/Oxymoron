@@ -30,7 +30,7 @@ public class CompanionMovement : MonoBehaviour
 
     void Awake ()
     {
-        target = GameObject.Find("CompTarget");
+        //target = GameObject.Find("CompTarget");
         rb = GetComponent<Rigidbody>();
     }
 
