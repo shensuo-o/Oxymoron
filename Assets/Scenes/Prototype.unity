@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11272,6 +11272,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814129218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &875906767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875906768}
+  - component: {fileID: 875906769}
+  m_Layer: 7
+  m_Name: Mira (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875906768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875906767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 2.101, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1880670409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &875906769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875906767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529fb1a3ade353e47b0766188e1a2f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Leif: {fileID: 0}
 --- !u!1 &879924404
 GameObject:
   m_ObjectHideFlags: 0
@@ -11896,7 +11941,7 @@ MonoBehaviour:
   deviationSpeed: 2
   distance: 2
   isShooting: 0
-  aim: {fileID: 1070740982}
+  aim: {fileID: 875906768}
   animator: {fileID: 1360004145}
 --- !u!54 &933744830
 Rigidbody:
@@ -20079,7 +20124,7 @@ PrefabInstance:
         type: 3}
       propertyPath: proyectile
       value: 
-      objectReference: {fileID: 7404324353856539419, guid: 6cf4eb41dd31c8949a64e40d90b6e04c,
+      objectReference: {fileID: 4164082756454322144, guid: 848f0fa54a2d1344b852dfe2518aeb74,
         type: 3}
     - target: {fileID: 6549703621134510298, guid: de0a74627e59bda459dcbd2a8c2a5cf3,
         type: 3}
@@ -36006,7 +36051,7 @@ PrefabInstance:
     - target: {fileID: 8199347754676054803, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8283370817139042688, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -36098,6 +36143,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 687064335}
+    - targetCorrespondingSourceObject: {fileID: 3771091545658392280, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 875906768}
     - targetCorrespondingSourceObject: {fileID: 808268094955233512, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       insertIndex: -1

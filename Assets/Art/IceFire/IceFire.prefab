@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3397399188390640049}
-  m_Layer: 0
+  - component: {fileID: 560154917521817548}
+  - component: {fileID: 4093656672924321372}
+  m_Layer: 11
   m_Name: IceFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +34,49 @@ Transform:
   - {fileID: 5581376097023320516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &560154917521817548
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164082756454322144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Height: 7
+  m_Direction: 0
+  m_Center: {x: 3.5, y: 0, z: 0}
+--- !u!114 &4093656672924321372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164082756454322144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e7124e12bd8604bb10e70addf32c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 10
+  dmg: 5
+  force: 0
+  speed: 2
+  normalSpeed: 0
+  companion: {fileID: 0}
+  target: {fileID: 0}
+  Dir: {x: 0, y: 0, z: 0}
 --- !u!1 &9103453648570249028
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +88,7 @@ GameObject:
   - component: {fileID: 5581376097023320516}
   - component: {fileID: 8456793161699092531}
   - component: {fileID: 8334280415965540369}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vfx_IceFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
