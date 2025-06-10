@@ -50,6 +50,9 @@ public class Personaje : MonoBehaviour
     //Variables UI
     [SerializeField] private Image healthBar;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] MeleeCombat combat;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -58,9 +61,18 @@ public class Personaje : MonoBehaviour
 
     void Update()
     {
-        if (!isRolling)
+        if (!isRolling && combat.isAttacking == false)
         {
             HorizontalInput = Input.GetAxisRaw("Horizontal");
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                animator.SetBool("HorizontalInput", true);
+            }
+            else
+            {
+                animator.SetBool("HorizontalInput", false);
+            }
+
             if (HorizontalInput == -1)
             {
                 rollDirection = -1;
@@ -107,6 +119,7 @@ public class Personaje : MonoBehaviour
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
+            animator.SetBool("IsJumping", isJumping);
             jumpTime = JumpStartTime;
 
             rb.velocity = Vector2.up * jumpForce;
@@ -122,12 +135,14 @@ public class Personaje : MonoBehaviour
             else
             {
                 isJumping = false;
+                animator.SetBool("IsJumping", isJumping);
             }
         }
 
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
+            animator.SetBool("IsJumping", isJumping);
         }
     }
 
@@ -159,6 +174,8 @@ public class Personaje : MonoBehaviour
 
         normalSpeed = Speed;
         Speed = rollSpeed;
+
+        animator.SetTrigger("Roll");
 
         var xVel = rollDirection * Speed * 100 * Time.fixedDeltaTime;
         Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
