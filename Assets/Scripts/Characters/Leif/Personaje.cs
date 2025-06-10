@@ -51,27 +51,23 @@ public class Personaje : MonoBehaviour
     [SerializeField] private Image healthBar;
 
     [SerializeField] private Animator animator;
-    [SerializeField] MeleeCombat combat;
+    [SerializeField] private MeleeCombat combat;
+    [SerializeField] private float tempSpeed;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         leifCollider = GetComponentInChildren<BoxCollider>();
+        tempSpeed = Speed;
     }
 
     void Update()
     {
-        if (!isRolling && combat.isAttacking == false)
+        if (!isRolling)
         {
             HorizontalInput = Input.GetAxisRaw("Horizontal");
-            if (Input.GetAxisRaw("Horizontal") != 0)
-            {
-                animator.SetBool("HorizontalInput", true);
-            }
-            else
-            {
-                animator.SetBool("HorizontalInput", false);
-            }
+
+            animator.SetFloat("Speed", rb.velocity.magnitude);
 
             if (HorizontalInput == -1)
             {
@@ -90,6 +86,15 @@ public class Personaje : MonoBehaviour
             {
                 StartCoroutine(Roll());
             }
+        }
+
+        if(combat.isAttacking == true)
+        {
+            Speed = 1;
+        }
+        else
+        {
+            Speed = tempSpeed;
         }
 
         healthBar.fillAmount = HP / 100f;

@@ -7,6 +7,9 @@ public class Oximorons : MonoBehaviour
     public string neededElement1;
     public string neededElement2;
     public Sprite icon;
+    public Texture2D companionIcon;
+    [ColorUsage(hdr: true, showAlpha: true)]
+    public Color iconColor;
     public OximoronSlot[] slots = new OximoronSlot[4];
     public int charges;
     public float cooldown;

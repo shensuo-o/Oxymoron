@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OximoronSlot : MonoBehaviour
 {
+    [ColorUsage(hdr: true, showAlpha: true)]
     public Image element1;
     public Image element2;
     public Image oximoronIcon;
 
-    [SerializeField] public Element[] elements = new Element[2];
+    public Element[] elements = new Element[2];
 
     public Oximorons equipedOximoron;
     public bool CanRecieveElement;
+
+    [SerializeField] private Material slotMaterial;
+
+    private void Start()
+    {
+        slotMaterial.SetTexture("_Icon", null);
+        slotMaterial.SetColor("_OximoronColor", Color.black);
+    }
 
     public void ShowElement()
     {
@@ -42,6 +52,8 @@ public class OximoronSlot : MonoBehaviour
                 OximoronInventory.Instance.allOximorons[i].charges++;
                 OximoronInventory.Instance.allOximorons[i].slots[CompanionInventory.Instance.index] = this;
                 oximoronIcon.sprite = equipedOximoron.icon;
+                slotMaterial.SetTexture("_Icon", equipedOximoron.companionIcon);
+                slotMaterial.SetColor("_OximoronColor", equipedOximoron.iconColor * 2);
 
                 return;
             }
@@ -52,6 +64,8 @@ public class OximoronSlot : MonoBehaviour
     public void ClearSlot()
     {
         oximoronIcon.sprite = null;
+        slotMaterial.SetTexture("_Icon", null);
+        slotMaterial.SetColor("_OximoronColor", Color.black);
         element1.sprite = null;
         element2.sprite = null;
         for (int i = 0; i < elements.Length; i++)
