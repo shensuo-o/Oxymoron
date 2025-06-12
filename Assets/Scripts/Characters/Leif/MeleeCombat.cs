@@ -48,7 +48,7 @@ public class MeleeCombat : MonoBehaviour
     {
         canAttack = false;
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && clicks == 1)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_1") && clicks == 1)
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
@@ -56,13 +56,13 @@ public class MeleeCombat : MonoBehaviour
             isAttacking = false;
             collision.enabled = false;
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && clicks >= 2)
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_1") && clicks >= 2)
         {
             animator.SetInteger("AttackCombo", 2);
             collision.enabled = true;
             canAttack = true;
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") && clicks == 2)
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && clicks == 2)
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
@@ -70,13 +70,13 @@ public class MeleeCombat : MonoBehaviour
             isAttacking = false;
             collision.enabled = false;
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") && clicks >= 3)
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && clicks >= 3)
         {
             animator.SetInteger("AttackCombo", 3);
             collision.enabled = true;
             canAttack = true;
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack3"))
+        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3"))
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;

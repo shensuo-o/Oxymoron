@@ -44,5 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2651fd82bc5e94cb5b66856aa09e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededElement1: 
+  neededElement2: 
+  icon: {fileID: 21300000, guid: a55cdb5a641cc354bb6f8a054adf0614, type: 3}
+  companionIcon: {fileID: 2800000, guid: 7fa438ed9d73c3543811463ce07c0351, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  charges: 0
+  cooldown: 0
+  time: 0
   proyectile: {fileID: 2514954171858046301, guid: 457b638d5a4c5184ebf7804cbc4420d9,
     type: 3}
