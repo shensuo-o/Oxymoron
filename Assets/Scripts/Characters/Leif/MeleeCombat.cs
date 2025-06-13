@@ -10,11 +10,16 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private bool canAttack;
     public bool isAttacking;
     [SerializeField] private CapsuleCollider collision;
+    [SerializeField] private Personaje leif;
+    [SerializeField] private Element[] equipedEffects;
+    [SerializeField] private OximoronSlot[] Slots;
+    [SerializeField] private CapsuleCollider sword;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         collision = GameObject.Find("Sword").GetComponent<CapsuleCollider>();
+        leif = gameObject.GetComponent<Personaje>();
         clicks = 0;
         canAttack = true;
         isAttacking = false;
@@ -83,6 +88,35 @@ public class MeleeCombat : MonoBehaviour
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
+        }
+    }
+
+    public void CheckStatus(int index)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            if (Slots[index].elements[i] != null)
+            {
+                for (int j = 0; j < equipedEffects.Length; j++)
+                {
+                    equipedEffects[j] = Slots[index].elements[i];
+                }
+            }
+        }
+        ApplyEffects();
+    }
+
+    private void ApplyEffects()
+    {
+        for (int i = 0; i < equipedEffects.Length; i++)
+        {
+            if (equipedEffects[i] != null)
+            {
+                leif.Damage += equipedEffects[i].swordEffect.extraDamage;
+                leif.knockBack.directionForce += equipedEffects[i].swordEffect.extraKnock;
+                leif.slowSpeed = equipedEffects[i].swordEffect.speedChange;
+                sword.height = equipedEffects[i].swordEffect.extraRange;
+            }
         }
     }
 }

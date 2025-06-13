@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 rotation;
 
-    [SerializeField] private float knockBackForce;
+    public float knockBackForce;
 
     void Start()
     {
@@ -99,13 +99,12 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Leif.TakeDamage(Damage);
+            Leif.TakeDamage(Damage, (Leif.transform.position - transform.position).normalized);
         }
 
         if (collision.gameObject.layer == 21)
         {
             HP -= Leif.Damage;
-            KnockBack(Leif.transform, knockBackForce);
             if (HP <= 0)
             {
                 Destroy(this.gameObject);
@@ -114,12 +113,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider collision)
-    {
-        if (collision.gameObject.layer == 7)
-        {
-            Leif.TakeDamage(Damage * Time.deltaTime);
-        }
-        
+    { 
         if(collision.gameObject.layer == 11)
         {
             HP -= collision.gameObject.GetComponentInParent<StatsOximorones>().dmg * Time.deltaTime;

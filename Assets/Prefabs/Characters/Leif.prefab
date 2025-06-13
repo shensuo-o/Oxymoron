@@ -194,7 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   Speed: 4
-  Damage: 10
   rb: {fileID: 0}
   HorizontalInput: 0
   jumpForce: 10
@@ -222,6 +221,11 @@ MonoBehaviour:
   leifCollider: {fileID: 0}
   leifAttackDetection: {fileID: 0}
   healthBar: {fileID: 0}
+  Damage: 10
+  knockBack: 8
+  animator: {fileID: 0}
+  combat: {fileID: 0}
+  tempSpeed: 0
 --- !u!114 &3324227251250673272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2925652201896678854}
-  - component: {fileID: 7292410887080462930}
+  - component: {fileID: 7513445459010840616}
   m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
@@ -641,8 +645,8 @@ Transform:
   - {fileID: 5180939577989381233}
   m_Father: {fileID: 3771091545658392280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7292410887080462930
-BoxCollider:
+--- !u!136 &7513445459010840616
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -659,9 +663,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.36
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.16, z: 0}
 --- !u!1 &7877213298286462672
 GameObject:
   m_ObjectHideFlags: 0
