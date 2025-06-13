@@ -15,7 +15,7 @@ public class CompanionInventory : MonoBehaviour
 
     [SerializeField] private GameObject errorPrompt;
 
-    [SerializeField] private MeleeCombat leifSword;
+    public MeleeCombat leifSword;
 
     void Awake()
     {

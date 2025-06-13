@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
@@ -14,7 +15,8 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private Element[] equipedEffects;
     [SerializeField] private OximoronSlot[] Slots;
     [SerializeField] private CapsuleCollider sword;
-    [SerializeField] private GameObject particles;
+    [SerializeField] private GameObject[] particles;
+    [SerializeField] private Dictionary<String, GameObject> swordParticles = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
@@ -25,6 +27,11 @@ public class MeleeCombat : MonoBehaviour
         canAttack = true;
         isAttacking = false;
         collision.enabled = false;
+
+        for (int i = 0; i < particles.Length; i++)
+        {
+            swordParticles.Add(particles[i].name, particles[i]);
+        }
     }
 
     private void Update()
@@ -107,6 +114,7 @@ public class MeleeCombat : MonoBehaviour
             }
         }
         ApplyEffects();
+        ActivateParticles();
     }
 
     private void ApplyEffects()
@@ -136,12 +144,33 @@ public class MeleeCombat : MonoBehaviour
         }
     }
 
-    private void ResetEffects()
+    private void ActivateParticles()
+    {
+        for (int i = 0; i < equipedEffects.Length; i++)
+        {
+            if (equipedEffects[i] != null)
+            {
+                if(swordParticles.TryGetValue(equipedEffects[i].elementType, out GameObject particle))
+                {
+                    particle.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void ResetEffects()
     {
         leif.Damage = 10;
         leif.knockBack.directionForce = 30;
         leif.slowSpeed = 0;
         sword.height = 2;
         sword.center = new Vector3(0, 0.39f, 0);
+        foreach (string k in swordParticles.Keys)
+        {
+            if (swordParticles.TryGetValue(k, out GameObject particle))
+            {
+                particle.SetActive(false);
+            }
+        }
     }
 }

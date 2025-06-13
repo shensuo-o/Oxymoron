@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class EspadaElements : ScriptableObject
 {
-    public GameObject particles;
     public float extraDamage;
     public float speedChange;
     public float extraKnock;
