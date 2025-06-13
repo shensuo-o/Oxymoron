@@ -14,6 +14,7 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private Element[] equipedEffects;
     [SerializeField] private OximoronSlot[] Slots;
     [SerializeField] private CapsuleCollider sword;
+    [SerializeField] private GameObject particles;
 
     private void Awake()
     {
@@ -93,14 +94,16 @@ public class MeleeCombat : MonoBehaviour
 
     public void CheckStatus(int index)
     {
+        ResetEffects();
         for (int i = 0; i < 2; i++)
         {
             if (Slots[index].elements[i] != null)
             {
-                for (int j = 0; j < equipedEffects.Length; j++)
-                {
-                    equipedEffects[j] = Slots[index].elements[i];
-                }
+                equipedEffects[i] = Slots[index].elements[i];
+            }
+            else
+            {
+                equipedEffects[i] = null;
             }
         }
         ApplyEffects();
@@ -112,11 +115,33 @@ public class MeleeCombat : MonoBehaviour
         {
             if (equipedEffects[i] != null)
             {
-                leif.Damage += equipedEffects[i].swordEffect.extraDamage;
-                leif.knockBack.directionForce += equipedEffects[i].swordEffect.extraKnock;
-                leif.slowSpeed = equipedEffects[i].swordEffect.speedChange;
-                sword.height = equipedEffects[i].swordEffect.extraRange;
+                if (equipedEffects[i].swordEffect.extraDamage != 0)
+                {
+                    leif.Damage += equipedEffects[i].swordEffect.extraDamage;
+                }
+                if (equipedEffects[i].swordEffect.extraKnock != 0)
+                {
+                    leif.knockBackForce += equipedEffects[i].swordEffect.extraKnock;
+                }
+                if(equipedEffects[i].swordEffect.speedChange != 0)
+                {
+                    leif.slowSpeed = equipedEffects[i].swordEffect.speedChange;
+                }
+                if(equipedEffects[i].swordEffect.extraRange != 0)
+                {
+                    sword.height = equipedEffects[i].swordEffect.extraRange;
+                    sword.center = new Vector3(0, 1.39f, 0);
+                }
             }
         }
+    }
+
+    private void ResetEffects()
+    {
+        leif.Damage = 10;
+        leif.knockBack.directionForce = 30;
+        leif.slowSpeed = 0;
+        sword.height = 2;
+        sword.center = new Vector3(0, 0.39f, 0);
     }
 }

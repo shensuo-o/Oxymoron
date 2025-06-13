@@ -52,6 +52,7 @@ public class Personaje : MonoBehaviour
     //Variables Melee
     public float Damage;
     public LeifKnockBack knockBack;
+    public float knockBackForce;
     public float slowSpeed;
     [SerializeField] private Animator animator;
     [SerializeField] private MeleeCombat combat;

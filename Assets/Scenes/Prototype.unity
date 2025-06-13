@@ -8131,7 +8131,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.12
-  m_Height: 1.93
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.39, z: 0}
 --- !u!1 &640755137
@@ -12029,7 +12029,7 @@ MonoBehaviour:
   SelectIndicator: {fileID: 370021213}
   detector: {fileID: 1974560522}
   errorPrompt: {fileID: 2145839054}
-  particles: []
+  leifSword: {fileID: 0}
 --- !u!114 &933744832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23829,6 +23829,18 @@ MonoBehaviour:
   constForce: 5
   inoutForce: 7.5
   rb: {fileID: 0}
+--- !u!114 &1880670428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+    type: 3}
+  m_PrefabInstance: {fileID: 817282302430140615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880670408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef30a198d13a88e4a8057bc407a14d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1880815668
 GameObject:
   m_ObjectHideFlags: 0
@@ -35827,6 +35839,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
+      propertyPath: leif
+      value: 
+      objectReference: {fileID: 1880670428}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 640721048}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
       propertyPath: attack
       value: 
       objectReference: {fileID: 7400000, guid: b1ae6aa38ae38b6449cdfc248abb6038, type: 2}
@@ -35849,6 +35871,36 @@ PrefabInstance:
         type: 3}
       propertyPath: collisionT
       value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: Slots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: Slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1620752044}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: Slots.Array.data[1]
+      value: 
+      objectReference: {fileID: 1138210643}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: Slots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1320433083}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: Slots.Array.data[3]
+      value: 
+      objectReference: {fileID: 2031941462}
+    - target: {fileID: 3324227251250673272, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: equipedEffects.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3552076895126911972, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -36015,8 +36067,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5698648477840461013, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698648477840461013, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698648477840461013, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698648477840461013, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 5745814369843714985, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -36197,6 +36264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: globalGravity
       value: 29.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: knockBackForce
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8758727985729876311, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}

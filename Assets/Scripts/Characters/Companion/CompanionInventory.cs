@@ -86,6 +86,8 @@ public class CompanionInventory : MonoBehaviour
                     }
                 }
             }
+
+            leifSword.CheckStatus(index);
         }
     }
 
@@ -102,5 +104,6 @@ public class CompanionInventory : MonoBehaviour
             Slots[index].ShowElement();
             Slots[index].EquipOximoron();
         }
+        leifSword.CheckStatus(index);
     }
 }

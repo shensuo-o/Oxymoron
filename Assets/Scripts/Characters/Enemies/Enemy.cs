@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public float HP;
     public float Speed;
+    [SerializeField] private float tempSpeed;
+    [SerializeField] private float slowDownDuration = 4;
     public Rigidbody RB;
     [SerializeField] private Transform node1;
     [SerializeField] private Transform node2;
@@ -21,13 +23,12 @@ public class Enemy : MonoBehaviour
 
     private Vector3 rotation;
 
-    public float knockBackForce;
-
     void Start()
     {
         RB = GetComponent<Rigidbody>();
         Leif = GameObject.Find("Leif").GetComponent<Personaje>();
         currentNode = node1;
+        tempSpeed = Speed;
     }
 
     private void Update()
@@ -95,6 +96,12 @@ public class Enemy : MonoBehaviour
         RB.velocity = dir * force;
     }
 
+    private IEnumerator ResetSpeed()
+    {
+        yield return new WaitForSeconds(slowDownDuration);
+        Speed = tempSpeed;
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 7)
@@ -105,6 +112,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == 21)
         {
             HP -= Leif.Damage;
+            Speed -= Leif.slowSpeed;
+            StartCoroutine("ResetSpeed");
+            KnockBack(Leif.transform, Leif.knockBackForce);
             if (HP <= 0)
             {
                 Destroy(this.gameObject);
