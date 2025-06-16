@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
 {
-    //stats de Leif
+    //Stats de Leif
     public float HP;
     public float Speed;
-    public float Damage;
 
     #region Variables Movimiento
 
@@ -42,7 +41,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private bool canRoll;
     [SerializeField] private bool isRolling;
     [SerializeField] private float rollDirection;
-    [SerializeField] private BoxCollider leifCollider;
+    [SerializeField] private CapsuleCollider leifCollider;
     [SerializeField] private CapsuleCollider leifAttackDetection;
 
     #endregion
@@ -50,6 +49,11 @@ public class Personaje : MonoBehaviour
     //Variables UI
     [SerializeField] private Image healthBar;
 
+    //Variables Melee
+    public float Damage;
+    public LeifKnockBack knockBack;
+    public float knockBackForce;
+    public float slowSpeed;
     [SerializeField] private Animator animator;
     [SerializeField] private MeleeCombat combat;
     [SerializeField] private float tempSpeed;
@@ -57,7 +61,7 @@ public class Personaje : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        leifCollider = GetComponentInChildren<BoxCollider>();
+        knockBack = GetComponent<LeifKnockBack>();
         tempSpeed = Speed;
     }
 
@@ -77,7 +81,11 @@ public class Personaje : MonoBehaviour
             {
                 rollDirection = 1;
             }
-            Jump();
+
+            if (knockBack.isHit == false)
+            {
+                Jump();
+            }
         }
 
         if (isGrounded && !isJumping && canRoll)
@@ -102,7 +110,7 @@ public class Personaje : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isRolling)
+        if (!isRolling && !knockBack.isHit)
         {
             Movement(HorizontalInput);
         }
@@ -174,20 +182,20 @@ public class Personaje : MonoBehaviour
 
     private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox
     {
+        animator.SetTrigger("Roll");
+
         canRoll = false;
         isRolling = true;
 
         normalSpeed = Speed;
         Speed = rollSpeed;
 
-        animator.SetTrigger("Roll");
-
         var xVel = rollDirection * Speed * 100 * Time.fixedDeltaTime;
         Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
         rb.velocity = targetVelocity;
 
         leifCollider.center = new Vector3(0, -0.6f, 0);
-        leifCollider.size = new Vector3(1, 0.8f, 1);
+        leifCollider.height = 1.2f;
 
         leifAttackDetection.enabled = false;
 
@@ -195,8 +203,8 @@ public class Personaje : MonoBehaviour
 
         Speed = normalSpeed;
         isRolling = false;
-        leifCollider.center = new Vector3(0, 0, 0);
-        leifCollider.size = new Vector3(1, 2, 1);
+        leifCollider.center = new Vector3(0, 0.16f, 0);
+        leifCollider.height = 2.36f;
         leifAttackDetection.enabled = true;
 
         yield return new WaitForSeconds(rollCoolDown);
@@ -211,8 +219,9 @@ public class Personaje : MonoBehaviour
 
     #endregion
 
-    public void TakeDamage(float damage)//Llama a este script cada vez que recibe daño de algo.
+    public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
         HP -= damage;
+        knockBack.Knock(dir, Vector3.up, HorizontalInput);
     }
 }

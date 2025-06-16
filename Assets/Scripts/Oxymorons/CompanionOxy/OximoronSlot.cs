@@ -73,5 +73,6 @@ public class OximoronSlot : MonoBehaviour
             elements[i] = null;
         }
         equipedOximoron = null;
+        CompanionInventory.Instance.leifSword.ResetEffects();
     }
 }

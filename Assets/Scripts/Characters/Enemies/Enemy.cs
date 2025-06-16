@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public float HP;
     public float Speed;
+    [SerializeField] private float tempSpeed;
+    [SerializeField] private float slowDownDuration = 4;
     public Rigidbody RB;
     [SerializeField] private Transform node1;
     [SerializeField] private Transform node2;
@@ -21,13 +23,12 @@ public class Enemy : MonoBehaviour
 
     private Vector3 rotation;
 
-    [SerializeField] private float knockBackForce;
-
     void Start()
     {
         RB = GetComponent<Rigidbody>();
         Leif = GameObject.Find("Leif").GetComponent<Personaje>();
         currentNode = node1;
+        tempSpeed = Speed;
     }
 
     private void Update()
@@ -95,17 +96,25 @@ public class Enemy : MonoBehaviour
         RB.velocity = dir * force;
     }
 
+    private IEnumerator ResetSpeed()
+    {
+        yield return new WaitForSeconds(slowDownDuration);
+        Speed = tempSpeed;
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 7)
         {
-            Leif.TakeDamage(Damage);
+            Leif.TakeDamage(Damage, (Leif.transform.position - transform.position).normalized);
         }
 
         if (collision.gameObject.layer == 21)
         {
             HP -= Leif.Damage;
-            KnockBack(Leif.transform, knockBackForce);
+            Speed -= Leif.slowSpeed;
+            StartCoroutine("ResetSpeed");
+            KnockBack(Leif.transform, Leif.knockBackForce);
             if (HP <= 0)
             {
                 Destroy(this.gameObject);
@@ -114,12 +123,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider collision)
-    {
-        if (collision.gameObject.layer == 7)
-        {
-            Leif.TakeDamage(Damage * Time.deltaTime);
-        }
-        
+    { 
         if(collision.gameObject.layer == 11)
         {
             HP -= collision.gameObject.GetComponentInParent<StatsOximorones>().dmg * Time.deltaTime;

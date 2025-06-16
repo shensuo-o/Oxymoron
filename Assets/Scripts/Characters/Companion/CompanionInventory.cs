@@ -15,12 +15,12 @@ public class CompanionInventory : MonoBehaviour
 
     [SerializeField] private GameObject errorPrompt;
 
-    [SerializeField] private GameObject[] particles;
+    public MeleeCombat leifSword;
 
     void Awake()
     {
         Instance = this;
-        particles = new GameObject[2];
+        leifSword = GameObject.Find("Leif").GetComponent<MeleeCombat>();
     }
 
     private void Update()
@@ -63,6 +63,8 @@ public class CompanionInventory : MonoBehaviour
                     }
                 }
             }
+
+            leifSword.CheckStatus(index);
         }
 
         if (scrollInput < 0)
@@ -84,6 +86,8 @@ public class CompanionInventory : MonoBehaviour
                     }
                 }
             }
+
+            leifSword.CheckStatus(index);
         }
     }
 
@@ -100,5 +104,6 @@ public class CompanionInventory : MonoBehaviour
             Slots[index].ShowElement();
             Slots[index].EquipOximoron();
         }
+        leifSword.CheckStatus(index);
     }
 }

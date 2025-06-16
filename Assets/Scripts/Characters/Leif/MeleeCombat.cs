@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
@@ -10,15 +11,27 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private bool canAttack;
     public bool isAttacking;
     [SerializeField] private CapsuleCollider collision;
+    [SerializeField] private Personaje leif;
+    [SerializeField] private Element[] equipedEffects;
+    [SerializeField] private OximoronSlot[] Slots;
+    [SerializeField] private CapsuleCollider sword;
+    [SerializeField] private GameObject[] particles;
+    [SerializeField] private Dictionary<String, GameObject> swordParticles = new Dictionary<string, GameObject>();
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         collision = GameObject.Find("Sword").GetComponent<CapsuleCollider>();
+        leif = gameObject.GetComponent<Personaje>();
         clicks = 0;
         canAttack = true;
         isAttacking = false;
         collision.enabled = false;
+
+        for (int i = 0; i < particles.Length; i++)
+        {
+            swordParticles.Add(particles[i].name, particles[i]);
+        }
     }
 
     private void Update()
@@ -83,6 +96,81 @@ public class MeleeCombat : MonoBehaviour
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
+        }
+    }
+
+    public void CheckStatus(int index)
+    {
+        ResetEffects();
+        for (int i = 0; i < 2; i++)
+        {
+            if (Slots[index].elements[i] != null)
+            {
+                equipedEffects[i] = Slots[index].elements[i];
+            }
+            else
+            {
+                equipedEffects[i] = null;
+            }
+        }
+        ApplyEffects();
+        ActivateParticles();
+    }
+
+    private void ApplyEffects()
+    {
+        for (int i = 0; i < equipedEffects.Length; i++)
+        {
+            if (equipedEffects[i] != null)
+            {
+                if (equipedEffects[i].swordEffect.extraDamage != 0)
+                {
+                    leif.Damage += equipedEffects[i].swordEffect.extraDamage;
+                }
+                if (equipedEffects[i].swordEffect.extraKnock != 0)
+                {
+                    leif.knockBackForce += equipedEffects[i].swordEffect.extraKnock;
+                }
+                if(equipedEffects[i].swordEffect.speedChange != 0)
+                {
+                    leif.slowSpeed = equipedEffects[i].swordEffect.speedChange;
+                }
+                if(equipedEffects[i].swordEffect.extraRange != 0)
+                {
+                    sword.height = equipedEffects[i].swordEffect.extraRange;
+                    sword.center = new Vector3(0, 1.39f, 0);
+                }
+            }
+        }
+    }
+
+    private void ActivateParticles()
+    {
+        for (int i = 0; i < equipedEffects.Length; i++)
+        {
+            if (equipedEffects[i] != null)
+            {
+                if(swordParticles.TryGetValue(equipedEffects[i].elementType, out GameObject particle))
+                {
+                    particle.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void ResetEffects()
+    {
+        leif.Damage = 10;
+        leif.knockBack.directionForce = 30;
+        leif.slowSpeed = 0;
+        sword.height = 2;
+        sword.center = new Vector3(0, 0.39f, 0);
+        foreach (string k in swordParticles.Keys)
+        {
+            if (swordParticles.TryGetValue(k, out GameObject particle))
+            {
+                particle.SetActive(false);
+            }
         }
     }
 }

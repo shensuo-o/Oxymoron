@@ -4936,6 +4936,9 @@ MonoBehaviour:
   particles: {fileID: 1011095991162302995}
   icon: {fileID: 21300000, guid: 99e364db5d882c44ca94cba4d383ca68, type: 3}
   coolDown: 5
+  particleColor: {r: 0, g: 0, b: 0, a: 0}
+  intensity: 0
+  swordEffect: {fileID: 11400000, guid: d2ab18db5a1a0024da608d511bd02efc, type: 2}
 --- !u!135 &5798356631395075554
 SphereCollider:
   m_ObjectHideFlags: 0

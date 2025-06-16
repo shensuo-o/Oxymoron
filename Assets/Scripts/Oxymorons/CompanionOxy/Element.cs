@@ -14,6 +14,8 @@ public class Element : MonoBehaviour
     [SerializeField] private Color particleColor;
     [SerializeField] private float intensity;
 
+    public EspadaElements swordEffect;
+
     public void LightUp()
     {
         particles.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material.SetColor("_Intensity", particleColor * intensity);
