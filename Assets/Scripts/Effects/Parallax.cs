@@ -18,7 +18,6 @@ public class Parallax : MonoBehaviour
     void Update()
     {
         float temp = cam.position.x * (1 - parallaxAmount);
-        Debug.Log("temp " + temp);
 
         float dist = cam.position.x * parallaxAmount;
 
