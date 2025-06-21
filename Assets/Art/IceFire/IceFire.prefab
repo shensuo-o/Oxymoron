@@ -69,9 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e7124e12bd8604bb10e70addf32c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oxiName: IceFire
   lifeTime: 5
   dmg: 5
   force: 0
+  timer: 0
   speed: 2
   normalSpeed: 0
   companion: {fileID: 0}

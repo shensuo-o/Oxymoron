@@ -82,10 +82,7 @@ public class Personaje : MonoBehaviour
                 rollDirection = 1;
             }
 
-            if (knockBack.isHit == false)
-            {
-                Jump();
-            }
+            Jump();
         }
 
         if (isGrounded && !isJumping && canRoll)
@@ -129,26 +126,29 @@ public class Personaje : MonoBehaviour
 
     private void Jump()//Salto que se hace mas alto contra mas se sostiene apretado el boton.
     {
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (knockBack.isHit == false)
         {
-            isJumping = true;
-            animator.SetBool("IsJumping", isJumping);
-            jumpTime = JumpStartTime;
-
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        if (Input.GetButton("Jump") && isJumping)
-        {
-            if (jumpTime > 0)
+            if (isGrounded && Input.GetButtonDown("Jump"))
             {
-                rb.velocity = Vector3.up * jumpForce;
-                jumpTime -= Time.deltaTime;
-            }
-            else
-            {
-                isJumping = false;
+                isJumping = true;
                 animator.SetBool("IsJumping", isJumping);
+                jumpTime = JumpStartTime;
+
+                rb.velocity = Vector2.up * jumpForce;
+            }
+
+            if (Input.GetButton("Jump") && isJumping)
+            {
+                if (jumpTime > 0)
+                {
+                    rb.velocity = Vector3.up * jumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                    animator.SetBool("IsJumping", isJumping);
+                }
             }
         }
 

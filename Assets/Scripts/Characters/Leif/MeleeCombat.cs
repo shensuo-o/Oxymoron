@@ -161,7 +161,7 @@ public class MeleeCombat : MonoBehaviour
     public void ResetEffects()
     {
         leif.Damage = 10;
-        leif.knockBack.directionForce = 30;
+        leif.knockBackForce = 8;
         leif.slowSpeed = 0;
         sword.height = 2;
         sword.center = new Vector3(0, 0.39f, 0);

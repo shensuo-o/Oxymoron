@@ -6,6 +6,7 @@ using UnityEngine;
 public class Whirlwind : StatsOximorones
 {
     public float speed;
+    [SerializeField] private Transform pointEffect;
 
     void Start()
     {
@@ -21,8 +22,21 @@ public class Whirlwind : StatsOximorones
     {
         if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
         {
-            Debug.Log("pego tornado");
-            other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, force * Time.deltaTime);
+            timer += Time.deltaTime;
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, pointEffect.position, force * Time.deltaTime);
+            if (timer >= lifeTime - 0.5f)
+            {
+                other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
+        {
+            other.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
