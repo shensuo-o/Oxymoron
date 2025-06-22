@@ -57,6 +57,8 @@ public class Personaje : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private MeleeCombat combat;
     [SerializeField] private float tempSpeed;
+    [SerializeField] private float timeInv;
+    [SerializeField] private Material leifMaterial;
 
     private void Awake()
     {
@@ -223,5 +225,15 @@ public class Personaje : MonoBehaviour
     {
         HP -= damage;
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
+        StartCoroutine(Invulnerable(timeInv));
+    }
+
+    private IEnumerator Invulnerable(float time)
+    {
+        leifAttackDetection.enabled = false;
+        leifMaterial.color = Color.red;
+        yield return new WaitForSeconds(time);
+        leifMaterial.color = Color.white;
+        leifAttackDetection.enabled = true;
     }
 }
