@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: e1fb9406085943147ace42c512c8a2f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: Wind
   particles: {fileID: 6807219910860175407}
-  icon: {fileID: 21300000, guid: 5253495766d1a54489ce87bb94946c4d, type: 3}
+  icon: {fileID: 21300000, guid: 281f56d7dfb61854eb4630770c5ad365, type: 3}
   coolDown: 5
   particleColor: {r: 0.074893214, g: 0.9339623, b: 0.4434618, a: 1}
   intensity: 2
