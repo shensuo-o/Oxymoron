@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Dust
+  m_Name: M_DustEffects
   m_Shader: {fileID: -6465566751694194690, guid: e85fd8569dfe24548bff186615d7b34d,
     type: 3}
   m_Parent: {fileID: 0}
@@ -45,7 +45,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.5974546, g: 0.9245283, b: 0.80771625, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8644290014315038
 MonoBehaviour:

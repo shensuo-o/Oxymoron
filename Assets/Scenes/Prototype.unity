@@ -29557,6 +29557,21 @@ PrefabInstance:
       propertyPath: Slots.Array.data[3]
       value: 
       objectReference: {fileID: 2031941462}
+    - target: {fileID: 3878872457101115199, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878872457101115199, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.319
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878872457101115199, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.009
+      objectReference: {fileID: 0}
     - target: {fileID: 5142772171212969181, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_FreeformStretching
@@ -29658,7 +29673,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3946439459263504850, guid: fc3ed42427b20194fa7e020fe04ea61a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3ed42427b20194fa7e020fe04ea61a, type: 3}
