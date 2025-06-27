@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class MeleeCombat : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private CapsuleCollider sword;
     [SerializeField] private GameObject[] particles;
     [SerializeField] private Dictionary<String, GameObject> swordParticles = new Dictionary<string, GameObject>();
+    [SerializeField] private VisualEffect slashEffect;
 
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class MeleeCombat : MonoBehaviour
         if (clicks == 1)
         {
             animator.SetInteger("AttackCombo", 1);
+            slashEffect.Play(); 
             collision.enabled = true;
         }
     }
@@ -65,6 +68,7 @@ public class MeleeCombat : MonoBehaviour
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
+            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
@@ -73,12 +77,14 @@ public class MeleeCombat : MonoBehaviour
         {
             animator.SetInteger("AttackCombo", 2);
             collision.enabled = true;
+            slashEffect.Play();
             canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && clicks == 2)
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
+            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
@@ -87,12 +93,14 @@ public class MeleeCombat : MonoBehaviour
         {
             animator.SetInteger("AttackCombo", 3);
             collision.enabled = true;
+            slashEffect.Play();
             canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3"))
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
+            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;

@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask PlayerMask;
     [SerializeField] private LayerMask GroundMask;
     [SerializeField] private bool IsOnGround;
+    [SerializeField] private ParticleSystem hitEffect;
 
     private Vector3 rotation;
 
@@ -111,6 +112,7 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.layer == 21)
         {
+            hitEffect.Play();
             HP -= Leif.Damage;
             Speed -= Leif.slowSpeed;
             StartCoroutine("ResetSpeed");

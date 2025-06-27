@@ -26,6 +26,8 @@ public class Personaje : MonoBehaviour
     [SerializeField] private Vector3 detectorDimensions;
     [SerializeField] private bool isGrounded;
     [SerializeField] private LayerMask isFloor;
+    [SerializeField] private bool isLanding;
+    [SerializeField] private ParticleSystem landingDust;
 
     //Variables para la caida
     [SerializeField] private float globalGravity;
@@ -44,6 +46,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float rollDirection;
     [SerializeField] private CapsuleCollider leifCollider;
     [SerializeField] private CapsuleCollider leifAttackDetection;
+    [SerializeField] private ParticleSystem rollDust;
 
     #endregion
 
@@ -134,6 +137,7 @@ public class Personaje : MonoBehaviour
         {
             if (isGrounded && Input.GetButtonDown("Jump"))
             {
+                landingDust.Play();
                 isJumping = true;
                 animator.SetBool("IsJumping", isJumping);
                 jumpTime = JumpStartTime;
@@ -167,6 +171,7 @@ public class Personaje : MonoBehaviour
     {
         if(!isGrounded && !isJumping)
         {
+            isLanding = true;
             timer += Time.fixedDeltaTime;
             Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
             rb.AddForce(gravity * timer, ForceMode.Acceleration);
@@ -187,6 +192,7 @@ public class Personaje : MonoBehaviour
     private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox
     {
         animator.SetTrigger("Roll");
+        rollDust.Play();
 
         canRoll = false;
         isRolling = true;
@@ -219,6 +225,11 @@ public class Personaje : MonoBehaviour
     private void Grounded()//Detecta si el player esta parado en el piso o no.
     {
         isGrounded = Physics.CheckBox(groundDetector.position, detectorDimensions, Quaternion.identity, isFloor);
+        if(isGrounded && isLanding)
+        {
+            isLanding = false;
+            landingDust.Play();
+        }
     }
 
     #endregion
