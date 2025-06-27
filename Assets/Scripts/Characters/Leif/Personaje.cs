@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
@@ -64,7 +65,7 @@ public class Personaje : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         knockBack = GetComponent<LeifKnockBack>();
-        tempSpeed = Speed;
+        leifMaterial.color = Color.white;
     }
 
     void Update()
@@ -223,9 +224,21 @@ public class Personaje : MonoBehaviour
 
     public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
+        animator.SetTrigger("Hit");
         HP -= damage;
+        if (HP <= 0)
+        {
+            StartCoroutine("Death");
+        }
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
         StartCoroutine(Invulnerable(timeInv));
+    }
+
+    private IEnumerator Death()
+    {
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private IEnumerator Invulnerable(float time)
