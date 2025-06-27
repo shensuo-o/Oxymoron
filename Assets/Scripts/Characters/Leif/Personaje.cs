@@ -64,6 +64,7 @@ public class Personaje : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        tempSpeed = Speed;
         knockBack = GetComponent<LeifKnockBack>();
         leifMaterial.color = Color.white;
     }
