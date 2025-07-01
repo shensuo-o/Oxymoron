@@ -13,7 +13,7 @@ public class ShadowLight : Oximorons
         {
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                PlayVFX();
+                PlayCast();
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = 50;
                 Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);

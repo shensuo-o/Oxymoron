@@ -15,7 +15,7 @@ public class CastColdFire : Oximorons
         {
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                PlayVFX();
+                PlayCast();
                 gameObject.GetComponentInParent<CompanionMovement>().setAim();
                 Instantiate(proyectile, target.position, Quaternion.identity);
                 charges--;

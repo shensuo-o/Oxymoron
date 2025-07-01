@@ -18,6 +18,14 @@ public class Oximorons : MonoBehaviour
     public float time;
     public GameObject proyectile;
     public VisualEffect vfx;
+    public Animator leif;
+
+    public void PlayCast()
+    {
+        leif.SetTrigger("Cast");
+        vfx.SetVector4("MagicColor", iconColor);
+        vfx.Play();
+    }
 
     public void TurnOff()
     {
@@ -39,11 +47,5 @@ public class Oximorons : MonoBehaviour
                 slots[i].equipedOximoron.time = 0;
             }
         }
-    }
-
-    public void PlayVFX()
-    {
-        vfx.SetVector4("MagicColor", iconColor);
-        vfx.Play();
     }
 }

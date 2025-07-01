@@ -14,7 +14,7 @@ public class CastWhirlwind : Oximorons
         {
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                PlayVFX();
+                PlayCast();
                 Instantiate(proyectile, spawnPoint.position, spawnPoint.rotation);
                 charges--;
                 ResetCoolDown();
