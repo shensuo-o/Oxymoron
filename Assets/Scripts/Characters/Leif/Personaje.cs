@@ -29,6 +29,10 @@ public class Personaje : MonoBehaviour
     [SerializeField] private bool isLanding;
     [SerializeField] private ParticleSystem landingDust;
 
+    //Coyote-Time
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteCount;
+
     //Variables para la caida
     [SerializeField] private float globalGravity;
     [SerializeField] private float gravityScale;
@@ -92,6 +96,15 @@ public class Personaje : MonoBehaviour
             Jump();
         }
 
+        if (isGrounded)
+        {
+            coyoteCount = coyoteTime;
+        }
+        else
+        {
+            coyoteCount -= Time.deltaTime;
+        }
+
         if (isGrounded && !isJumping && canRoll)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -135,7 +148,7 @@ public class Personaje : MonoBehaviour
     {
         if (knockBack.isHit == false)
         {
-            if (isGrounded && Input.GetButtonDown("Jump"))
+            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
             {
                 landingDust.Play();
                 isJumping = true;
@@ -162,6 +175,7 @@ public class Personaje : MonoBehaviour
 
         if (Input.GetButtonUp("Jump"))
         {
+            coyoteCount = 0;
             isJumping = false;
             animator.SetBool("IsJumping", isJumping);
         }
