@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool IsOnGround;
     [SerializeField] private ParticleSystem hitEffect;
 
+    [SerializeField] private Animator animator;
+    [SerializeField] private CapsuleCollider hitbox;
+    [SerializeField] private CapsuleCollider hitbox2;
+
     private Vector3 rotation;
 
     void Start()
@@ -37,6 +41,8 @@ public class Enemy : MonoBehaviour
         Vector3 dir = transform.position - currentNode.position;
         rotation = Vector3.RotateTowards(transform.right, new Vector3(dir.x, 0, 0), 100, 0f);
         Vector3 target = transform.position - Leif.transform.position;
+
+        animator.SetFloat("Speed", Speed);
 
         if (!IsChasing || !IsOnGround)
         {
@@ -58,13 +64,18 @@ public class Enemy : MonoBehaviour
             Chase();
         }
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), 6, PlayerMask) || target.magnitude <= 2)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.forward), 8, PlayerMask) || target.magnitude <= 6)
         {
             IsChasing = true;
         }
         else
         {
             IsChasing = false;
+        }
+
+        if (target.magnitude <= 4 && animator.GetBool("Attack") == false)
+        {
+            StartCoroutine(AttackMeele());
         }
 
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 3, GroundMask))
@@ -75,6 +86,13 @@ public class Enemy : MonoBehaviour
         {
             IsOnGround = false;
         }
+    }
+
+    private IEnumerator AttackMeele()
+    {
+        animator.SetBool("Attack", true);
+        yield return new WaitForSeconds(2);
+        animator.SetBool("Attack", false);
     }
 
     private void Movement()
@@ -103,6 +121,17 @@ public class Enemy : MonoBehaviour
         Speed = tempSpeed;
     }
 
+    private IEnumerator Death()
+    {
+        animator.SetBool("Death", true);
+        hitbox.enabled = false;
+        hitbox2.enabled = false;
+        Speed = 0;
+        RB.velocity = Vector3.zero;
+        yield return new WaitForSeconds(3);
+        Destroy(this.gameObject);
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 7)
@@ -112,6 +141,7 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.layer == 21)
         {
+            animator.SetTrigger("Hit");
             hitEffect.Play();
             HP -= Leif.Damage;
             Speed -= Leif.slowSpeed;
@@ -119,7 +149,7 @@ public class Enemy : MonoBehaviour
             KnockBack(Leif.transform, Leif.knockBackForce);
             if (HP <= 0)
             {
-                Destroy(this.gameObject);
+                StartCoroutine(Death());
             }
         }
     }
@@ -131,7 +161,7 @@ public class Enemy : MonoBehaviour
             HP -= collision.gameObject.GetComponentInParent<StatsOximorones>().dmg * Time.deltaTime;
             if (HP <= 0)
             {
-                Destroy(this.gameObject);
+                StartCoroutine(Death());
             }
         }
     }
