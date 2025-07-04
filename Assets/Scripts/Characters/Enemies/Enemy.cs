@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private CapsuleCollider hitbox;
     [SerializeField] private CapsuleCollider hitbox2;
+    [SerializeField] private Renderer render;
+    [SerializeField] private Material material;
+    [SerializeField] private Material dmgMaterial;
 
     private Vector3 rotation;
 
@@ -115,10 +118,11 @@ public class Enemy : MonoBehaviour
         RB.velocity = dir * force;
     }
 
-    private IEnumerator ResetSpeed()
+    private IEnumerator ResetGuy()
     {
         yield return new WaitForSeconds(slowDownDuration);
         Speed = tempSpeed;
+        render.material = material;
     }
 
     private IEnumerator Death()
@@ -141,11 +145,12 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.layer == 21)
         {
+            render.material = dmgMaterial;
             animator.SetTrigger("Hit");
             hitEffect.Play();
             HP -= Leif.Damage;
             Speed -= Leif.slowSpeed;
-            StartCoroutine("ResetSpeed");
+            StartCoroutine("ResetGuy");
             KnockBack(Leif.transform, Leif.knockBackForce);
             if (HP <= 0)
             {
