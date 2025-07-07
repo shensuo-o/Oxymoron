@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_BodyLeif
+  m_Name: M_Shadow
   m_Shader: {fileID: -6465566751694194690, guid: 8f57af3e46ad525429f2af05ff9d8306,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,26 +25,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoText:
-        m_Texture: {fileID: 2800000, guid: 0371ae6126838f1489f37274f786c1b8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissiveText:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicText:
-        m_Texture: {fileID: 2800000, guid: 571434be582c6084d958d5261f489f1f, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalText:
-        m_Texture: {fileID: 2800000, guid: 821261048b2c62f4a8a14ae76a412fca, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OpacityText:
-        m_Texture: {fileID: 2800000, guid: 0371ae6126838f1489f37274f786c1b8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_ed9bf3be774243ff8b41552420006085_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -64,13 +52,11 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
-    - _EmissIntesnity: 10
     - _Float: -0.76
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 0}
+    - _Color: {r: 0.7466505, g: 0.8018868, b: 0.71488965, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1827262580996481416
 MonoBehaviour:

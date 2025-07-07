@@ -25,15 +25,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoText:
-        m_Texture: {fileID: 2800000, guid: 6684747c746c649499f200759b164158, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissiveText:
         m_Texture: {fileID: 2800000, guid: 1194ea433c8e6124c90a0bf714c4eeec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmissiveText:
+        m_Texture: {fileID: 2800000, guid: 6684747c746c649499f200759b164158, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicText:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6684747c746c649499f200759b164158, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalText:
@@ -41,7 +41,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OpacityText:
-        m_Texture: {fileID: 2800000, guid: 8f8fd246c9d1442429dd5a3242d71e60, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6684747c746c649499f200759b164158, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ed9bf3be774243ff8b41552420006085_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
