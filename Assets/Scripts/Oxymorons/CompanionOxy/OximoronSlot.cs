@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class OximoronSlot : MonoBehaviour
 {
     [ColorUsage(hdr: true, showAlpha: true)]
+
     public Image element1;
     public Image element2;
     public Image oximoronIcon;
+
+    [SerializeField] private Sprite defaultOxiIcon;
+    [SerializeField] private Sprite defaultElemIcon;
 
     public Element[] elements = new Element[2];
 
@@ -63,11 +67,11 @@ public class OximoronSlot : MonoBehaviour
 
     public void ClearSlot()
     {
-        oximoronIcon.sprite = null;
+        oximoronIcon.sprite = defaultOxiIcon;
         slotMaterial.SetTexture("_Icon", null);
         slotMaterial.SetColor("_OximoronColor", Color.black);
-        element1.sprite = null;
-        element2.sprite = null;
+        element1.sprite = defaultElemIcon;
+        element2.sprite = defaultElemIcon;
         for (int i = 0; i < elements.Length; i++)
         {
             elements[i] = null;

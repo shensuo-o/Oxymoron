@@ -36,17 +36,17 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Sandbox1");
+            SceneManager.LoadScene("Prototype");
         }
 
         if (Finish)
         {
-            SceneManager.LoadScene("Sandbox1");
+            SceneManager.LoadScene("Prototype");
         }
 
         if (Death)
         {
-            Leif.transform.position = new Vector3(-12.98f, 18.23f, 0f);
+            Leif.GetComponent<Personaje>().TakeDamage(10, Leif.transform.up);
             Death = false;
         }
     }

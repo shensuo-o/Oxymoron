@@ -11,22 +11,20 @@ public class Checkers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == Trigger)
+        if (Trigger == "CuboAmarillo")
         {
-            if (Trigger == "CuboAmarillo")
-            {
-                GameManager.CheckAmarillo = true;
-            }
+            GameManager.CheckAmarillo = true;    
+         }   
 
-            if (Trigger == "CuboRojo")
-            {
-                GameManager.CheckRojo = true;
-            }
+        if (Trigger == "CuboRojo")
+        {    
+            GameManager.CheckRojo = true;    
+        }        
 
-            if (Trigger == "CuboVerde")
-            {
-                GameManager.CheckVerde = true;
-            }
+        if (Trigger == "CuboVerde")    
+        {    
+            GameManager.CheckVerde = true;    
+        }    
 
             if (Trigger == "CuboRosa")
             {
@@ -41,7 +39,6 @@ public class Checkers : MonoBehaviour
             if (Trigger == "AttackDetection" && isWater)
             {
                 GameManager.Death = true;
-            }
-        }
+            }    
     }
 }

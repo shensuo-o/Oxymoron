@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Oximorons : MonoBehaviour
 {
@@ -15,6 +17,15 @@ public class Oximorons : MonoBehaviour
     public float cooldown;
     public float time;
     public GameObject proyectile;
+    public VisualEffect vfx;
+    public Animator leif;
+
+    public void PlayCast()
+    {
+        leif.SetTrigger("Cast");
+        vfx.SetVector4("MagicColor", iconColor);
+        vfx.Play();
+    }
 
     public void TurnOff()
     {

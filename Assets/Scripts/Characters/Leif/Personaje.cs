@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour
@@ -25,6 +26,12 @@ public class Personaje : MonoBehaviour
     [SerializeField] private Vector3 detectorDimensions;
     [SerializeField] private bool isGrounded;
     [SerializeField] private LayerMask isFloor;
+    [SerializeField] private bool isLanding;
+    [SerializeField] private ParticleSystem landingDust;
+
+    //Coyote-Time
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteCount;
 
     //Variables para la caida
     [SerializeField] private float globalGravity;
@@ -43,6 +50,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float rollDirection;
     [SerializeField] private CapsuleCollider leifCollider;
     [SerializeField] private CapsuleCollider leifAttackDetection;
+    [SerializeField] private ParticleSystem rollDust;
 
     #endregion
 
@@ -57,12 +65,15 @@ public class Personaje : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private MeleeCombat combat;
     [SerializeField] private float tempSpeed;
+    [SerializeField] private float timeInv;
+    [SerializeField] private Material leifMaterial;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        knockBack = GetComponent<LeifKnockBack>();
         tempSpeed = Speed;
+        knockBack = GetComponent<LeifKnockBack>();
+        leifMaterial.color = Color.white;
     }
 
     void Update()
@@ -82,10 +93,16 @@ public class Personaje : MonoBehaviour
                 rollDirection = 1;
             }
 
-            if (knockBack.isHit == false)
-            {
-                Jump();
-            }
+            Jump();
+        }
+
+        if (isGrounded)
+        {
+            coyoteCount = coyoteTime;
+        }
+        else
+        {
+            coyoteCount -= Time.deltaTime;
         }
 
         if (isGrounded && !isJumping && canRoll)
@@ -129,31 +146,36 @@ public class Personaje : MonoBehaviour
 
     private void Jump()//Salto que se hace mas alto contra mas se sostiene apretado el boton.
     {
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (knockBack.isHit == false)
         {
-            isJumping = true;
-            animator.SetBool("IsJumping", isJumping);
-            jumpTime = JumpStartTime;
-
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        if (Input.GetButton("Jump") && isJumping)
-        {
-            if (jumpTime > 0)
+            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
             {
-                rb.velocity = Vector3.up * jumpForce;
-                jumpTime -= Time.deltaTime;
-            }
-            else
-            {
-                isJumping = false;
+                landingDust.Play();
+                isJumping = true;
                 animator.SetBool("IsJumping", isJumping);
+                jumpTime = JumpStartTime;
+
+                rb.velocity = Vector2.up * jumpForce;
+            }
+
+            if (Input.GetButton("Jump") && isJumping)
+            {
+                if (jumpTime > 0)
+                {
+                    rb.velocity = Vector3.up * jumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                    animator.SetBool("IsJumping", isJumping);
+                }
             }
         }
 
         if (Input.GetButtonUp("Jump"))
         {
+            coyoteCount = 0;
             isJumping = false;
             animator.SetBool("IsJumping", isJumping);
         }
@@ -163,6 +185,7 @@ public class Personaje : MonoBehaviour
     {
         if(!isGrounded && !isJumping)
         {
+            isLanding = true;
             timer += Time.fixedDeltaTime;
             Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
             rb.AddForce(gravity * timer, ForceMode.Acceleration);
@@ -183,6 +206,7 @@ public class Personaje : MonoBehaviour
     private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox
     {
         animator.SetTrigger("Roll");
+        rollDust.Play();
 
         canRoll = false;
         isRolling = true;
@@ -215,13 +239,40 @@ public class Personaje : MonoBehaviour
     private void Grounded()//Detecta si el player esta parado en el piso o no.
     {
         isGrounded = Physics.CheckBox(groundDetector.position, detectorDimensions, Quaternion.identity, isFloor);
+        if(isGrounded && isLanding)
+        {
+            isLanding = false;
+            landingDust.Play();
+        }
     }
 
     #endregion
 
     public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
+        animator.SetTrigger("Hit");
         HP -= damage;
+        if (HP <= 0)
+        {
+            StartCoroutine("Death");
+        }
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
+        StartCoroutine(Invulnerable(timeInv));
+    }
+
+    private IEnumerator Death()
+    {
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private IEnumerator Invulnerable(float time)
+    {
+        leifAttackDetection.enabled = false;
+        leifMaterial.color = Color.red;
+        yield return new WaitForSeconds(time);
+        leifMaterial.color = Color.white;
+        leifAttackDetection.enabled = true;
     }
 }

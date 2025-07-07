@@ -287,8 +287,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.1
-      minScalar: 0.9
+      scalar: 0.6
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: Ice
   particles: {fileID: 3961263349233009552}
-  icon: {fileID: 21300000, guid: 5bf7c636e765c81478b645be8c5d9590, type: 3}
+  icon: {fileID: 21300000, guid: f1fc577a9fdadf548b23297442b19b6b, type: 3}
   coolDown: 5
   particleColor: {r: 0.34509805, g: 0.93333334, b: 1, a: 1}
   intensity: 2

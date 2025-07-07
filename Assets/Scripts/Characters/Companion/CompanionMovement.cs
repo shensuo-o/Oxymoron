@@ -10,6 +10,7 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private float speed;
+    [SerializeField] private float normSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float maxDistancePredict;
     [SerializeField] private float minDistancePredict;
@@ -32,6 +33,7 @@ public class CompanionMovement : MonoBehaviour
     {
         //target = GameObject.Find("CompTarget");
         rb = GetComponent<Rigidbody>();
+        normSpeed = speed;
     }
 
     #region Movement
@@ -52,6 +54,19 @@ public class CompanionMovement : MonoBehaviour
             if (Dis >= distance)
             {
                 animator.SetBool("IsIdle", false);
+
+                if(Dis > 6)
+                {
+                    speed = speed < 12f ? speed + Mathf.Lerp(8, 12, Time.deltaTime) * Time.deltaTime : 12;
+                }
+                else if(Dis <= 6 && Dis > distance + 2)
+                {
+                    speed = speed > 8f ? speed - Mathf.Lerp(8, 12, Time.deltaTime) * Time.deltaTime : speed < 8f ? speed + Mathf.Lerp(8, 4, Time.deltaTime) * Time.deltaTime : 8;
+                }
+                else
+                {
+                    speed = speed > 4f ? speed - Mathf.Lerp(8, 4, Time.deltaTime) * Time.deltaTime : 4;
+                }
 
                 rb.velocity = transform.forward * speed;
 
