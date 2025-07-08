@@ -19,15 +19,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!Instance)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+
+        finalDoor = GameObject.Find("Exit");
+        Leif = GameObject.Find("Leif");
 
         CheckAmarillo = false;
         CheckRojo = false;
@@ -39,7 +34,10 @@ public class GameManager : MonoBehaviour
     {
         if (CheckAmarillo && CheckRojo && CheckRosa && CheckVerde)
         {
-            finalDoor.transform.position = new Vector3(31.6f, 31.6f, 0);
+            if(finalDoor != null)
+            {
+                finalDoor.transform.position = new Vector3(31.6f, 31.6f, 0);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -49,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         if (Finish)
         {
-            SceneManager.LoadScene("Prototype");
+            SceneManager.LoadScene("Menu");
         }
 
         if (Death)
@@ -58,7 +56,6 @@ public class GameManager : MonoBehaviour
             Death = false;
         }
     }
-
 }
 
 

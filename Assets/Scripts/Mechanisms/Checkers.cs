@@ -42,6 +42,7 @@ public class Checkers : MonoBehaviour
         if (Trigger == "AttackDetection" && !isWater)
         {
             GameManager.Finish = true;
+            SaveSpawn.Instance.transform.position = new Vector3(-274.44f, 3.02f, 0);
         }
 
         if (Trigger == "AttackDetection" && isWater)
