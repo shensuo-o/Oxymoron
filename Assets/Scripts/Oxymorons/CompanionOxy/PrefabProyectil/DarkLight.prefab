@@ -4900,6 +4900,10 @@ MonoBehaviour:
   dmg: 5
   force: 6
   timer: 0
+  velocity: {x: 0, y: 0, z: 0}
+  damp: 0.3
+  time: 0
+  coolDown: 3
 --- !u!135 &6174979061216101428
 SphereCollider:
   m_ObjectHideFlags: 0

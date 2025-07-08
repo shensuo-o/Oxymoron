@@ -1,12 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ShadowLightCast : StatsOximorones
 {
+    [SerializeField] private Vector3 velocity = Vector3.zero;
+    [SerializeField] private float damp = 0.03f;
+
+    [SerializeField] private float time = 0;
+    [SerializeField] private float coolDown = 1;
+
     private void Start()
     {
         Destroy(this.gameObject, lifeTime);
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (time <= coolDown)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 50;
+            Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, damp);
+        }
     }
 
     private void OnTriggerStay(Collider other)
