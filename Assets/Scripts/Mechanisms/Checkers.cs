@@ -13,32 +13,40 @@ public class Checkers : MonoBehaviour
     {
         if (Trigger == "CuboAmarillo")
         {
-            GameManager.CheckAmarillo = true;    
-         }   
+            GameManager.CheckAmarillo = true;
+            other.transform.position = new Vector3 (transform.position.x, transform.position.y - 0.5f, 0);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }   
 
         if (Trigger == "CuboRojo")
         {    
-            GameManager.CheckRojo = true;    
+            GameManager.CheckRojo = true;
+            other.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
+            other.gameObject.GetComponent<Collider>().enabled = false;
         }        
 
         if (Trigger == "CuboVerde")    
         {    
-            GameManager.CheckVerde = true;    
+            GameManager.CheckVerde = true;
+            other.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
+            other.gameObject.GetComponent<Collider>().enabled = false;
         }    
 
-            if (Trigger == "CuboRosa")
-            {
-                GameManager.CheckRosa = true;
-            }
+        if (Trigger == "CuboRosa")
+        {
+            GameManager.CheckRosa = true;
+            other.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, 0);
+            other.gameObject.GetComponent<Collider>().enabled = false;
+        }
 
-            if (Trigger == "AttackDetection" && !isWater)
-            {
-                GameManager.Finish = true;
-            }
+        if (Trigger == "AttackDetection" && !isWater)
+        {
+            GameManager.Finish = true;
+        }
 
-            if (Trigger == "AttackDetection" && isWater)
-            {
-                GameManager.Death = true;
-            }    
+        if (Trigger == "AttackDetection" && isWater)
+        {
+            GameManager.Death = true;
+        }    
     }
 }

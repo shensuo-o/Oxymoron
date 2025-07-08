@@ -23,11 +23,14 @@ public class Whirlwind : StatsOximorones
         if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
         {
             timer += Time.deltaTime;
-            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, pointEffect.position, force * Time.deltaTime);
-            if (timer >= lifeTime - 0.5f)
+            if (other.gameObject.GetComponent<Collider>() != null)
             {
-                other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, pointEffect.position, force * Time.deltaTime);
+                if (timer >= lifeTime - 0.5f)
+                {
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                }
             }
         }
     }

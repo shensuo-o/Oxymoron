@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Animator animator;
     [SerializeField] private CapsuleCollider hitbox;
-    [SerializeField] private CapsuleCollider hitbox2;
     [SerializeField] private Renderer render;
     [SerializeField] private Material material;
     [SerializeField] private Material dmgMaterial;
@@ -129,7 +128,6 @@ public class Enemy : MonoBehaviour
     {
         animator.SetBool("Death", true);
         hitbox.enabled = false;
-        hitbox2.enabled = false;
         Speed = 0;
         RB.velocity = Vector3.zero;
         yield return new WaitForSeconds(3);
