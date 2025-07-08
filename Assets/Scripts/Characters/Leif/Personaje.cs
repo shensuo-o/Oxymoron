@@ -76,6 +76,14 @@ public class Personaje : MonoBehaviour
         leifMaterial.color = Color.white;
     }
 
+    private void Start()
+    {
+        if (SaveSpawn.Instance != null)
+        {
+            transform.position = SaveSpawn.Instance.transform.position;
+        }
+    }
+
     void Update()
     {
         if (!isRolling)

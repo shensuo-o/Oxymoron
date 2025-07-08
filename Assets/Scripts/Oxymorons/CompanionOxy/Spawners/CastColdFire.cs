@@ -6,6 +6,11 @@ public class CastColdFire : Oximorons
 {
     public Transform target;
 
+    private void Awake()
+    {
+        time = cooldown;
+    }
+
     void Update()
     {
         time += Time.deltaTime;

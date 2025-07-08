@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ShadowLight : Oximorons
 {
+    private void Awake()
+    {
+        time = cooldown;
+    }
+
     void Update()
     {
         time += Time.deltaTime;
