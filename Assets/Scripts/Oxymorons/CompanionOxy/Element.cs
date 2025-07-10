@@ -11,7 +11,7 @@ public class Element : MonoBehaviour
     [SerializeField] private float coolDown;
 
     [ColorUsage(hdr: true, showAlpha: true)]
-    [SerializeField] private Color particleColor;
+    public Color particleColor;
     [SerializeField] private float intensity;
 
     public EspadaElements swordEffect;
