@@ -271,7 +271,9 @@ public class Personaje : MonoBehaviour
     private IEnumerator Death()
     {
         animator.SetTrigger("Die");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
+        LoadLevel.Instance.PlayStart();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
