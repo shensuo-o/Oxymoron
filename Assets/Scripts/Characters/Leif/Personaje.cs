@@ -68,6 +68,9 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float timeInv;
     [SerializeField] private Material leifMaterial;
 
+    //variable de animacion
+    public float PreAction;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -158,9 +161,9 @@ public class Personaje : MonoBehaviour
         {
             if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
             {
-                landingDust.Play();
-                isJumping = true;
+                //landingDust.Play();
                 animator.SetBool("IsJumping", isJumping);
+                isJumping = true;
                 jumpTime = JumpStartTime;
 
                 rb.velocity = Vector2.up * jumpForce;
@@ -214,6 +217,7 @@ public class Personaje : MonoBehaviour
     private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox
     {
         animator.SetTrigger("Roll");
+        yield return new WaitForSeconds(PreAction);
         rollDust.Play();
 
         canRoll = false;
@@ -270,10 +274,12 @@ public class Personaje : MonoBehaviour
 
     private IEnumerator Death()
     {
+        leifMaterial.color = Color.white;
+        leifAttackDetection.enabled = false;
         animator.SetTrigger("Die");
         yield return new WaitForSeconds(1.5f);
         LoadLevel.Instance.PlayStart();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

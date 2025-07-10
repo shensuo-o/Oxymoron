@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4a2854d94296c4d91bd60bedb9bc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 50
   Speed: 3
   tempSpeed: 0
   slowDownDuration: 4
@@ -160,7 +160,7 @@ MonoBehaviour:
   node1: {fileID: 0}
   node2: {fileID: 0}
   currentNode: {fileID: 0}
-  Damage: 0
+  Damage: 25
   Leif: {fileID: 0}
   IsChasing: 0
   PlayerMask:
@@ -173,7 +173,6 @@ MonoBehaviour:
   hitEffect: {fileID: 8633557071655952220}
   animator: {fileID: 2118710838495976395}
   hitbox: {fileID: 3382151460611143122}
-  hitbox2: {fileID: 0}
   render: {fileID: 7134394345558399379}
   material: {fileID: 2100000, guid: 85278d3ea650aca40a6c6735ee04e8d5, type: 2}
   dmgMaterial: {fileID: 2100000, guid: 206fc24a28343d4488957bcf29687fec, type: 2}
