@@ -22,6 +22,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float JumpStartTime;
     [SerializeField] private float jumpTime;
     [SerializeField] public bool isJumping;
+    [SerializeField] public bool PreJumping;
     [SerializeField] private Transform groundDetector;
     [SerializeField] private Vector3 detectorDimensions;
     [SerializeField] private bool isGrounded;
@@ -104,7 +105,7 @@ public class Personaje : MonoBehaviour
                 rollDirection = 1;
             }
 
-            Jump();
+            PreJump();
         }
 
         if (isGrounded)
@@ -153,20 +154,31 @@ public class Personaje : MonoBehaviour
         var xVel = dir * Speed * 100 * Time.fixedDeltaTime;
         Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
         rb.velocity = targetVelocity;
-    } 
+    }
+
+    private void PreJump()
+    {
+        if (coyoteCount > 0 && Input.GetButtonDown("Jump") && !PreJumping)
+        {
+            PreJumping = true;
+            animator.SetBool("PreJumping", true);
+            Debug.Log("Inicio de PreJump");
+        }
+    }
 
     private void Jump()//Salto que se hace mas alto contra mas se sostiene apretado el boton.
     {
+        Debug.Log("Salto");
         if (knockBack.isHit == false)
         {
-            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
+            if (PreJumping && coyoteCount > 0)
             {
-                //landingDust.Play();
-                animator.SetBool("IsJumping", isJumping);
+                Debug.Log("Salto ejecutado desde evento de animación");
                 isJumping = true;
                 jumpTime = JumpStartTime;
-
-                rb.velocity = Vector2.up * jumpForce;
+                rb.velocity = Vector3.up * jumpForce;
+                animator.SetBool("isJumping", true);
+                animator.SetBool("PreJumping", false);
             }
 
             if (Input.GetButton("Jump") && isJumping)
@@ -179,6 +191,7 @@ public class Personaje : MonoBehaviour
                 else
                 {
                     isJumping = false;
+                    PreJumping = false;
                     animator.SetBool("IsJumping", isJumping);
                 }
             }
@@ -188,6 +201,7 @@ public class Personaje : MonoBehaviour
         {
             coyoteCount = 0;
             isJumping = false;
+            PreJumping = false;
             animator.SetBool("IsJumping", isJumping);
         }
     }
@@ -255,6 +269,8 @@ public class Personaje : MonoBehaviour
         {
             isLanding = false;
             landingDust.Play();
+            PreJumping = false;
+            animator.SetBool("PreJumping", false);
         }
     }
 
