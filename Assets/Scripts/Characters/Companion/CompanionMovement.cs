@@ -36,6 +36,14 @@ public class CompanionMovement : MonoBehaviour
         normSpeed = speed;
     }
 
+    private void Start()
+    {
+        if (SaveSpawn.Instance != null)
+        {
+            transform.position = SaveSpawn.Instance.transform.position;
+        }
+    }
+
     #region Movement
 
     private void Update()

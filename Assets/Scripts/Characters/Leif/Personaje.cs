@@ -288,7 +288,7 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
