@@ -11,11 +11,13 @@ public class DoorTrigger : MonoBehaviour
 
     public AudioSource source;
     public AudioClip AudioCast;
+    public Animator animator;
 
     public GameObject animatedObject;
     private void Start()
     {
         open = false;
+        animator = animatedObject.GetComponent<Animator>();
     }
 
 
@@ -26,10 +28,9 @@ public class DoorTrigger : MonoBehaviour
             thingToMove.transform.position += new Vector3(0, Vertical, 0);
             open = true;
 
-            Animator anim = animatedObject.GetComponent<Animator>();
-            if (anim != null)
+            if (animator != null)
             {
-                anim.SetBool("Solved", true);
+                animator.SetBool("Solved", true);
                 PlaySound(AudioCast);
             }
 

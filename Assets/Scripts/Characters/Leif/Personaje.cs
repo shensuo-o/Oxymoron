@@ -106,8 +106,6 @@ public class Personaje : MonoBehaviour
             {
                 rollDirection = 1;
             }
-
-            PreJump();
         }
 
         if (isGrounded)
@@ -118,6 +116,8 @@ public class Personaje : MonoBehaviour
         {
             coyoteCount -= Time.deltaTime;
         }
+
+        Jump();
 
         if (isGrounded && !isJumping && canRoll)
         {
@@ -158,21 +158,12 @@ public class Personaje : MonoBehaviour
         rb.velocity = targetVelocity;
     }
 
-    private void PreJump()
-    {
-        if (coyoteCount > 0 && Input.GetButtonDown("Jump") && !PreJumping && !isJumping)
-        {
-            PreJumping = true;
-            animator.SetBool("PreJumping", true);
-        }
-    }
     private void Jump()//Salto que se hace mas alto contra mas se sostiene apretado el boton.
     {
-        /*if (knockBack.isHit == false)
+        if (knockBack.isHit == false)
         {
-            if (coyoteCount > 0 && Input.GetButtonDown("Jump") && PreJumping)
+            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
             {
-                //landingDust.Play();
                 isJumping = true;
                 animator.SetBool("IsJumping", isJumping);
                 jumpTime = JumpStartTime;
@@ -190,7 +181,6 @@ public class Personaje : MonoBehaviour
                 else
                 {
                     isJumping = false;
-                    PreJumping = false;
                     animator.SetBool("IsJumping", isJumping);
                 }
             }
@@ -202,28 +192,8 @@ public class Personaje : MonoBehaviour
             isJumping = false;
             PreJumping = false;
             animator.SetBool("IsJumping", isJumping);
-        }*/
-
-        if (knockBack.isHit) return;
-
-        isJumping = true;
-        PreJumping = false;
-
-        animator.SetBool("IsJumping", true);
-        animator.SetBool("PreJumping", false);
-
-        rb.velocity = Vector2.up * jumpForce;
-
-        StartCoroutine(EndJumpAfterTime());
+        }
     }
-    private IEnumerator EndJumpAfterTime()
-    {
-        yield return new WaitForSeconds(JumpStartTime); // el mismo valor que antes
-
-        isJumping = false;
-        animator.SetBool("IsJumping", false);
-    }
-
 
     private void Gravity()//Simula gravedad para matener al jugador en el piso y para tener saltos mas realistas.
     {

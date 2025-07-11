@@ -15,7 +15,7 @@ public class SpecialDoors : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 16 && other.gameObject.name == "CuboAmarillo" && !open)
+        if (other.gameObject.layer == 16 && other.gameObject.name == "Blue" && !open)
         {
             thingToMove.transform.position += new Vector3(0, Vertical, 0);
 
@@ -25,7 +25,7 @@ public class SpecialDoors : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 16 && other.gameObject.name == "CuboAmarillo" && open)
+        if (other.gameObject.layer == 16 && other.gameObject.name == "Blue" && open)
         {
             thingToMove.transform.position += new Vector3(0, -Vertical, 0);
 

@@ -12,6 +12,7 @@ public class Checkers : MonoBehaviour
     public GameObject animatedObject;
     public AudioSource source;
     public AudioClip AudioCast;
+    public Animator animator;
 
 
     private void OnTriggerEnter(Collider other)
@@ -44,36 +45,39 @@ public class Checkers : MonoBehaviour
             other.gameObject.GetComponent<Collider>().enabled = false;
         }*/
 
-        Animator anim = animatedObject.GetComponent<Animator>();
-
+        if (animatedObject != null)
+        {
+            animator = animatedObject.GetComponent<Animator>();
+        }
 
         switch (Trigger)
         {
             case "Blue":
                 GameManager.CheckAmarillo = true;
                 PlaySound(AudioCast);
+                other.gameObject.SetActive(false);
                 break;
             case "Red":
                 GameManager.CheckRojo = true;
                 PlaySound(AudioCast);
+                other.gameObject.SetActive(false);
                 break;
             case "Green":
                 GameManager.CheckVerde = true;
                 PlaySound(AudioCast);
+                other.gameObject.SetActive(false);
                 break;
             case "Yellow":
                 GameManager.CheckRosa = true;
                 PlaySound(AudioCast);
+                other.gameObject.SetActive(false);
                 break;
         }
 
-        if (anim != null)
+        if (animator != null)
         {
-            anim.SetBool("Solved", true);
+            animator.SetBool("Solved", true);
         }
-
-        // Desactiva el objeto que entró (podés usar SetActive(false) si querés ocultarlo completo)
-        other.gameObject.SetActive(false);
 
         if (Trigger == "AttackDetection" && !isWater)
         {
