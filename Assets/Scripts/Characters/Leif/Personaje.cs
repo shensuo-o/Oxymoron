@@ -331,11 +331,11 @@ public class Personaje : MonoBehaviour
 
     private IEnumerator DamageShaderEffect()
     {
-        float duration = 1f;
+        float duration = 0.9f;
         float elapsed = 0f;
 
         HitMaterial.SetFloat("_DistDist2", 1f);
-
+        yield return new WaitForSeconds(0.1f);
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
