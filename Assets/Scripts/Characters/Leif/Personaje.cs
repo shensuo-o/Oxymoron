@@ -68,6 +68,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float tempSpeed;
     [SerializeField] private float timeInv;
     [SerializeField] private Material leifMaterial;
+    [SerializeField] private Material HitMaterial;
 
     //variable de animacion
     public float PreAction;
@@ -297,6 +298,9 @@ public class Personaje : MonoBehaviour
     {
         animator.SetTrigger("Hit");
         HP -= damage;
+
+        HitMaterial.SetFloat("_DistDist2", 1f);
+        StartCoroutine(DamageShaderEffect());
         if (HP <= 0)
         {
             StartCoroutine("Death");
@@ -323,5 +327,25 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(time);
         leifMaterial.color = Color.white;
         leifAttackDetection.enabled = true;
+    }
+
+    private IEnumerator DamageShaderEffect()
+    {
+        float duration = 0.3f;
+        float elapsed = 0f;
+
+        HitMaterial.SetFloat("_DistDist2", 1f);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = 1f - (elapsed / duration);
+            HitMaterial.SetFloat("_DistDist2", t);
+            yield return null;
+        }
+
+        HitMaterial.SetFloat("_DistDist2", 0f);
+        yield return null;
+        HitMaterial.SetFloat("_DistDist2", 1f);
     }
 }
