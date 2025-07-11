@@ -57,6 +57,7 @@ public class MeleeCombat : MonoBehaviour
         {
             animator.SetInteger("AttackCombo", 1);
             collision.enabled = true;
+            swordObj.enabled = true;
         }
     }
 

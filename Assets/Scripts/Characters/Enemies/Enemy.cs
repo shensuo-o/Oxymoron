@@ -28,6 +28,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Material material;
     [SerializeField] private Material dmgMaterial;
 
+    [SerializeField] private AudioSource Source;
+    [SerializeField] private AudioClip AIdle;
+    [SerializeField] private AudioClip AWalk;
+    [SerializeField] private AudioClip AAttack;
+    [SerializeField] private AudioClip AHit;
+    [SerializeField] private AudioClip ADeath;
+
     private Vector3 rotation;
 
     void Start()
@@ -36,6 +43,7 @@ public class Enemy : MonoBehaviour
         Leif = GameObject.Find("Leif").GetComponent<Personaje>();
         currentNode = node1;
         tempSpeed = Speed;
+        //StartCoroutine(LoopSounds());
     }
 
     private void Update()
@@ -80,7 +88,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(AttackMeele());
         }
 
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 3, GroundMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 3, GroundMask))
         {
             IsOnGround = true;
         }
@@ -93,6 +101,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator AttackMeele()
     {
         animator.SetBool("Attack", true);
+        PlaySound(AAttack);
         yield return new WaitForSeconds(2);
         animator.SetBool("Attack", false);
     }
@@ -127,6 +136,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator Death()
     {
         animator.SetBool("Death", true);
+        PlaySound(ADeath);
         hitbox.enabled = false;
         Speed = 0;
         RB.velocity = Vector3.zero;
@@ -145,6 +155,7 @@ public class Enemy : MonoBehaviour
         {
             render.material = dmgMaterial;
             animator.SetTrigger("Hit");
+            PlaySound(AHit);
             hitEffect.Play();
             HP -= Leif.Damage;
             Speed -= Leif.slowSpeed;
@@ -158,8 +169,8 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider collision)
-    { 
-        if(collision.gameObject.layer == 11)
+    {
+        if (collision.gameObject.layer == 11)
         {
             HP -= collision.gameObject.GetComponentInParent<StatsOximorones>().dmg * Time.deltaTime;
             if (HP <= 0)
@@ -168,4 +179,21 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    public void PlaySound(AudioClip clip)
+    {
+        Source.PlayOneShot(clip);
+    }
+
+    /*private IEnumerator LoopSounds()
+    {
+        while (true)
+        {
+            PlaySound(AIdle);
+            yield return new WaitForSeconds(4f);
+            PlaySound(AWalk);
+            yield return new WaitForSeconds(4f);
+        }
+
+
+    }*/
 }

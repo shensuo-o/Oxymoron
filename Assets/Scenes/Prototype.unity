@@ -80067,6 +80067,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88560f395d04d8141872863db66da2e0, type: 2}
+    - target: {fileID: 2252906220262115987, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_Time
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2317867364940630314, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: fill
