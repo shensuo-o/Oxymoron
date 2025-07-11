@@ -9,7 +9,8 @@ public class ShadowLightCast : StatsOximorones
     [SerializeField] private float damp = 0.03f;
 
     [SerializeField] private float time = 0;
-    [SerializeField] private float coolDown = 1;
+    [SerializeField] private float coolDown = 0.5f;
+    //[SerializeField] private float DragTime = 1f;
 
     private void Start()
     {

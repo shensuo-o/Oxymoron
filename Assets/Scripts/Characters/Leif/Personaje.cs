@@ -83,6 +83,7 @@ public class Personaje : MonoBehaviour
 
     private void Start()
     {
+        HitMaterial.SetFloat("_DistDist2", 1f);
         if (SaveSpawn.Instance != null)
         {
             transform.position = SaveSpawn.Instance.transform.position;
@@ -315,6 +316,7 @@ public class Personaje : MonoBehaviour
         leifAttackDetection.enabled = false;
         animator.SetTrigger("Die");
         yield return new WaitForSeconds(1.5f);
+        HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
