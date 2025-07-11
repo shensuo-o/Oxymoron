@@ -18,7 +18,8 @@ public class MeleeCombat : MonoBehaviour
     [SerializeField] private CapsuleCollider sword;
     [SerializeField] private GameObject[] particles;
     [SerializeField] private Dictionary<String, GameObject> swordParticles = new Dictionary<string, GameObject>();
-    [SerializeField] private VisualEffect slashEffect;
+    [SerializeField] private TrailRenderer swordObj;
+    
 
     private void Awake()
     {
@@ -55,7 +56,6 @@ public class MeleeCombat : MonoBehaviour
         if (clicks == 1)
         {
             animator.SetInteger("AttackCombo", 1);
-            slashEffect.Play(); 
             collision.enabled = true;
         }
     }
@@ -68,42 +68,42 @@ public class MeleeCombat : MonoBehaviour
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
-            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
+            swordObj.enabled = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_1") && clicks >= 2)
         {
             animator.SetInteger("AttackCombo", 2);
             collision.enabled = true;
-            slashEffect.Play();
+            swordObj.enabled = true;
             canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && clicks == 2)
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
-            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
+            swordObj.enabled = false;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2") && clicks >= 3)
         {
             animator.SetInteger("AttackCombo", 3);
             collision.enabled = true;
-            slashEffect.Play();
+            swordObj.enabled = true;
             canAttack = true;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3"))
         {
             animator.SetInteger("AttackCombo", 0);
             canAttack = true;
-            slashEffect.Play();
             clicks = 0;
             isAttacking = false;
             collision.enabled = false;
+            swordObj.enabled = false;
         }
     }
 
