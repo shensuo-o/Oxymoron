@@ -331,7 +331,7 @@ public class Personaje : MonoBehaviour
 
     private IEnumerator DamageShaderEffect()
     {
-        float duration = 0.3f;
+        float duration = 1f;
         float elapsed = 0f;
 
         HitMaterial.SetFloat("_DistDist2", 1f);
