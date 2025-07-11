@@ -11,6 +11,7 @@ public class OximoronSlot : MonoBehaviour
     public Image element1;
     public Image element2;
     public Image oximoronIcon;
+    public Image coolDownShow;
 
     [SerializeField] private Sprite defaultOxiIcon;
     [SerializeField] private Sprite defaultElemIcon;
@@ -21,9 +22,11 @@ public class OximoronSlot : MonoBehaviour
     public bool CanRecieveElement;
 
     [SerializeField] private Material slotMaterial;
+    public Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         slotMaterial.SetTexture("_Icon", null);
         slotMaterial.SetColor("_OximoronColor", Color.black);
     }

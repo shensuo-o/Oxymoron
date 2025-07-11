@@ -17,8 +17,10 @@ public class CastWhirlwind : Oximorons
     {
         time += Time.deltaTime;
         time = Mathf.Clamp(time, 0, cooldown);
+
         if (slots[CompanionInventory.Instance.index] != null)
         {
+
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
                 //PlaySound(AudioCast);

@@ -40,11 +40,12 @@ public class Oximorons : MonoBehaviour
     
     public void ResetCoolDown()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < CompanionInventory.Instance.Slots.Length; i++)
         {
-            if (slots[i] != null)
+            if (CompanionInventory.Instance.Slots[i].equipedOximoron != null)
             {
-                slots[i].equipedOximoron.time = 0;
+                CompanionInventory.Instance.Slots[i].equipedOximoron.time = 0;
+                CompanionInventory.Instance.Slots[i].animator.SetTrigger("CoolDown");
             }
         }
     }

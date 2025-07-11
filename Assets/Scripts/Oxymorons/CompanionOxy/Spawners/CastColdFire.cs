@@ -18,6 +18,8 @@ public class CastColdFire : Oximorons
 
         if (slots[CompanionInventory.Instance.index] != null)
         {
+            
+
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
                 PlayCast();
