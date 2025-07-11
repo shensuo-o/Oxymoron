@@ -15,9 +15,17 @@ public class EnviromentTrigger : MonoBehaviour
             {
                 if (allowedOximorons[i] == other.GetComponent<StatsOximorones>().oxiName)
                 {
-                    animator.SetBool("Move", true);
+                    StartCoroutine(ActivateMoveAnim());
                 }
             }
         }
     }
+
+    public IEnumerator ActivateMoveAnim()
+    {
+        animator.SetBool("Move", true);   
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("Move", false); 
+    }
+
 }
