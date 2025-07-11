@@ -22,6 +22,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float JumpStartTime;
     [SerializeField] private float jumpTime;
     [SerializeField] public bool isJumping;
+    [SerializeField] public bool PreJumping;
     [SerializeField] private Transform groundDetector;
     [SerializeField] private Vector3 detectorDimensions;
     [SerializeField] private bool isGrounded;
@@ -67,6 +68,7 @@ public class Personaje : MonoBehaviour
     [SerializeField] private float tempSpeed;
     [SerializeField] private float timeInv;
     [SerializeField] private Material leifMaterial;
+    [SerializeField] private Material HitMaterial;
 
     //variable de animacion
     public float PreAction;
@@ -81,6 +83,7 @@ public class Personaje : MonoBehaviour
 
     private void Start()
     {
+        HitMaterial.SetFloat("_DistDist2", 1f);
         if (SaveSpawn.Instance != null)
         {
             transform.position = SaveSpawn.Instance.transform.position;
@@ -104,7 +107,7 @@ public class Personaje : MonoBehaviour
                 rollDirection = 1;
             }
 
-            Jump();
+            PreJump();
         }
 
         if (isGrounded)
@@ -153,17 +156,25 @@ public class Personaje : MonoBehaviour
         var xVel = dir * Speed * 100 * Time.fixedDeltaTime;
         Vector3 targetVelocity = new Vector3(xVel, rb.velocity.y);
         rb.velocity = targetVelocity;
-    } 
+    }
 
+    private void PreJump()
+    {
+        if (coyoteCount > 0 && Input.GetButtonDown("Jump") && !PreJumping && !isJumping)
+        {
+            PreJumping = true;
+            animator.SetBool("PreJumping", true);
+        }
+    }
     private void Jump()//Salto que se hace mas alto contra mas se sostiene apretado el boton.
     {
-        if (knockBack.isHit == false)
+        /*if (knockBack.isHit == false)
         {
-            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
+            if (coyoteCount > 0 && Input.GetButtonDown("Jump") && PreJumping)
             {
                 //landingDust.Play();
-                animator.SetBool("IsJumping", isJumping);
                 isJumping = true;
+                animator.SetBool("IsJumping", isJumping);
                 jumpTime = JumpStartTime;
 
                 rb.velocity = Vector2.up * jumpForce;
@@ -179,6 +190,7 @@ public class Personaje : MonoBehaviour
                 else
                 {
                     isJumping = false;
+                    PreJumping = false;
                     animator.SetBool("IsJumping", isJumping);
                 }
             }
@@ -188,9 +200,30 @@ public class Personaje : MonoBehaviour
         {
             coyoteCount = 0;
             isJumping = false;
+            PreJumping = false;
             animator.SetBool("IsJumping", isJumping);
-        }
+        }*/
+
+        if (knockBack.isHit) return;
+
+        isJumping = true;
+        PreJumping = false;
+
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("PreJumping", false);
+
+        rb.velocity = Vector2.up * jumpForce;
+
+        StartCoroutine(EndJumpAfterTime());
     }
+    private IEnumerator EndJumpAfterTime()
+    {
+        yield return new WaitForSeconds(JumpStartTime); // el mismo valor que antes
+
+        isJumping = false;
+        animator.SetBool("IsJumping", false);
+    }
+
 
     private void Gravity()//Simula gravedad para matener al jugador en el piso y para tener saltos mas realistas.
     {
@@ -254,6 +287,8 @@ public class Personaje : MonoBehaviour
         if(isGrounded && isLanding)
         {
             isLanding = false;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
             landingDust.Play();
         }
     }
@@ -264,6 +299,9 @@ public class Personaje : MonoBehaviour
     {
         animator.SetTrigger("Hit");
         HP -= damage;
+
+        HitMaterial.SetFloat("_DistDist2", 1f);
+        StartCoroutine(DamageShaderEffect());
         if (HP <= 0)
         {
             StartCoroutine("Death");
@@ -278,6 +316,7 @@ public class Personaje : MonoBehaviour
         leifAttackDetection.enabled = false;
         animator.SetTrigger("Die");
         yield return new WaitForSeconds(1.5f);
+        HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -290,5 +329,25 @@ public class Personaje : MonoBehaviour
         yield return new WaitForSeconds(time);
         leifMaterial.color = Color.white;
         leifAttackDetection.enabled = true;
+    }
+
+    private IEnumerator DamageShaderEffect()
+    {
+        float duration = 0.9f;
+        float elapsed = 0f;
+
+        HitMaterial.SetFloat("_DistDist2", 1f);
+        yield return new WaitForSeconds(0.1f);
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = 1f - (elapsed / duration);
+            HitMaterial.SetFloat("_DistDist2", t);
+            yield return null;
+        }
+
+        HitMaterial.SetFloat("_DistDist2", 0f);
+        yield return null;
+        HitMaterial.SetFloat("_DistDist2", 1f);
     }
 }

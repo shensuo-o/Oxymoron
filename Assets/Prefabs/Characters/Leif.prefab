@@ -6091,6 +6091,7 @@ MonoBehaviour:
   JumpStartTime: 0.25
   jumpTime: 0
   isJumping: 0
+  PreJumping: 0
   groundDetector: {fileID: 3656380337701871442}
   detectorDimensions: {x: 0.45, y: 0.5, z: 0.45}
   isGrounded: 0
@@ -6126,6 +6127,8 @@ MonoBehaviour:
   tempSpeed: 0
   timeInv: 0
   leifMaterial: {fileID: 0}
+  HitMaterial: {fileID: 2100000, guid: 4d9f13071e0eefb4f979cdbdd3a7b511, type: 2}
+  PreAction: 0.2
 --- !u!114 &3554180541096354204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27802,6 +27805,8 @@ MonoBehaviour:
   fill: {fileID: 0}
   redWarning: {fileID: 0}
   absorbEffect: {fileID: 2059704682738945492}
+  nearElement: {fileID: 0}
+  size: 0
 --- !u!1001 &2375799465239460791
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,9 +8,16 @@ public class Whirlwind : StatsOximorones
     public float speed;
     [SerializeField] private Transform pointEffect;
 
+    [SerializeField] private AudioSource Source;
+    [SerializeField] private AudioClip AudioCast;
     void Start()
     {
         Destroy(this.gameObject, lifeTime);
+    }
+
+    private void Awake()
+    {
+        PlaySound(AudioCast);
     }
 
     void Update()
@@ -41,5 +48,11 @@ public class Whirlwind : StatsOximorones
         {
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
+    }
+    
+    public void PlaySound(AudioClip clip)
+    {
+    Source.clip = clip;
+    Source.Play();
     }
 }

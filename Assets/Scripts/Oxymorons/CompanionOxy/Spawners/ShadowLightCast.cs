@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShadowLight : Oximorons
 {
+    //public AudioSource source;
+    //public AudioClip AudioCast;
     private void Awake()
     {
         time = cooldown;
@@ -23,6 +25,7 @@ public class ShadowLight : Oximorons
                 mousePos.z = 50;
                 Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
                 Instantiate(proyectile, pos, Quaternion.identity);
+                //PlaySound(AudioCast);
                 charges--;
                 ResetCoolDown();
                 if (charges <= 0)
@@ -30,7 +33,13 @@ public class ShadowLight : Oximorons
                     TurnOff();
                 }
                 ClearSlot();
+
             }
         }
     }
+    /*public void PlaySound(AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
+    }*/
 }
