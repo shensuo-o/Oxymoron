@@ -9,12 +9,43 @@ public class DoorTrigger : MonoBehaviour
     public float Vertical;
     public int layer;
 
+    public AudioSource source;
+    public AudioClip AudioCast;
+
+    public GameObject animatedObject;
     private void Start()
     {
         open = false;
     }
 
+
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == layer && !open)
+        {
+            thingToMove.transform.position += new Vector3(0, Vertical, 0);
+            open = true;
+
+            Animator anim = animatedObject.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetBool("Solved", true);
+                PlaySound(AudioCast);
+            }
+
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
+    }
+
+
+
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == layer && !open)
         {
@@ -22,9 +53,9 @@ public class DoorTrigger : MonoBehaviour
 
             open = true;
         }
-    }
+    }*/
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == layer && open)
         {
@@ -32,5 +63,5 @@ public class DoorTrigger : MonoBehaviour
 
             open = false;
         }
-    }
+    }*/
 }
