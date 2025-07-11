@@ -5,6 +5,8 @@ using UnityEngine;
 public class CastWhirlwind : Oximorons
 {
     [SerializeField] private Transform spawnPoint;
+    //public AudioSource source;
+    //public AudioClip AudioCast;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class CastWhirlwind : Oximorons
         {
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
+                //PlaySound(AudioCast);
                 PlayCast();
                 Instantiate(proyectile, spawnPoint.position, spawnPoint.rotation);
                 charges--;
@@ -31,4 +34,9 @@ public class CastWhirlwind : Oximorons
             }
         } 
     }
+    /*public void PlaySound(AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
+    }*/
 }

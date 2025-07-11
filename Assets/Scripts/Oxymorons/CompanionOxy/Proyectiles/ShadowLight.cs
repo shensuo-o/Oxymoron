@@ -10,11 +10,18 @@ public class ShadowLightCast : StatsOximorones
 
     [SerializeField] private float time = 0;
     [SerializeField] private float coolDown = 0.5f;
-    //[SerializeField] private float DragTime = 1f;
+
+    [SerializeField] private AudioSource Source;
+    [SerializeField] private AudioClip AudioCast;
 
     private void Start()
     {
         Destroy(this.gameObject, lifeTime);
+    }
+
+    private void Awake()
+    {
+        PlaySound(AudioCast);
     }
 
     private void Update()
@@ -54,4 +61,11 @@ public class ShadowLightCast : StatsOximorones
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
+
+        public void PlaySound(AudioClip clip)
+    {
+        Source.clip = clip;
+        Source.Play();
+    }
+
 }
