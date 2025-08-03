@@ -80431,7 +80431,7 @@ PrefabInstance:
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: maxFallSpeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -81102,9 +81102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leif: {fileID: 0}
-  damp: 0.3
+  damp: 0.2
   velocity: {x: 0, y: 0, z: 0}
-  offSet: 4
+  offSet: 6
 --- !u!82 &8335655296797593530
 AudioSource:
   m_ObjectHideFlags: 0
