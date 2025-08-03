@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            offSet = -4;
+            offSet = 0;
         } 
         else
         {

@@ -80103,6 +80103,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88560f395d04d8141872863db66da2e0, type: 2}
+    - target: {fileID: 2018472695504312263, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2252906220262115987, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_Time
@@ -80423,6 +80428,11 @@ PrefabInstance:
       propertyPath: leifMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 2a177c45f5779c44dbe51c20a98a8a96, type: 2}
+    - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: maxFallSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: rollCoolDown

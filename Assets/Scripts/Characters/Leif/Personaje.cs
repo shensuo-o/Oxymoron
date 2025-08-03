@@ -202,6 +202,7 @@ public class Personaje : MonoBehaviour
             isLanding = true;
             timer += Time.fixedDeltaTime;
             Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
+            Debug.Log("despues de saltar: " + gravity);
             rb.AddForce(gravity * timer, ForceMode.Acceleration);
             if (timer >= 1.3f)
             {
@@ -210,8 +211,9 @@ public class Personaje : MonoBehaviour
         }
         else if (isGrounded && !isJumping)
         {
-            timer = 1f;
+            timer = 1.2f;
             Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
+            Debug.Log("tocando el piso:" + gravity);
             rb.AddForce(gravity, ForceMode.Acceleration);
         }
 
