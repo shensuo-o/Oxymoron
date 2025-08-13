@@ -8,6 +8,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float damp;
     [SerializeField] private Vector3 velocity = Vector3.zero;
     [SerializeField] private float offSet;
+    [SerializeField] private float offSetSpeed;
 
     private void Awake()
     {
@@ -18,21 +19,37 @@ public class CameraFollow : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            offSet = 8;
+            offSet += offSetSpeed * Time.deltaTime;
+            offSet = Mathf.Clamp(offSet, 0, 8);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            offSet = 0;
+            offSet -= offSetSpeed * Time.deltaTime;
+            offSet = Mathf.Clamp(offSet, 0, 8);
         } 
         else
         {
-            offSet = 4;
+            if (offSet > 4)
+            {
+                offSet -= offSetSpeed * Time.deltaTime;
+                offSet = Mathf.Clamp(offSet, 4, 8);
+            }
+            else if(offSet < 4)
+            {
+                offSet += offSetSpeed * Time.deltaTime;
+                offSet = Mathf.Clamp(offSet, 0, 4);
+            }
+            else
+            {
+                offSet = 4;
+            }
         }
     }
 
     void FixedUpdate()
     {
         var targetPosition = leif.position + new Vector3(0, offSet, 0);
-        transform.position = Vector3.SmoothDamp(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), ref velocity, damp);
+        Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), ref velocity, damp);
+        transform.position = new Vector3(temp.x, leif.transform.position.y + offSet , temp.z);
     }
 }
