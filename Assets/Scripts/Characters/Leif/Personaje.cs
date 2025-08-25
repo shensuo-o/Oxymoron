@@ -83,6 +83,8 @@ public class Personaje : MonoBehaviour
 
     private void Start()
     {
+        healthBar = GameObject.Find("FillHP").GetComponent<Image>();
+
         HitMaterial.SetFloat("_DistDist2", 1f);
         if (SaveSpawn.Instance != null)
         {

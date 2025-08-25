@@ -23,6 +23,18 @@ public class TakeElement : MonoBehaviour
     [ColorUsage(hdr: true, showAlpha: true)]
     [SerializedField] private Color nearColor;
 
+    private void Start()
+    {
+        prompt = GameObject.Find("PressEToElement");
+        clock = GameObject.Find("AbsorbDiskEmpty");
+        fill = GameObject.Find("Fill").GetComponent<Image>();
+        redWarning = GameObject.Find("CantWarning");
+
+        prompt.SetActive(false);
+        clock.SetActive(false);
+        redWarning.SetActive(false);
+    }
+
     private void Update()
     {
         fill.fillAmount = timer;

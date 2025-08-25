@@ -13,14 +13,22 @@ public class CompanionInventory : MonoBehaviour
 
     [SerializeField] private TakeElement detector;
 
-    [SerializeField] private GameObject errorPrompt;
-
     public MeleeCombat leifSword;
 
     void Awake()
     {
         Instance = this;
         leifSword = GameObject.Find("Leif").GetComponent<MeleeCombat>();
+    }
+
+    private void Start()
+    {
+        SelectIndicator = GameObject.Find("Outline").GetComponent<Image>();
+        
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            Slots[i] = GameObject.Find("IconSlot" + i).GetComponent<OximoronSlot>();
+        }
     }
 
     private void Update()

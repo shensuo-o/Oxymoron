@@ -37,6 +37,14 @@ public class MeleeCombat : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        for (int i = 0; i < Slots.Length; i++)
+        {
+            Slots[i] = GameObject.Find("IconSlot" + i).GetComponent<OximoronSlot>();
+        }
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
