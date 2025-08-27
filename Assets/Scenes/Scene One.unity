@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -204,10 +204,72 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 511757532340847386, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 511757532340847386, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 511757532340847386, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 511757532340847386, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 511757532340847386, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 595697773788449383, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07ee4439ea8e9634cb5bf094031c429f,
+        type: 3}
     - target: {fileID: 1001243213827100286, guid: e0d1372088c64a44786e404ba78c7bbe,
         type: 3}
       propertyPath: m_Name
       value: IconSlot3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504819637179164722, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 864b45a6d2a655f4d94f0068cdce6bfc,
+        type: 3}
+    - target: {fileID: 2307684474570637475, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307684474570637475, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307684474570637475, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307684474570637475, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 32.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307684474570637475, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.09
       objectReference: {fileID: 0}
     - target: {fileID: 2490973169952239205, guid: e0d1372088c64a44786e404ba78c7bbe,
         type: 3}
@@ -327,7 +389,7 @@ PrefabInstance:
     - target: {fileID: 7560100157942135112, guid: e0d1372088c64a44786e404ba78c7bbe,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7567022547932775440, guid: e0d1372088c64a44786e404ba78c7bbe,
         type: 3}
@@ -339,6 +401,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: InterfazCombElementos
       objectReference: {fileID: 0}
+    - target: {fileID: 8654188929224606384, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654188929224606384, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654188929224606384, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654188929224606384, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654188929224606384, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897503877148865181, guid: e0d1372088c64a44786e404ba78c7bbe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99795a92c4b2d6f40867f7d4fde2cbd0,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
