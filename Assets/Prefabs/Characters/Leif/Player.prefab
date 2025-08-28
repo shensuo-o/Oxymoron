@@ -1833,7 +1833,6 @@ MonoBehaviour:
   index: 0
   SelectIndicator: {fileID: 0}
   detector: {fileID: 5177114341589367702}
-  errorPrompt: {fileID: 0}
   leifSword: {fileID: 0}
 --- !u!114 &103154267391243666
 MonoBehaviour:
@@ -3432,7 +3431,7 @@ PrefabInstance:
     - target: {fileID: 2018472695504312263, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2252906220262115987, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -3712,7 +3711,7 @@ PrefabInstance:
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: maxFallSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}

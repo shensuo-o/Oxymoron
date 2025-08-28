@@ -39,7 +39,7 @@ public class ShadowLightCast : StatsOximorones
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 16 || other.gameObject.layer == 3)
         {
             timer += Time.deltaTime;
             if(other.gameObject.GetComponent<Collider>() != null)
@@ -51,21 +51,20 @@ public class ShadowLightCast : StatsOximorones
                     other.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 }
             }
-        }
+        } 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 16 || other.gameObject.layer == 3)
         {
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
-        public void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         Source.clip = clip;
         Source.Play();
     }
-
 }
