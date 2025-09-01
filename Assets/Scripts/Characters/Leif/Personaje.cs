@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Personaje : MonoBehaviour
+public class Personaje : MonoBehaviour, IDataPersistance
 {
     //Stats de Leif
     public float HP;
@@ -79,6 +79,16 @@ public class Personaje : MonoBehaviour
         tempSpeed = Speed;
         knockBack = GetComponent<LeifKnockBack>();
         leifMaterial.color = Color.white;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.HP = data.hp; 
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.hp = this.HP;
     }
 
     private void Start()
@@ -204,7 +214,6 @@ public class Personaje : MonoBehaviour
             isLanding = true;
             timer += Time.fixedDeltaTime;
             Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
-            Debug.Log("despues de saltar: " + gravity);
             rb.AddForce(gravity * timer, ForceMode.Acceleration);
             if (timer >= 1.3f)
             {
@@ -215,7 +224,6 @@ public class Personaje : MonoBehaviour
         {
             timer = 1.2f;
             Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
-            Debug.Log("tocando el piso:" + gravity);
             rb.AddForce(gravity, ForceMode.Acceleration);
         }
 
