@@ -10,10 +10,15 @@ public class FileDataHandler
 
     private string dataFileName = "";
 
-    public FileDataHandler (string dataDirPath, string dataFileName)
+    private bool useEncryption = false;
+
+    private readonly string encryptionCodeWord = "mcemployees";
+
+    public FileDataHandler (string dataDirPath, string dataFileName, bool useEncryption)
     {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
+        this.useEncryption = useEncryption;
     }
 
     public GameData Load()
@@ -33,6 +38,12 @@ public class FileDataHandler
                     {
                         dataToLoad = reader.ReadToEnd();
                     }
+                }
+
+                //Dencrypt data if desired
+                if (useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
                 }
 
                 //De-serialize Json dataFile
@@ -58,6 +69,12 @@ public class FileDataHandler
             //Serialize gameData to Json
             string dataToStore = JsonUtility.ToJson(data, true);
 
+            //Encrypt data if desired
+            if (useEncryption)
+            {
+                dataToStore = EncryptDecrypt(dataToStore);
+            }
+
             //Write the Json file
             using (FileStream stream = new FileStream (fullPath, FileMode.Create))
             {
@@ -71,5 +88,16 @@ public class FileDataHandler
         {
             Debug.LogError("Error while saving to dataFile: " + fullPath + "\n" + e);
         }
+    }
+
+    //Encrypt or decrypt the Json data
+    private string EncryptDecrypt (string data)
+    {
+        string modifiedData = "";
+        for (int i = 0; i < data.Length; i++)
+        {
+            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
+        }
+        return modifiedData;
     }
 }

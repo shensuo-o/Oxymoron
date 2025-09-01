@@ -83,12 +83,14 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     public void LoadData(GameData data)
     {
-        this.HP = data.hp; 
+        this.HP = data.hp;
+        this.transform.position = data.playerPosition;
     }
 
     public void SaveData(ref GameData data)
     {
         data.hp = this.HP;
+        data.playerPosition = this.transform.position;
     }
 
     private void Start()

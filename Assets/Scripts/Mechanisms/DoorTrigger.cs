@@ -20,7 +20,6 @@ public class DoorTrigger : MonoBehaviour
         animator = animatedObject.GetComponent<Animator>();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == layer && !open)
@@ -34,6 +33,7 @@ public class DoorTrigger : MonoBehaviour
                 PlaySound(AudioCast);
             }
 
+           
             other.gameObject.SetActive(false);
         }
     }
@@ -43,26 +43,4 @@ public class DoorTrigger : MonoBehaviour
         source.clip = clip;
         source.Play();
     }
-
-
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == layer && !open)
-        {
-            thingToMove.transform.position += new Vector3(0, Vertical, 0);
-
-            open = true;
-        }
-    }*/
-
-    /*private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == layer && open)
-        {
-            thingToMove.transform.position += new Vector3(0, -Vertical, 0);
-
-            open = false;
-        }
-    }*/
 }
