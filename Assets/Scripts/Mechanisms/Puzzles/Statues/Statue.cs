@@ -11,12 +11,10 @@ public class Statue : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Choque con algo");
         if (puzzle.solved == false)
         {
             if (other.gameObject.layer == 11)
             {
-                Debug.Log("Choque con luz oscura");
                 puzzle.CheckStatues(index);
             }
         }

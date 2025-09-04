@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Personaje : MonoBehaviour, IDataPersistance
 {
+    public string currentScene;
+
     //Stats de Leif
     public float HP;
     public float Speed;
@@ -79,6 +81,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         tempSpeed = Speed;
         knockBack = GetComponent<LeifKnockBack>();
         leifMaterial.color = Color.white;
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
     public void LoadData(GameData data)
@@ -91,6 +94,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     {
         data.hp = this.HP;
         data.playerPosition = this.transform.position;
+        data.scene = this.currentScene;
     }
 
     private void Start()

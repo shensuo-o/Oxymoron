@@ -11,12 +11,14 @@ public class GameData
     public float hp;
     public Vector3 playerPosition;
     public SerializedDictionary<string, bool> solvedPuzzles;
+    public string scene;
 
     //Default values:
     public GameData()
     {
         this.hp = 100;
-        this.playerPosition = new Vector3(-274, 3, 0);
+        this.playerPosition = Vector3.zero;
         solvedPuzzles = new SerializedDictionary<string, bool>();
+        this.scene = "Scene One";
     }
 }

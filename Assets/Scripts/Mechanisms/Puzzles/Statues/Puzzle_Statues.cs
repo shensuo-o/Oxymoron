@@ -4,8 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Puzzle_Statues : MonoBehaviour
+public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     public bool solved;
 
     public bool[] status;
@@ -15,12 +24,25 @@ public class Puzzle_Statues : MonoBehaviour
     public Material active;
     public Material inActive;
 
+    public GameObject door;
+
+    public void LoadData(GameData data)
+    {
+        data.solvedPuzzles.TryGetValue(id, out solved);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.solvedPuzzles.ContainsKey(id))
+        {
+            data.solvedPuzzles.Remove(id);
+        }
+        data.solvedPuzzles.Add(id, solved);
+    }
+
     private void Awake()
     {
-        if (solved)
-        {
-
-        }   
+        CheckPuzzle();
     }
 
     private void Start()
@@ -37,6 +59,13 @@ public class Puzzle_Statues : MonoBehaviour
 
                 estatuas[i] = temp;
                 estatuas[i].GetComponent<Statue>().index = i;
+            }
+        }
+        else if (solved)
+        {
+            for(int i = 0; i < estatuas.Length - 1; i++)
+            {
+                estatuas[i].GetComponentInChildren<MeshRenderer>().material = active;
             }
         }
     }
@@ -75,5 +104,30 @@ public class Puzzle_Statues : MonoBehaviour
                 yield break;
             }
         }
+        CheckPuzzle();
+    }
+
+    public void CheckPuzzle()
+    {
+        int t = 0;
+
+        for (int i = 0; i < status.Length; i++)
+        {
+            if (status[i])
+            {
+                t++;
+            }
+        }
+
+        if (t == 4)
+        {
+            solved = true;
+            OpenTheDoor();
+        }
+    }
+
+    public void OpenTheDoor()
+    {
+        door.transform.position = new Vector3(door.transform.position.x, 22);
     }
 }
