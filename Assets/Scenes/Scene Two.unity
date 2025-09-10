@@ -2238,6 +2238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataPersistenceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3995846219315903297, guid: b240752368b65a74c94e026937c62bf6,
+        type: 3}
+      propertyPath: useEncryption
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7479940303414087239, guid: b240752368b65a74c94e026937c62bf6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5349,6 +5354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732500556518453622, guid: 7e168fce1e704b8408d63b652dfeb84f,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1048584
       objectReference: {fileID: 0}
     - target: {fileID: 7646451807193395774, guid: 7e168fce1e704b8408d63b652dfeb84f,
         type: 3}
