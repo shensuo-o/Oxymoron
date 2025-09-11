@@ -70,14 +70,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         }
     }
 
-    private void Update()
-    {
-        if (!solved)
-        {
-
-        }   
-    }
-
     public void CheckStatues(int index)
     {
         StartCoroutine(ChangeMaterial(index));

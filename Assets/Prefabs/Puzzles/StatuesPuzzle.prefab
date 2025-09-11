@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5b36b7140f98f42a0b9bfe47902bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   solved: 0
   status: 00000000
   estatuas:
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 3700978550236448606}
   active: {fileID: 2100000, guid: 97ed2b20a07995a469bc40e4a949b024, type: 2}
   inActive: {fileID: 2100000, guid: 3041ac207664b144da3942b3a83ebd2e, type: 2}
+  door: {fileID: 0}
 --- !u!1 &3700978550236448606
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,8 +578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 503879230610176238}
   - component: {fileID: 5297435320188239315}
-  - component: {fileID: 5482856389245743743}
-  - component: {fileID: 5024219705855268422}
   m_Layer: 16
   m_Name: EstatuaMadre
   m_TagString: Untagged
@@ -615,54 +615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 8681660969504873383}
   index: 0
---- !u!65 &5482856389245743743
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237963813001579076}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: -1}
---- !u!54 &5024219705855268422
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237963813001579076}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &8656214272864094585
 GameObject:
   m_ObjectHideFlags: 0

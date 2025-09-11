@@ -8,7 +8,12 @@ public class Parallax : MonoBehaviour
     [SerializeField] private float startPos;
     [SerializeField] private Transform cam;
     [SerializeField] private float parallaxAmount;
-    
+
+    private void Awake()
+    {
+        cam = GameObject.Find("Main Camera").transform;
+    }
+
     void Start()
     {
         startPos = transform.position.x;
