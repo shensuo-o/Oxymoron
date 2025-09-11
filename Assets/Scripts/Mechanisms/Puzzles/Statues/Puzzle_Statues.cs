@@ -21,12 +21,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public GameObject[] estatuas;
 
-    //public Material active;
-    //public Material inActive;
-
-    public Color active;
-    public Color inActive;
-
     public GameObject door;
 
     public void LoadData(GameData data)
@@ -46,10 +40,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     private void Awake()
     {
         CheckPuzzle();
-    }
 
-    private void Start()
-    {
         if (!solved)
         {
             for (int i = 0; i < estatuas.Length - 1; i++)
@@ -66,9 +57,9 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         }
         else if (solved)
         {
-            for(int i = 0; i < estatuas.Length - 1; i++)
+            for (int i = 0; i < estatuas.Length - 1; i++)
             {
-                estatuas[i].GetComponentInChildren<MeshRenderer>().material.color = active;
+                estatuas[i].gameObject.GetComponent<Statue>().solved = true;
             }
         }
     }
@@ -81,8 +72,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     public IEnumerator ChangeMaterial(int ind)
     {
         status[ind] = true;
-        estatuas[ind].GetComponentInChildren<MeshRenderer>().material.color = active;
-
+        estatuas[ind].GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds(1);
 
         for (int i = 0; i <= ind; i++)
@@ -92,12 +82,16 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 for (int j = 0; j <= ind; j++)
                 {
                     status[j] = false;
-                    estatuas[j].GetComponentInChildren<MeshRenderer>().material.color = inActive;
                     estatuas[j].gameObject.GetComponent<Statue>().solved = false;
+                    estatuas[j].GetComponent<Statue>().item.layer = 20;
+                    estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                 }
                 status[ind] = false;
-                estatuas[ind].GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 estatuas[ind].gameObject.GetComponent<Statue>().solved = false;
+                estatuas[ind].GetComponent<Statue>().item.layer = 20;
+                estatuas[ind].GetComponent <Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
+                yield return new WaitForSeconds(3);
+                estatuas[ind].GetComponent<BoxCollider>().enabled = true;
                 yield break;
             }
         }
