@@ -21,8 +21,11 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public GameObject[] estatuas;
 
-    public Material active;
-    public Material inActive;
+    //public Material active;
+    //public Material inActive;
+
+    public Color active;
+    public Color inActive;
 
     public GameObject door;
 
@@ -65,7 +68,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             for(int i = 0; i < estatuas.Length - 1; i++)
             {
-                estatuas[i].GetComponentInChildren<MeshRenderer>().material = active;
+                estatuas[i].GetComponentInChildren<MeshRenderer>().material.color = active;
             }
         }
     }
@@ -78,7 +81,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     public IEnumerator ChangeMaterial(int ind)
     {
         status[ind] = true;
-        estatuas[ind].GetComponentInChildren<MeshRenderer>().material = active;
+        estatuas[ind].GetComponentInChildren<MeshRenderer>().material.color = active;
 
         yield return new WaitForSeconds(1);
 
@@ -89,10 +92,12 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 for (int j = 0; j <= ind; j++)
                 {
                     status[j] = false;
-                    estatuas[j].GetComponentInChildren<MeshRenderer>().material = inActive;
+                    estatuas[j].GetComponentInChildren<MeshRenderer>().material.color = inActive;
+                    estatuas[j].gameObject.GetComponent<Statue>().solved = false;
                 }
                 status[ind] = false;
-                estatuas[ind].GetComponentInChildren<MeshRenderer>().material = inActive;
+                estatuas[ind].GetComponentInChildren<MeshRenderer>().material.color = inActive;
+                estatuas[ind].gameObject.GetComponent<Statue>().solved = false;
                 yield break;
             }
         }
