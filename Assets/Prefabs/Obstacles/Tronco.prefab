@@ -27,8 +27,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 625547841875027362}
   m_Father: {fileID: 0}
@@ -58,7 +58,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1001 &1091240069819548233
 PrefabInstance:
@@ -194,7 +194,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &6078343130911583779
 BoxCollider:
@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 1522522745871867340, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
       propertyPath: m_Size.x
-      value: 184.99998
+      value: 185.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1522522745871867340, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 1522522745871867340, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
       propertyPath: m_Size.z
-      value: 150
+      value: 150.00002
       objectReference: {fileID: 0}
     - target: {fileID: 1522522745871867340, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
@@ -297,13 +297,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4395387292257574436, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
+      propertyPath: m_Axis.z
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395387292257574436, guid: 86c77237ad52c3240ad506eec75d1e40,
+        type: 3}
+      propertyPath: m_Anchor.y
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395387292257574436, guid: 86c77237ad52c3240ad506eec75d1e40,
+        type: 3}
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 9173402906753215850}
     - target: {fileID: 4395387292257574436, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.5
+      value: -69.5
       objectReference: {fileID: 0}
     - target: {fileID: 5646905040329913749, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
@@ -355,13 +365,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1522522745871867340, guid: 86c77237ad52c3240ad506eec75d1e40, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2000396429330749048, guid: 86c77237ad52c3240ad506eec75d1e40,
         type: 3}
-      insertIndex: 2
+      insertIndex: 1
       addedObject: {fileID: 7247734858412847968}
   m_SourcePrefab: {fileID: 100100000, guid: 86c77237ad52c3240ad506eec75d1e40, type: 3}
 --- !u!1 &281650343061774696 stripped
