@@ -37,7 +37,7 @@ public class TakeElement : MonoBehaviour
 
     private void Update()
     {
-        fill.fillAmount = timer;
+        fill.fillAmount = timer * 2;
         if (Input.GetKeyUp(KeyCode.E))
         {
             timer = 0;

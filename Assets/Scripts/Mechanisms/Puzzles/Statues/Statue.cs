@@ -11,6 +11,8 @@ public class Statue : MonoBehaviour
 
     public bool solved = false;
 
+    public bool error = false; 
+
     public Transform dock;
 
     public GameObject item;
@@ -19,9 +21,10 @@ public class Statue : MonoBehaviour
 
     public GameObject[] parts;
 
+    public ParticleSystem particles;
+
     [ColorUsage(hdr: true, showAlpha: true)]
-    public Color active;
-    public Color inActive;
+    public Color active, inActive, mistake;
 
     private void Update()
     {
@@ -32,20 +35,48 @@ public class Statue : MonoBehaviour
             item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 4 * Time.deltaTime);
             item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 45 * Time.deltaTime);
 
-            item.GetComponent<MeshRenderer>().material.color = active;
-
-            for (int i = 0; i < parts.Length; i++)
+            if (error)
             {
-                parts[i].GetComponent<MeshRenderer>().material.color = active;
+                item.GetComponent<MeshRenderer>().material.color = mistake;
+                particles.startColor = mistake;
+
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    parts[i].GetComponent<MeshRenderer>().material.color = mistake;
+                }
+            }
+            else
+            {
+                item.GetComponent<MeshRenderer>().material.color = active;
+                particles.startColor = active;
+
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    parts[i].GetComponent<MeshRenderer>().material.color = active;
+                }
             }
         }
         else if (!solved)
         {
-            item.GetComponent<MeshRenderer>().material.color = inActive;
-
-            for (int i = 0; i < parts.Length; i++)
+            if (error)
             {
-                parts[i].GetComponent<MeshRenderer>().material.color = inActive;
+                item.GetComponent<MeshRenderer>().material.color = mistake;
+                particles.startColor = mistake;
+
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    parts[i].GetComponent<MeshRenderer>().material.color = mistake;
+                }
+            }
+            else
+            {
+                item.GetComponent<MeshRenderer>().material.color = inActive;
+                particles.startColor = inActive;
+
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    parts[i].GetComponent<MeshRenderer>().material.color = inActive;
+                }
             }
         }
     }
@@ -60,22 +91,9 @@ public class Statue : MonoBehaviour
                 item = other.gameObject;
                 puzzle.CheckStatues(index);
                 solved = true;
+                particles.Play(); 
                 item.layer = 0;
             }
         }
     }
-
-    /*private void OnTriggerExit(Collider other)
-    {
-        if (puzzle.solved == false)
-        {
-            if (other.gameObject.layer == 11)
-            {
-                if (solved)
-                {
-                    pull.GetComponent<Rigidbody>().useGravity = true;
-                }
-            }
-        }
-    }*/
 }
