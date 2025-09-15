@@ -9,6 +9,7 @@ public class Element : MonoBehaviour
     public GameObject particles;
     public Sprite icon;
     [SerializeField] private float coolDown;
+    [SerializeField] private bool respawn = true;
 
     [ColorUsage(hdr: true, showAlpha: true)]
     public Color particleColor;
@@ -42,9 +43,18 @@ public class Element : MonoBehaviour
         LightDown();
         gameObject.GetComponent<SphereCollider>().enabled = false;
         particles.SetActive(false);
-        yield return new WaitForSeconds(coolDown);
-        gameObject.GetComponent<SphereCollider>().enabled = true;
-        particles.SetActive(true);
+        if(respawn)
+        {
+            yield return new WaitForSeconds(coolDown);
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            particles.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(respawn);
+            yield return null;
+        }
+        
     }
 
 }

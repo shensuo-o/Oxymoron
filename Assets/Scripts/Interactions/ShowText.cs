@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowText : MonoBehaviour
 {
     public Statue estatua;
     public GameObject text;
+    public TextMeshProUGUI textMesh;
     public string numero;
     public string message;
+    public string fullMessage;
+    public float delay = 0.05f;
 
     private void Start()
     {
@@ -28,16 +32,29 @@ public class ShowText : MonoBehaviour
         {
             numero = "El cuarto";
         }
-        text.GetComponent<TextMeshProUGUI>().text = numero + message;
+        fullMessage = numero + message;
+        textMesh = text.GetComponent<TextMeshProUGUI>();
+    }
+
+    IEnumerator TypeText()
+    {
+        foreach (char character in fullMessage.ToCharArray())
+        {
+            textMesh.text += character;
+            yield return new WaitForSeconds(delay);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         text.SetActive(true);
+        StartCoroutine(TypeText());
     }
 
     private void OnTriggerExit(Collider other)
     {
         text.SetActive(false);
+        StopAllCoroutines();
+        textMesh.text = " ";
     }
 }

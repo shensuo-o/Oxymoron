@@ -4902,7 +4902,7 @@ MonoBehaviour:
   force: 12
   timer: 0
   velocity: {x: 0, y: 0, z: 0}
-  damp: 1
+  damp: 0.2
   time: 0
   coolDown: 2
   Source: {fileID: -5958441967885395849}
@@ -5022,7 +5022,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 6
   m_Height: 30
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
