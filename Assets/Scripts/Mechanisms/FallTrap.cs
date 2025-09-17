@@ -8,6 +8,11 @@ public class FallTrap : MonoBehaviour
     public float detectorDistance = 10;
     public RaycastHit hit;
     public LayerMask mask;
+    public ParticleSystem particlesTell;
+    public ParticleSystem particlesFall;
+
+    public bool active = true;
+    public float force;
 
     public Rigidbody proyectile;
 
@@ -17,11 +22,17 @@ public class FallTrap : MonoBehaviour
         Vector3 dir = -transform.up;
         Quaternion orientation = transform.rotation;
 
-        if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
+        if (active)
         {
-            proyectile.useGravity = true;
-            proyectile.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-            Debug.Log(hit.collider.name);
+            if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
+            {
+                proyectile.useGravity = true;
+                particlesFall.Play();
+                proyectile.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                proyectile.AddForce(-transform.up * force, ForceMode.Impulse);
+                particlesTell.Stop();
+                active = false;
+            }
         }
     }
 

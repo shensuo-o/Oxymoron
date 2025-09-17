@@ -307,6 +307,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
         yield return new WaitForSeconds(2f);
+        HP = 100;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
