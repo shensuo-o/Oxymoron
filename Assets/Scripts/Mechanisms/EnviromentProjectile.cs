@@ -8,7 +8,6 @@ public class EnviromentProjectile : MonoBehaviour
     public MeshRenderer mesh;
     public ParticleSystem particles;
     public BoxCollider trigger;
-    public BoxCollider coll;
 
     private void OnImpact()
     {
@@ -23,7 +22,6 @@ public class EnviromentProjectile : MonoBehaviour
             OnImpact();
             other.GetComponent<Personaje>().TakeDamage(dmg, Vector3.one);
             trigger.enabled = false;
-            coll.enabled = false;
         }
     }
 
@@ -33,7 +31,6 @@ public class EnviromentProjectile : MonoBehaviour
         {
             OnImpact();
             trigger.enabled = false;
-            coll.enabled = false;
         }
     }
 }

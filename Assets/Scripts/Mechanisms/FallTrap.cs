@@ -15,6 +15,8 @@ public class FallTrap : MonoBehaviour
     public float force;
 
     public Rigidbody proyectile;
+    public Rigidbody topHalf;
+    public Rigidbody bottomHalf;
 
     private void FixedUpdate()
     {
@@ -27,9 +29,13 @@ public class FallTrap : MonoBehaviour
             if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
             {
                 proyectile.useGravity = true;
+                topHalf.useGravity = true;
+                bottomHalf.useGravity = true;
                 particlesFall.Play();
                 proyectile.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
                 proyectile.AddForce(-transform.up * force, ForceMode.Impulse);
+                topHalf.AddForce(-transform.up * (force * 0.0009f), ForceMode.Impulse);
+                bottomHalf.AddForce(-transform.up * (force * 0.0009f), ForceMode.Impulse);
                 particlesTell.Stop();
                 active = false;
             }

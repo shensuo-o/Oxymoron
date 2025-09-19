@@ -9,6 +9,7 @@ public class ShowText : MonoBehaviour
     public Statue estatua;
     public GameObject text;
     public TextMeshProUGUI textMesh;
+    public GameObject cuadro;
     public string numero;
     public string message;
     public string fullMessage;
@@ -47,12 +48,14 @@ public class ShowText : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        cuadro.SetActive(true);
         text.SetActive(true);
         StartCoroutine(TypeText());
     }
 
     private void OnTriggerExit(Collider other)
     {
+        cuadro.SetActive(false);
         text.SetActive(false);
         StopAllCoroutines();
         textMesh.text = " ";

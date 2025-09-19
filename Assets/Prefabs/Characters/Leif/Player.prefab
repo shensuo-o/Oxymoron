@@ -2051,7 +2051,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4735161015191339624}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3430,8 +3430,8 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 88560f395d04d8141872863db66da2e0, type: 2}
     - target: {fileID: 2018472695504312263, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
-      propertyPath: m_UseGravity
-      value: 0
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2252906220262115987, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
@@ -3466,7 +3466,7 @@ PrefabInstance:
     - target: {fileID: 3067094566538617804, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3383903013422974933, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
