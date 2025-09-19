@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -109.301865, y: -6, z: 0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6423817874196705546}
@@ -54,8 +54,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.3317947
-  m_Center: {x: -0.13458252, y: 0.15549326, z: 0}
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3613484153241596546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 100
   Leif: {fileID: 0}
+  interactable: 0
+  coll: {fileID: 0}
+  element: {fileID: 0}
 --- !u!1 &8512749797836129792
 GameObject:
   m_ObjectHideFlags: 0
