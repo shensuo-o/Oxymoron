@@ -2051,7 +2051,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4735161015191339624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3462,6 +3462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Leif
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067094566538617804, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3383903013422974933, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}

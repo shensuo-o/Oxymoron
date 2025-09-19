@@ -25,15 +25,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture1:
-        m_Texture: {fileID: 2800000, guid: 94e5dd2784ae3a44a930dba86cba9f6e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9197166a579a41940b2315aba9e71aa6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture2:
-        m_Texture: {fileID: 2800000, guid: a87cbf62329d56d4681d92302095915c, type: 3}
+        m_Texture: {fileID: 2800000, guid: cabe6b3d9fa5b2947917a2b54e6e94ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture3:
-        m_Texture: {fileID: 2800000, guid: 3f893818068c13c498261af150bea6f3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1113530a6a90ac14681c627aac0e1505, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture4:
@@ -58,7 +58,8 @@ Material:
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2250766750867323128
 MonoBehaviour:
