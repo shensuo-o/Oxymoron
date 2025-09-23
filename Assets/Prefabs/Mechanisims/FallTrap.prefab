@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 1970090879200243052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6899986, z: 0}
+  m_LocalPosition: {x: 0, y: 0.69, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -399,6 +399,7 @@ MonoBehaviour:
   mesh: {fileID: 6931850792385917490}
   particles: {fileID: 3168964198832893612}
   trigger: {fileID: 277383626187990870}
+  containedElement: {fileID: 2760103017264154145}
 --- !u!1 &6697169550569346030
 GameObject:
   m_ObjectHideFlags: 0
@@ -10261,7 +10262,7 @@ Transform:
   m_GameObject: {fileID: 8474329125254113987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.86999893, z: 0}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20848,6 +20849,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5842177265491902730}
     m_Modifications:
+    - target: {fileID: 378097913204724281, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
+        type: 3}
+      propertyPath: respawn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2669859209242044470, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
         type: 3}
       propertyPath: m_Name
@@ -20914,3 +20920,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2554276692749308952}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2760103017264154145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 378097913204724281, guid: d9af5ac91c6a6bb44915c7ba358c6e5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2554276692749308952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03dac33b09c820419404f23e2b8882b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

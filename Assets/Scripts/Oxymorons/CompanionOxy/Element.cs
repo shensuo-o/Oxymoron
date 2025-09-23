@@ -37,6 +37,15 @@ public class Element : MonoBehaviour
         particles.GetComponent<ParticleSystem>().playbackSpeed = 1;
     }
 
+    public void SingleReset()
+    {
+        if (!respawn)
+        {
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            particles.SetActive(true);
+        }
+    }
+
     public IEnumerator TurnOffAndOn()
     {
         SpeedDown();
@@ -49,12 +58,6 @@ public class Element : MonoBehaviour
             gameObject.GetComponent<SphereCollider>().enabled = true;
             particles.SetActive(true);
         }
-        else
-        {
-            this.gameObject.SetActive(respawn);
-            yield return null;
-        }
-        
     }
 
 }

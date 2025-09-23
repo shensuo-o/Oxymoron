@@ -30,11 +30,6 @@ public class Statue : MonoBehaviour
     {
         if (solved)
         {
-            pull.GetComponent<Rigidbody>().useGravity = false;
-
-            item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 4 * Time.deltaTime);
-            item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 45 * Time.deltaTime);
-
             if (error)
             {
                 item.GetComponent<MeshRenderer>().material.color = mistake;
@@ -47,6 +42,11 @@ public class Statue : MonoBehaviour
             }
             else
             {
+                pull.GetComponent<Rigidbody>().useGravity = false;
+
+                item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 4 * Time.deltaTime);
+                item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 45 * Time.deltaTime);
+
                 item.GetComponent<MeshRenderer>().material.color = active;
                 particles.startColor = active;
 

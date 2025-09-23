@@ -42,6 +42,26 @@ public class FallTrap : MonoBehaviour
         }
     }
 
+    public void ResetTrap()
+    {
+        if (!active)
+        {
+            proyectile.GetComponent<EnviromentProjectile>().ResetProjectile();
+            proyectile.transform.position = transform.position;
+            proyectile.transform.rotation = transform.rotation;
+            topHalf.transform.position = new Vector3 (0, 0.69f, 0);
+            bottomHalf.transform.position = new Vector3(0, -0.9f, 0);
+            topHalf.transform.rotation = transform.rotation;
+            bottomHalf.transform.rotation = transform.rotation;
+            proyectile.useGravity = false;
+            topHalf.useGravity = false;
+            bottomHalf.useGravity = false;
+            proyectile.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+            particlesTell.Play();
+            active = true;
+        }
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
