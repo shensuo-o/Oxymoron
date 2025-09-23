@@ -90,11 +90,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             if (status[i] == false)
             {
-                for (int p = 0; p < traps.Length; p++)
-                {
-                    traps[p].ResetTrap();
-                }
-
                 for (int k = 0; k < estatuas.Length; k++)
                 {
                     estatuas[k].GetComponent<BoxCollider>().enabled = false;
@@ -120,34 +115,12 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
                 estatuas[ind].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(Vector3.right * 10, ForceMode.Impulse);
 
-                yield break;
+                for (int p = 0; p < traps.Length; p++)
+                {
+                    traps[p].ResetTrap();
+                }
 
-                /*for (int k = 0; k < estatuas.Length; k++)
-                {
-                    estatuas[k].GetComponent<BoxCollider>().enabled = false;
-                }
-                for (int j = 0; j <= ind; j++)
-                {
-                    status[j] = false;
-                    estatuas[j].gameObject.GetComponent<Statue>().error = true;
-                    estatuas[j].gameObject.GetComponent<Statue>().solved = false;
-                    yield return new WaitForSeconds(0.5f);
-                    estatuas[j].GetComponent<Statue>().item.layer = 20;
-                    estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
-                    estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
-                    yield return new WaitForSeconds(3);
-                    estatuas[j].gameObject.GetComponent<Statue>().error = false;
-                    estatuas[j].GetComponent<BoxCollider>().enabled = true;
-                }
-                status[ind] = false;
-                estatuas[ind].gameObject.GetComponent<Statue>().error = true;
-                estatuas[ind].gameObject.GetComponent<Statue>().solved = false;
-                estatuas[ind].GetComponent<Statue>().item.layer = 20;
-                estatuas[ind].GetComponent <Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
-                yield return new WaitForSeconds(3);
-                estatuas[ind].gameObject.GetComponent<Statue>().error = false;
-                estatuas[ind].GetComponent<BoxCollider>().enabled = true;
-                yield break;*/
+                yield break;
             }
         }
         CheckPuzzle();
