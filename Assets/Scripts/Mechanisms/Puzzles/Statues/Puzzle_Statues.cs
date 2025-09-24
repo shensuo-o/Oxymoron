@@ -104,6 +104,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                     estatuas[j].GetComponent<Statue>().item.layer = 20;
                     estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                     estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
+                    estatuas[j].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(-Vector3.right * 5, ForceMode.Impulse);
                     yield return new WaitForSeconds(3);
                     estatuas[j].gameObject.GetComponent<Statue>().error = false;
                 }
@@ -112,8 +113,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 {
                     estatuas[k].GetComponent<BoxCollider>().enabled = true;
                 }
-
-                estatuas[ind].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(Vector3.right * 10, ForceMode.Impulse);
 
                 for (int p = 0; p < traps.Length; p++)
                 {
