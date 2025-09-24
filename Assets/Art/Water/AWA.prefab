@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 93.19, y: -19.28, z: 0.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5388902, y: 2.44552, z: 4.831538}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5732678152894138018}
@@ -171,6 +171,10 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   Trigger: AttackDetection
   isWater: 1
+  animatedObject: {fileID: 0}
+  source: {fileID: 0}
+  AudioCast: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!4 &5732678152894138018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 39ec6575ea9a63f4db2c998020131d17,
