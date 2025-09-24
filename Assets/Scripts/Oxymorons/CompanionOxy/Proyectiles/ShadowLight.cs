@@ -27,7 +27,7 @@ public class ShadowLightCast : StatsOximorones
     private void Update()
     {
         time += Time.deltaTime;
-        if (time <= coolDown)
+        if (Input.GetMouseButton(1) && time <= coolDown)
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 50;
