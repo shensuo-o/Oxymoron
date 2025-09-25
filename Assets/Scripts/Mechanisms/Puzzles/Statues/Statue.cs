@@ -23,6 +23,8 @@ public class Statue : MonoBehaviour
 
     public ParticleSystem particles;
 
+    public Vector3 direction;
+
     [ColorUsage(hdr: true, showAlpha: true)]
     public Color active, inActive, mistake;
 
