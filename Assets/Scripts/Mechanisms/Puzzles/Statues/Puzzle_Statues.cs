@@ -22,7 +22,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public GameObject[] estatuas;
 
-    public GameObject door;
+    public Rigidbody[] doorBranches;
 
     public FallTrap[] traps;
 
@@ -187,6 +187,11 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public void OpenTheDoor()
     {
-        door.transform.position = new Vector3(door.transform.position.x, 22);
+        for (int i = 0;i < doorBranches.Length;i++)
+        {
+            doorBranches[i].useGravity = true;
+            doorBranches[i].constraints = RigidbodyConstraints.None;
+            doorBranches[i].AddForce(Vector3.right * 2, ForceMode.Impulse);
+        }
     }
 }
