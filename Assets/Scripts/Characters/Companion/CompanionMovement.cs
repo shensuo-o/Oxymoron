@@ -25,7 +25,7 @@ public class CompanionMovement : MonoBehaviour
     private Vector3 prediction;
     private Vector3 deviation;
 
-    [SerializeField] private Animator animator;
+    public Animator animator;
 
     #endregion
 

@@ -8,11 +8,12 @@ public class ShadowLightCast : StatsOximorones
     [SerializeField] private Vector3 velocity = Vector3.zero;
     [SerializeField] private float damp = 0.03f;
 
-    [SerializeField] private float time = 0;
-    [SerializeField] private float coolDown = 0.5f;
-
     [SerializeField] private AudioSource Source;
     [SerializeField] private AudioClip AudioCast;
+
+    [SerializeField] private ParticleSystem[] particles;
+    [SerializeField] private GameObject endParticles;
+    [SerializeField] private RingScaler esfera;
 
     private void Start()
     {
@@ -26,14 +27,24 @@ public class ShadowLightCast : StatsOximorones
 
     private void Update()
     {
-        time += Time.deltaTime;
-        if (Input.GetMouseButton(1) && time <= coolDown)
+        if (Input.GetMouseButton(1))
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 50;
             Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
 
             transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, damp);
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            Source.Stop();
+            for (int i = 0; i < particles.Length; i++)
+            {
+                particles[i].gameObject.SetActive(false);
+            }
+            endParticles.SetActive(true);
+            esfera.EarlyScale(new Vector3(0.8f, 0.8f, 0.8f), Vector3.zero, 1);
+            Destroy(this.gameObject, 1);
         }
     }
 

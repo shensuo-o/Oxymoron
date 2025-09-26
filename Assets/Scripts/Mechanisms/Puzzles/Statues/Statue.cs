@@ -11,7 +11,7 @@ public class Statue : MonoBehaviour
 
     public bool solved = false;
 
-    public bool error = false; 
+    public bool error = false;
 
     public Transform dock;
 
@@ -93,8 +93,19 @@ public class Statue : MonoBehaviour
                 item = other.gameObject;
                 puzzle.CheckStatues(index);
                 solved = true;
-                particles.Play(); 
+                particles.Play();
                 item.layer = 0;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!puzzle.solved)
+        {
+            if (other.gameObject.layer == 20)
+            {
+                pull.GetComponent<Rigidbody>().useGravity = true;
             }
         }
     }

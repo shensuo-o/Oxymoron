@@ -7,6 +7,7 @@ public class RingScaler : MonoBehaviour
     public float duration = 2f;
     public float shrinkDuration = 2f;
     public float totalVisibleTime = 8f;
+    public bool early = false;
 
     private void OnEnable()
     {
@@ -16,23 +17,43 @@ public class RingScaler : MonoBehaviour
 
     private IEnumerator ScaleRoutine()
     {
-        yield return StartCoroutine(ScaleOverTime(Vector3.zero, finalScale, duration));
+        if (!early)
+        {
+            yield return StartCoroutine(ScaleOverTime(Vector3.zero, finalScale, duration));
 
-        float waitTime = Mathf.Max(0f, totalVisibleTime - duration);
-        yield return new WaitForSeconds(waitTime);
+            float waitTime = Mathf.Max(0f, totalVisibleTime - duration);
+            yield return new WaitForSeconds(waitTime);
 
-        yield return StartCoroutine(ScaleOverTime(finalScale, Vector3.zero, shrinkDuration));
+            yield return StartCoroutine(ScaleOverTime(finalScale, Vector3.zero, shrinkDuration));
+        }
     }
 
     private IEnumerator ScaleOverTime(Vector3 start, Vector3 end, float time)
     {
+        if (!early)
+        {
+            float elapsed = 0f;
+            while (elapsed < time)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / time;
+                transform.localScale = Vector3.Lerp(start, end, t);
+                yield return null;
+            }
+
+            transform.localScale = end;
+        }
+    }
+
+    public void EarlyScale(Vector3 start, Vector3 end, float time)
+    {
+        early = true;
         float elapsed = 0f;
         while (elapsed < time)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / time;
             transform.localScale = Vector3.Lerp(start, end, t);
-            yield return null;
         }
 
         transform.localScale = end;

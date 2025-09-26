@@ -14,9 +14,12 @@ public class ShowText : MonoBehaviour
     public string message;
     public string fullMessage;
     public float delay = 0.05f;
+    public CompanionMovement comp;
 
     private void Start()
     {
+        comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
+
         if (estatua.index == 0)
         {
             numero = "El primero ";
@@ -51,6 +54,7 @@ public class ShowText : MonoBehaviour
         cuadro.SetActive(true);
         text.SetActive(true);
         StartCoroutine(TypeText());
+        comp.animator.SetBool("IsReading", true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -59,5 +63,6 @@ public class ShowText : MonoBehaviour
         text.SetActive(false);
         StopAllCoroutines();
         textMesh.text = " ";
+        comp.animator.SetBool("IsReading", false);
     }
 }

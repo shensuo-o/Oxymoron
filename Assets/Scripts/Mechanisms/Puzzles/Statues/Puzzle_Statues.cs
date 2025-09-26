@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.InputManagerEntry;
-using static UnityEngine.ParticleSystem;
 using Random = UnityEngine.Random;
 
 public class Puzzle_Statues : MonoBehaviour, IDataPersistance
@@ -85,25 +83,26 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public IEnumerator SetBools(int index)
     {
-        Debug.Log("set bools");
         yield return new WaitForSeconds(1);
 
         for (int i = 0; i <= index; i++)
         {
             if (status[i] == false)
             {
+                estatuas[index].gameObject.GetComponent<Statue>().error = true;
+                estatuas[index].gameObject.GetComponent<Statue>().solved = false;
+                yield return new WaitForSeconds(3.2f);
+                estatuas[index].gameObject.GetComponent<Statue>().error = false;
 
                 for (int j = 0; j <= index; j++)
                 {
-                    
-                    estatuas[j].gameObject.GetComponent<Statue>().error = true;
-                    estatuas[j].gameObject.GetComponent<Statue>().solved = false;
-                    
-                    
-                    
-                    
-                    yield return new WaitForSeconds(3.2f);
-                    estatuas[j].gameObject.GetComponent<Statue>().error = false;
+                    if (j != index)
+                    {
+                        estatuas[j].gameObject.GetComponent<Statue>().error = true;
+                        estatuas[j].gameObject.GetComponent<Statue>().solved = false;
+                        yield return new WaitForSeconds(3.2f);
+                        estatuas[j].gameObject.GetComponent<Statue>().error = false;
+                    }
                 }
 
                 for (int k = 0; k < estatuas.Length; k++)
@@ -118,7 +117,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public IEnumerator ChangeMaterial(int ind)
     {
-        Debug.Log("play effects");
         status[ind] = true;
         estatuas[ind].GetComponent<BoxCollider>().enabled = false;
 
@@ -133,18 +131,26 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                     estatuas[k].GetComponent<BoxCollider>().enabled = false;
                 }
 
+                status[ind] = false;
+                yield return new WaitForSeconds(0.2f);
+                estatuas[ind].GetComponent<Statue>().item.layer = 20;
+                estatuas[ind].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
+                estatuas[ind].gameObject.GetComponent<Statue>().particles.Play();
+                estatuas[ind].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[ind].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
+                yield return new WaitForSeconds(3f);
+
                 for (int j = 0; j <= ind; j++)
                 {
-                    status[j] = false;
-                    //estatuas[j].gameObject.GetComponent<Statue>().error = true;
-                    //estatuas[j].gameObject.GetComponent<Statue>().solved = false;
-                    yield return new WaitForSeconds(0.2f);
-                    estatuas[j].GetComponent<Statue>().item.layer = 20;
-                    estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
-                    estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
-                    estatuas[j].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[j].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
-                    yield return new WaitForSeconds(0.2f);
-                    //estatuas[j].gameObject.GetComponent<Statue>().error = false;
+                    if (j != ind)
+                    {
+                        status[j] = false;
+                        yield return new WaitForSeconds(0.2f);
+                        estatuas[j].GetComponent<Statue>().item.layer = 20;
+                        estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
+                        estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
+                        estatuas[j].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[j].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
+                        yield return new WaitForSeconds(3f);
+                    }
                 }
 
                 
