@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
+using UnityEditor.Experimental;
 using UnityEngine;
 
 public class ShadowLightCast : StatsOximorones
@@ -48,6 +50,18 @@ public class ShadowLightCast : StatsOximorones
         }
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 3)
+        {
+            if (other.gameObject.GetComponent<Collider>() != null)
+            {
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == 10 || other.gameObject.layer == 3)
@@ -55,7 +69,6 @@ public class ShadowLightCast : StatsOximorones
             timer += Time.deltaTime;
             if(other.gameObject.GetComponent<Collider>() != null)
             {
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, force * Time.deltaTime);
                 if (timer >= lifeTime - 0.5f)
                 {
@@ -64,6 +77,8 @@ public class ShadowLightCast : StatsOximorones
             }
         } 
     }
+
+    
 
     private void OnTriggerExit(Collider other)
     {

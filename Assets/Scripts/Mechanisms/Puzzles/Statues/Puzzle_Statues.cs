@@ -134,10 +134,16 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 status[ind] = false;
                 yield return new WaitForSeconds(0.2f);
                 estatuas[ind].GetComponent<Statue>().item.layer = 20;
+                estatuas[ind].GetComponent<Statue>().pull.SetActive(true);
                 estatuas[ind].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                 estatuas[ind].gameObject.GetComponent<Statue>().particles.Play();
                 estatuas[ind].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[ind].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
                 yield return new WaitForSeconds(3f);
+
+                for (int p = 0; p < traps.Length; p++)
+                {
+                    traps[p].ResetTrap();
+                }
 
                 for (int j = 0; j <= ind; j++)
                 {
@@ -146,6 +152,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                         status[j] = false;
                         yield return new WaitForSeconds(0.2f);
                         estatuas[j].GetComponent<Statue>().item.layer = 20;
+                        estatuas[j].GetComponent<Statue>().pull.SetActive(true);
                         estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                         estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
                         estatuas[j].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[j].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
@@ -153,16 +160,11 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                     }
                 }
 
-                
-
-                for (int p = 0; p < traps.Length; p++)
-                {
-                    traps[p].ResetTrap();
-                }
-
                 yield break;
             }
         }
+        estatuas[ind].GetComponent<Statue>().item.layer = 0;
+        estatuas[ind].GetComponent<Statue>().pull.SetActive(false);
         CheckPuzzle();
     }
 

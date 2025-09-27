@@ -19,7 +19,7 @@ public class TurnOnGravity : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time >= 7)
+            if (time >= 0.1f)
             {
                 rb.useGravity = true;
                 time = 0;

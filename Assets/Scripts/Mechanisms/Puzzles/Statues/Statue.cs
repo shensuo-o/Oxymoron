@@ -25,6 +25,8 @@ public class Statue : MonoBehaviour
 
     public Vector3 direction;
 
+    public float proximity = 1;
+
     [ColorUsage(hdr: true, showAlpha: true)]
     public Color active, inActive, mistake;
 
@@ -46,8 +48,28 @@ public class Statue : MonoBehaviour
             {
                 pull.GetComponent<Rigidbody>().useGravity = false;
 
-                item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 4 * Time.deltaTime);
-                item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 45 * Time.deltaTime);
+                float distance = Vector3.Distance(item.transform.position, dock.position);
+                float quat = Quaternion.Angle(item.transform.rotation, dock.rotation);
+
+                if(distance >= proximity)
+                {
+                    item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
+                    
+                }
+                else
+                {
+                    item.transform.position = dock.position;
+                    
+                }
+
+                if(quat >= proximity)
+                {
+                    item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 80 * Time.deltaTime);
+                }
+                else
+                {
+                    item.transform.rotation = dock.rotation;
+                }
 
                 item.GetComponent<MeshRenderer>().material.color = active;
                 particles.startColor = active;
@@ -94,7 +116,6 @@ public class Statue : MonoBehaviour
                 puzzle.CheckStatues(index);
                 solved = true;
                 particles.Play();
-                item.layer = 0;
             }
         }
     }
