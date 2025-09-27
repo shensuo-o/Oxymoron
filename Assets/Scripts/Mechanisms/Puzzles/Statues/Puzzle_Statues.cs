@@ -22,7 +22,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public GameObject[] estatuas;
 
-    public Rigidbody[] doorBranches;
+    public List<Rigidbody> doorBranches;
 
     public FallTrap[] traps;
 
@@ -187,7 +187,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public void OpenTheDoor()
     {
-        for (int i = 0;i < doorBranches.Length;i++)
+        for (int i = 0;i < doorBranches.Count;i++)
         {
             doorBranches[i].useGravity = true;
             doorBranches[i].constraints = RigidbodyConstraints.None;
