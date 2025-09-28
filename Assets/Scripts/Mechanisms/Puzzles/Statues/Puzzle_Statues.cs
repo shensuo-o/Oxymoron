@@ -28,6 +28,9 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public float errorForce;
 
+    public CameraFollow mainCam;
+    public Transform scenePoint;
+
 
     public void LoadData(GameData data)
     {
@@ -45,6 +48,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     private void Awake()
     {
+        mainCam = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
+
         CheckPuzzle();
 
         if (!solved)
@@ -89,6 +94,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             if (status[i] == false)
             {
+                mainCam.CallShake(1f);
                 estatuas[index].gameObject.GetComponent<Statue>().error = true;
                 estatuas[index].gameObject.GetComponent<Statue>().solved = false;
                 yield return new WaitForSeconds(3.2f);
@@ -109,7 +115,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 {
                     estatuas[k].GetComponent<BoxCollider>().enabled = true;
                 }
-
                 yield break;
             }
         }
@@ -183,6 +188,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         if (t == 4)
         {
             solved = true;
+            mainCam.CallMoveAndShake(5, scenePoint.position);
             OpenTheDoor();
         }
     }

@@ -9927,6 +9927,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2536212414064272578, guid: b442179f83da4b041a9f0b7dfce8393b, type: 3}
+--- !u!1 &4107592320431294650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4816815549908520402}
+  m_Layer: 0
+  m_Name: ScenePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4816815549908520402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4107592320431294650}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52, y: -21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3723028128087673401}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4560299654676085936
 GameObject:
   m_ObjectHideFlags: 0
@@ -28426,6 +28457,7 @@ Transform:
   - {fileID: 5032361386144400327}
   - {fileID: 3787027688900547976}
   - {fileID: 7760110003363248156}
+  - {fileID: 4816815549908520402}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7689177114953744052
@@ -28476,6 +28508,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   errorForce: 5
+  mainCam: {fileID: 0}
 --- !u!114 &8983831406896570768
 MonoBehaviour:
   m_ObjectHideFlags: 0

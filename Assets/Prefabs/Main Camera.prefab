@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 7567102301423905292}
   - component: {fileID: 2929633856671038361}
   - component: {fileID: 1607828735094309185}
+  - component: {fileID: 7487416965973897176}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -287,6 +288,40 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   offSet: 6
   offSetSpeed: 10
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.3864647
+      outSlope: 1.3864647
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.14611757
+      value: 0.20258684
+      inSlope: -0.26874506
+      outSlope: -0.26874506
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07725267
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.23725379
+      outSlope: -0.23725379
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  follow: 1
 --- !u!82 &2929633856671038361
 AudioSource:
   m_ObjectHideFlags: 0
@@ -479,3 +514,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7487416965973897176
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8173389430514767575}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df5293b6253f19e48a42ed89eada5166, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
