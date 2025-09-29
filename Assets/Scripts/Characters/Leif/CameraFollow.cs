@@ -60,7 +60,7 @@ public class CameraFollow : MonoBehaviour
         if (follow)
         {
             var targetPosition = leif.position + new Vector3(0, offSet, 0);
-            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), ref velocity, damp);
+            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -50), ref velocity, damp);
             transform.position = new Vector3(temp.x, leif.transform.position.y + offSet, temp.z);
         }
     }
@@ -85,6 +85,24 @@ public class CameraFollow : MonoBehaviour
         transform.position = startPosition;
     }
 
+    public void CallMove(float duracion)
+    {
+        StartCoroutine(CameraMove(duracion));
+    }
+
+    IEnumerator CameraMove(float duration)
+    {
+        float timeBack = 0;
+        while (timeBack < duration)
+        {
+            timeBack += Time.deltaTime;
+            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(leif.position.x, leif.position.y + offSet, -50), ref velocity, dampMove);
+            transform.position = temp;
+            yield return null;
+        }
+        follow = true;
+    }
+
     public void CallMoveAndShake(float duracion, Vector3 objetivo)
     {
         StartCoroutine(CameraMoveAndShake(duracion, objetivo));
@@ -92,18 +110,19 @@ public class CameraFollow : MonoBehaviour
 
     IEnumerator CameraMoveAndShake(float duration, Vector3 target)
     {
+        yield return new WaitForSeconds(1);
         follow = false;
         float time = 0;
 
         while (time < duration)
         {
             time += Time.deltaTime;
-            Vector3 temp = Vector3.SmoothDamp(transform.position, target, ref velocity, dampMove);
+            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(target.x, target.y, -50), ref velocity, dampMove);
             float strength = curve.Evaluate(time / duration);
             Vector3 shake = temp + Random.insideUnitSphere * strength;
-            transform.position = new Vector3 (shake.x, shake.y, transform.position.z);
+            transform.position = new Vector3 (shake.x, shake.y, -50);
             yield return null;
         }
-        follow = true;
+        CallMove(duration);
     }
 }

@@ -228,9 +228,9 @@ MonoBehaviour:
   - {fileID: 887273029288096222}
   particles: {fileID: 873211895074600149}
   direction: {x: -1, y: 0, z: 0}
-  proximity: 0.5
+  proximity: 0.8
   active: {r: 2, g: 2, b: 2, a: 1}
-  inActive: {r: 1, g: 1, b: 1, a: 1}
+  inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
 --- !u!54 &4911106950330636793
 Rigidbody:
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 7899295628032288316}
   - component: {fileID: 5968571482535644820}
   - component: {fileID: 4437640397730998852}
-  - component: {fileID: 5369994073317194076}
+  - component: {fileID: 8367326811627612775}
   m_Layer: 6
   m_Name: Estatua_3
   m_TagString: Untagged
@@ -342,7 +342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5833153512703274452, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -364,8 +364,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5369994073317194076
-MeshCollider:
+--- !u!136 &8367326811627612775
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -382,10 +382,11 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6750519388163900068, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  serializedVersion: 2
+  m_Radius: 105.34
+  m_Height: 1018.89764
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: -34.8}
 --- !u!1 &887273029288096222
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5833153512703274452, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -612,7 +613,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 18.000301, y: 0.0002503395, z: -6.728949}
+  m_ConnectedAnchor: {x: 18.000628, y: 0.00064373016, z: -6.728949}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -5855,7 +5856,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5833153512703274452, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6119,7 +6120,7 @@ MonoBehaviour:
   solved: 0
   error: 0
   dock: {fileID: 2963211302801721560}
-  item: {fileID: 0}
+  item: {fileID: 5626298425403763734}
   pull: {fileID: 2155766675897545895}
   parts:
   - {fileID: 746096833177898940}
@@ -6127,7 +6128,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0, z: 0}
   proximity: 0.5
   active: {r: 2, g: 2, b: 2, a: 1}
-  inActive: {r: 1, g: 1, b: 1, a: 1}
+  inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
 --- !u!54 &5854812398340308606
 Rigidbody:
@@ -11593,7 +11594,8 @@ GameObject:
   - component: {fileID: 6445577305985191675}
   - component: {fileID: 4713856427679599942}
   - component: {fileID: 985320140572156472}
-  - component: {fileID: 7245976363632486552}
+  - component: {fileID: 6100769421295859212}
+  - component: {fileID: 541251526986735080}
   m_Layer: 6
   m_Name: Oxyrion_Down
   m_TagString: Untagged
@@ -11644,7 +11646,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5833153512703274452, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11666,8 +11668,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7245976363632486552
-MeshCollider:
+--- !u!136 &6100769421295859212
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11684,10 +11686,34 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1702509924497979237, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  serializedVersion: 2
+  m_Radius: 79.81
+  m_Height: 670.703
+  m_Direction: 1
+  m_Center: {x: 0.001953125, y: 0, z: 0}
+--- !u!136 &541251526986735080
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321532288597801784}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 79.81
+  m_Height: 670.703
+  m_Direction: 1
+  m_Center: {x: 0.001953125, y: 0, z: 0}
 --- !u!1 &5329105973984241625
 GameObject:
   m_ObjectHideFlags: 0
@@ -22263,7 +22289,7 @@ MonoBehaviour:
   direction: {x: 2, y: 0, z: 0}
   proximity: 0.5
   active: {r: 2, g: 2, b: 2, a: 1}
-  inActive: {r: 1, g: 1, b: 1, a: 1}
+  inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
 --- !u!54 &8216246271936234571
 Rigidbody:
@@ -23020,7 +23046,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5833153512703274452, guid: dcf083aa2fd2a234185297bca8b9ed47, type: 3}
+  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23243,9 +23269,9 @@ MonoBehaviour:
   - {fileID: 5321532288597801784}
   particles: {fileID: 8517819020578134739}
   direction: {x: -1, y: 0, z: 0}
-  proximity: 0.5
+  proximity: 1
   active: {r: 2, g: 2, b: 2, a: 1}
-  inActive: {r: 1, g: 1, b: 1, a: 1}
+  inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
 --- !u!54 &4261575022935955008
 Rigidbody:
