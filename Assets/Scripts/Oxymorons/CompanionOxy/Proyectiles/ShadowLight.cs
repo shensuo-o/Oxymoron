@@ -46,7 +46,7 @@ public class ShadowLightCast : StatsOximorones
             }
             endParticles.SetActive(true);
             esfera.EarlyScale(new Vector3(0.8f, 0.8f, 0.8f), Vector3.zero, 1);
-            Destroy(this.gameObject, 1);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 

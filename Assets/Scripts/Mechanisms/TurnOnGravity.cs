@@ -7,6 +7,7 @@ public class TurnOnGravity : MonoBehaviour
 {
     public Rigidbody rb;
     public float time;
+    public GameObject obj;
 
     private void Start()
     {
@@ -15,15 +16,25 @@ public class TurnOnGravity : MonoBehaviour
 
     private void Update()
     {
-        if (rb.useGravity == false)
+        if (obj == null && rb.useGravity == false)
         {
             time += Time.deltaTime;
 
-            if (time >= 0.1f)
+            if (time >= 0.01f)
             {
                 rb.useGravity = true;
                 time = 0;
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        obj =  other.gameObject;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        rb.useGravity = true;
     }
 }
