@@ -3728,6 +3728,11 @@ PrefabInstance:
       propertyPath: globalGravity
       value: 24.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: isFloor.m_Bits
+      value: 134217792
+      objectReference: {fileID: 0}
     - target: {fileID: 9083251829599996222, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: m_LocalPosition.x

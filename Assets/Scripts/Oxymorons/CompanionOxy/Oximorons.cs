@@ -22,7 +22,7 @@ public class Oximorons : MonoBehaviour
 
     public void PlayCast()
     {
-        leif.SetTrigger("Cast");
+        //leif.SetTrigger("Cast");
         vfx.SetVector4("MagicColor", iconColor);
         vfx.Play();
     }

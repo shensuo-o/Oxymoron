@@ -47,10 +47,11 @@ public class MeleeCombat : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             IniciarCombo();
-        }
+        }*/
     }
 
     private void IniciarCombo()

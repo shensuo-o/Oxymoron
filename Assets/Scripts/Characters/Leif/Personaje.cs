@@ -13,7 +13,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     public float HP;
     public float Speed;
 
-    #region Variables Movimiento
+    #region Variables Movimiento 
 
     //variables para el movimiento
     [SerializeField] private Rigidbody rb;
