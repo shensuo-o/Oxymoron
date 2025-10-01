@@ -342,7 +342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
+  - {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,7 +450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
+  - {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5856,7 +5856,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
+  - {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6022,7 +6022,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00010456622, y: -0.0002770323, z: 0.0000029802322}
+  m_ConnectedAnchor: {x: -255.77097, y: -60.974857, z: -2014.8887}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -6221,7 +6221,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442174878674501619}
-  m_Mesh: {fileID: -1593577335283316231, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  m_Mesh: {fileID: -1593577335283316231, guid: 8502c2474631cbf4dbfb729abbafa1b9, type: 3}
 --- !u!23 &917733522966877259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6242,7 +6242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3019798417461012184, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  - {fileID: 2100000, guid: ec1750307ee31fb4c93131aaf9717987, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11646,7 +11646,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
+  - {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11788,7 +11788,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5626298425403763734}
-  m_Mesh: {fileID: -4812372780564916017, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  m_Mesh: {fileID: -4812372780564916017, guid: 8502c2474631cbf4dbfb729abbafa1b9, type: 3}
 --- !u!23 &4677450265055955152
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11809,7 +11809,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3019798417461012184, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  - {fileID: 2100000, guid: ec1750307ee31fb4c93131aaf9717987, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21951,7 +21951,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6343046606066390097}
-  m_Mesh: {fileID: -8095773581171604454, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  m_Mesh: {fileID: -8095773581171604454, guid: 8502c2474631cbf4dbfb729abbafa1b9, type: 3}
 --- !u!23 &3720282494780800272
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21972,7 +21972,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3019798417461012184, guid: b0748f05a2adf6f4bb6fe29bf578ef76, type: 3}
+  - {fileID: 2100000, guid: ec1750307ee31fb4c93131aaf9717987, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22509,7 +22509,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0010345213, y: -193.00133, z: 0.00008598618}
+  m_ConnectedAnchor: {x: -0.0012736704, y: -192.99994, z: 0.00008598618}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -23046,7 +23046,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9b10bb16bc2cbec4da983e8d3eb5d67b, type: 2}
+  - {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23101,6 +23101,7 @@ GameObject:
   - component: {fileID: 3723028128087673401}
   - component: {fileID: 7689177114953744052}
   - component: {fileID: 8983831406896570768}
+  - component: {fileID: 5962553246160862674}
   m_Layer: 0
   m_Name: StatuesPuzzle
   m_TagString: Untagged
@@ -23179,6 +23180,8 @@ MonoBehaviour:
   errorForce: 5
   mainCam: {fileID: 0}
   scenePoint: {fileID: 4816815549908520402}
+  source: {fileID: 5962553246160862674}
+  errorClip: {fileID: 8300000, guid: e56b25ca2ecc247479d2dfa8bec36fcb, type: 3}
 --- !u!114 &8983831406896570768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23207,6 +23210,102 @@ MonoBehaviour:
   m_SkinMeshRef: {fileID: 0}
   m_OriginalMeshObject: {fileID: 0}
   m_Mode: 0
+--- !u!82 &5962553246160862674
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809041121200441807}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 60
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9009777896524342382
 GameObject:
   m_ObjectHideFlags: 0
@@ -23416,7 +23515,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00013068295, y: 0.0006151124, z: 0.000029557323}
+  m_ConnectedAnchor: {x: -0.00029381146, y: 0.00074121554, z: -0.000099493845}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:

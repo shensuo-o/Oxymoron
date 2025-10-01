@@ -31,6 +31,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     public CameraFollow mainCam;
     public Transform scenePoint;
 
+    public AudioSource source;
+    public AudioClip errorClip;
 
     public void LoadData(GameData data)
     {
@@ -95,6 +97,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             if (status[i] == false)
             {
                 mainCam.CallShake(1f);
+                source.PlayOneShot(errorClip, 1);
                 estatuas[index].gameObject.GetComponent<Statue>().error = true;
                 estatuas[index].gameObject.GetComponent<Statue>().solved = false;
                 yield return new WaitForSeconds(3.2f);

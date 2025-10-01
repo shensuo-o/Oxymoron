@@ -36,13 +36,13 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                //item.GetComponent<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
-                for (int i = 0; i < parts.Length; i++)
+                /*for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
-                }
+                }*/
             }
             else
             {
@@ -84,13 +84,13 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                //item.GetComponent<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
-                for (int i = 0; i < parts.Length; i++)
+                /*for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
-                }
+                }*/
             }
             else
             {
