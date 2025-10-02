@@ -7,13 +7,13 @@ public class TrapsDamage : MonoBehaviour
     [SerializeField] private float Damage;
     [SerializeField] private Personaje Leif;
     public bool interactable;
-    public SphereCollider coll;
+    public Collider coll;
     public Element element;
 
     private void Awake()
     {
         Leif = GameObject.Find("Leif").GetComponent<Personaje>();
-        coll = this.gameObject.GetComponent<SphereCollider>();
+        coll = this.gameObject.GetComponent<Collider>();
     }
 
     private void Update()
