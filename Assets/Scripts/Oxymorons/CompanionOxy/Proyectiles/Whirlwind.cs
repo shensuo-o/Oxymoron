@@ -25,14 +25,24 @@ public class Whirlwind : StatsOximorones
         transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 28)
+        {
+            if (other.gameObject.GetComponent<Collider>() != null)
+            {
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 28)
         {
             timer += Time.deltaTime;
             if (other.gameObject.GetComponent<Collider>() != null)
             {
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, pointEffect.position, force * Time.deltaTime);
                 if (timer >= lifeTime - 0.5f)
                 {
@@ -44,7 +54,7 @@ public class Whirlwind : StatsOximorones
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 10 || other.gameObject.layer == 16)
+        if (other.gameObject.layer == 10 || other.gameObject.layer == 28)
         {
             other.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }

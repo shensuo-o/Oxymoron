@@ -22,21 +22,21 @@ public class ShowText : MonoBehaviour
 
         if (estatua.index == 0)
         {
-            numero = "El primero ";
+            numero = " el primero de los principes.";
         }
         else if (estatua.index == 1)
         {
-            numero = "El segundo ";
+            numero = " el segundo de los principes.";
         }
         else if (estatua.index == 2)
         {
-            numero = "El tercero ";
+            numero = " el tercero de los principies.";
         }
         else
         {
-            numero = "El cuarto";
+            numero = "el cuarto...";
         }
-        fullMessage = numero + message;
+        fullMessage = message + numero;
         textMesh = text.GetComponent<TextMeshProUGUI>();
     }
 

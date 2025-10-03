@@ -34,6 +34,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     public AudioSource source;
     public AudioClip errorClip;
 
+    public Material openRoots;
+
     public void LoadData(GameData data)
     {
         data.solvedPuzzles.TryGetValue(id, out solved);
@@ -200,6 +202,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     {
         for (int i = 0;i < doorBranches.Count;i++)
         {
+            doorBranches[i].gameObject.GetComponent<MeshRenderer>().material = openRoots;
             doorBranches[i].useGravity = true;
             doorBranches[i].constraints = RigidbodyConstraints.None;
             doorBranches[i].AddForce(Vector3.right * 2, ForceMode.Impulse);

@@ -67,7 +67,7 @@ public class ShadowLightCast : StatsOximorones
         if (other.gameObject.layer == 10 || other.gameObject.layer == 3)
         {
             timer += Time.deltaTime;
-            if(other.gameObject.GetComponent<Collider>() != null)
+            if (other.gameObject.GetComponent<Collider>() != null)
             {
                 other.gameObject.transform.position = Vector3.MoveTowards(other.transform.position, transform.position, force * Time.deltaTime);
                 if (timer >= lifeTime - 0.5f)

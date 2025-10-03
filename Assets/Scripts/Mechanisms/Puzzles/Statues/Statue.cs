@@ -30,6 +30,12 @@ public class Statue : MonoBehaviour
     [ColorUsage(hdr: true, showAlpha: true)]
     public Color active, inActive, mistake;
 
+    public Material mActive;
+
+    public Material mInactiveStatues;
+
+    public Material mInactiveItem;
+
     private void Update()
     {
         if (solved)
@@ -71,12 +77,12 @@ public class Statue : MonoBehaviour
                     item.transform.rotation = dock.rotation;
                 }
 
-                item.GetComponent<MeshRenderer>().material.color = active;
+                item.GetComponent<MeshRenderer>().material = mActive;
                 particles.startColor = active;
 
                 for (int i = 0; i < parts.Length; i++)
                 {
-                    parts[i].GetComponent<MeshRenderer>().material.color = active;
+                    parts[i].GetComponent<MeshRenderer>().material = mActive;
                 }
             }
         }
@@ -94,12 +100,12 @@ public class Statue : MonoBehaviour
             }
             else
             {
-                item.GetComponent<MeshRenderer>().material.color = inActive;
+                item.GetComponent<MeshRenderer>().material = mInactiveItem;
                 particles.startColor = inActive;
 
                 for (int i = 0; i < parts.Length; i++)
                 {
-                    parts[i].GetComponent<MeshRenderer>().material.color = inActive;
+                    parts[i].GetComponent<MeshRenderer>().material = mInactiveStatues;
                 }
             }
         }

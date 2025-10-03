@@ -232,6 +232,7 @@ MonoBehaviour:
   active: {r: 2, g: 2, b: 2, a: 1}
   inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
+  mActive: {fileID: 0}
 --- !u!54 &4911106950330636793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -862,7 +863,7 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   cuadro: {fileID: 7210517880729407259}
   numero: 
-  message: "de los pr\xEDncipes, erudito de lo arcano e interprete de las contradicciones."
+  message: Morvyn, erudito de lo arcana y interprete de las contradicciones,
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
@@ -6130,6 +6131,7 @@ MonoBehaviour:
   active: {r: 2, g: 2, b: 2, a: 1}
   inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
+  mActive: {fileID: 0}
 --- !u!54 &5854812398340308606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22291,6 +22293,7 @@ MonoBehaviour:
   active: {r: 2, g: 2, b: 2, a: 1}
   inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
+  mActive: {fileID: 0}
 --- !u!54 &8216246271936234571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22726,7 +22729,7 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   cuadro: {fileID: 2598190186310255325}
   numero: 
-  message: "de los pr\xEDncipes, general de la milicia y el escudo del pueblo."
+  message: "Vaelion, general de la milicia y h\xE9roe entre soldados, "
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
@@ -22980,7 +22983,7 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   cuadro: {fileID: 7314103504998173670}
   numero: 
-  message: "de los pr\xEDncipes, lider entre sus hermanos y el favorito del rey."
+  message: ' Nytheron, el escudo del pueblo y el favorito del rey,'
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
@@ -23182,6 +23185,7 @@ MonoBehaviour:
   scenePoint: {fileID: 4816815549908520402}
   source: {fileID: 5962553246160862674}
   errorClip: {fileID: 8300000, guid: e56b25ca2ecc247479d2dfa8bec36fcb, type: 3}
+  openRoots: {fileID: 0}
 --- !u!114 &8983831406896570768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23372,6 +23376,7 @@ MonoBehaviour:
   active: {r: 2, g: 2, b: 2, a: 1}
   inActive: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   mistake: {r: 1.4980394, g: 0.24731778, b: 0.24731778, a: 1}
+  mActive: {fileID: 0}
 --- !u!54 &4261575022935955008
 Rigidbody:
   m_ObjectHideFlags: 0
