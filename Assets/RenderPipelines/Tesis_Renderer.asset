@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Damage
   m_EditorClassIdentifier: 
   m_Active: 1
-  passMaterial: {fileID: 2100000, guid: 4d9f13071e0eefb4f979cdbdd3a7b511, type: 2}
   injectionPoint: 450
-  requirements: 4
+  fetchColorBuffer: 1
+  requirements: 0
+  passMaterial: {fileID: 2100000, guid: 4d9f13071e0eefb4f979cdbdd3a7b511, type: 2}
   passIndex: 0
+  bindDepthStencilAttachment: 0
+  m_Version: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +62,12 @@ MonoBehaviour:
       type: 3}
     dataDrivenLensFlare: {fileID: 4800000, guid: 6cda457ac28612740adb23da5d39ea92,
       type: 3}
+    terrainDetailLitPS: {fileID: 4800000, guid: f6783ab646d374f94b199774402a5144,
+      type: 3}
+    terrainDetailGrassPS: {fileID: 4800000, guid: e507fdfead5ca47e8b9a768b51c291a1,
+      type: 3}
+    terrainDetailGrassBillboardPS: {fileID: 4800000, guid: 29868e73b638e48ca99a19ea58c48d90,
+      type: 3}
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
@@ -92,7 +101,10 @@ MonoBehaviour:
   m_Name: Outline
   m_EditorClassIdentifier: 
   m_Active: 0
-  passMaterial: {fileID: 2100000, guid: 4dc734e138b31714bbb31861521d07b6, type: 2}
   injectionPoint: 600
-  requirements: 6
+  fetchColorBuffer: 1
+  requirements: 2
+  passMaterial: {fileID: 2100000, guid: 4dc734e138b31714bbb31861521d07b6, type: 2}
   passIndex: 0
+  bindDepthStencilAttachment: 0
+  m_Version: 1
