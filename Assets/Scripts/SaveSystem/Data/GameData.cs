@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 
 public class GameData
 {
+    public long lastUpdated;
     public float hp;
     public Vector3 playerPosition;
     public SerializedDictionary<string, bool> solvedPuzzles;

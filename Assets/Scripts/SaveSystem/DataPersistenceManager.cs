@@ -6,26 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("Debugging")]
+    [SerializeField] private bool createDataIfNull = false;
+
     [Header("FileStorageConfig")]
-
     [SerializeField] private string fileName;
-
     [SerializeField] private bool useEncryption;
 
     private GameData gameData;
     public static DataPersistenceManager Instance { get; private set; }
     private List<IDataPersistance> dataPersistenceObjects;
     private FileDataHandler dataHandler;
+    private string selectedProfile = "";
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("Hay mas de un DataPersistenceManager.");
+            Debug.LogError("Hay mas de un DataPersistenceManager. Borrando el mas nuevo.");
+            Destroy(this.gameObject);
+            return;
         }
         Instance = this;
+        DontDestroyOnLoad(this.gameObject);
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+
+        this.selectedProfile = dataHandler.GetRecentProfile();
     }
 
     private void OnEnable()
@@ -53,6 +60,13 @@ public class DataPersistenceManager : MonoBehaviour
         SaveGame();
     }
 
+    public void ChangeProfileID(string newProfile)
+    {
+        this.selectedProfile = newProfile;
+
+        LoadGame();
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
@@ -61,13 +75,18 @@ public class DataPersistenceManager : MonoBehaviour
     public void LoadGame()
     {
         //Load saved data using data handler
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler.Load(selectedProfile);
+
+        if (this.gameData == null && createDataIfNull)
+        {
+            NewGame();
+        }
 
         //If gameData == null then go to new game
         if (gameData == null)
         {
-            Debug.Log("No game data found. Creating new game");
-            NewGame();
+            Debug.Log("No game data found. Cant Load.");
+            return;
         }
 
         //Push loaded data to scripts that need said data
@@ -79,14 +98,21 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (this.gameData == null)
+        {
+            Debug.Log("No game data found. Cant Save.");
+            return;
+        }
         //Pass the data to scripts for update.
         foreach (IDataPersistance dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.SaveData(ref gameData);
         }
 
+        gameData.lastUpdated = System.DateTime.Now.ToBinary();
+
         //Save data to file bya the dataHandler.
-        dataHandler.Save(gameData);
+        dataHandler.Save(gameData, selectedProfile);
     }
 
     private List<IDataPersistance> FindAllDataPersistenceObjects()
@@ -99,5 +125,15 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+
+    public bool HasGameData()
+    {
+        return gameData != null;
+    }
+
+    public Dictionary<string, GameData> GetAllProfiles()
+    {
+        return dataHandler.LoadAllProfiles();
     }
 }

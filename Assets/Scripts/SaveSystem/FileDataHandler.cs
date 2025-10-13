@@ -21,9 +21,14 @@ public class FileDataHandler
         this.useEncryption = useEncryption;
     }
 
-    public GameData Load()
+    public GameData Load(string profileID)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        if(profileID == null)
+        {
+            return null;
+        }
+
+        string fullPath = Path.Combine(dataDirPath, profileID, dataFileName);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -57,9 +62,14 @@ public class FileDataHandler
         return loadedData;
     }
 
-    public void Save(GameData data)
+    public void Save(GameData data, string profileID)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        if (profileID == null)
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirPath, profileID, dataFileName);
 
         try
         {
@@ -88,6 +98,69 @@ public class FileDataHandler
         {
             Debug.LogError("Error while saving to dataFile: " + fullPath + "\n" + e);
         }
+    }
+
+    public Dictionary<string, GameData> LoadAllProfiles()
+    {
+        Dictionary<string, GameData> profilesDictionary = new Dictionary<string, GameData>();
+
+        IEnumerable<DirectoryInfo> dirInfos = new DirectoryInfo(dataDirPath).EnumerateDirectories();
+        foreach (DirectoryInfo dirInfo in dirInfos)
+        {
+            string profileID = dirInfo.Name;
+            string fullPath = Path.Combine (dataDirPath, profileID, dataFileName);
+
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning("Skipping directory with no save data from directoryProfiles: " + profileID);
+                continue;
+            }
+
+            GameData profileData = Load(profileID);
+
+            if (profileData != null)
+            {
+                profilesDictionary.Add(profileID, profileData);
+            }
+            else
+            {
+                Debug.LogError("Error loading profile " + profileID);
+            }
+        }
+
+        return profilesDictionary;
+    }
+
+    public string GetRecentProfile()
+    {
+        string mostRecentProfile = null;
+        Dictionary<string, GameData> profilesData = LoadAllProfiles();
+
+        foreach(KeyValuePair<string, GameData> pair in profilesData)
+        {
+            string profileID = pair.Key;
+            GameData data = pair.Value;
+            if (data == null)
+            {
+                continue;
+            }
+
+            if(mostRecentProfile == null)
+            {
+                mostRecentProfile = profileID;
+            }
+            else
+            {
+                DateTime mostRecentDate = DateTime.FromBinary(profilesData[mostRecentProfile].lastUpdated);
+                DateTime newDate = DateTime.FromBinary(data.lastUpdated);
+
+                if (newDate > mostRecentDate)
+                {
+                    mostRecentProfile = profileID;
+                }
+            }
+        }
+        return mostRecentProfile;
     }
 
     //Encrypt or decrypt the Json data
