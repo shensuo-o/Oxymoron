@@ -30,6 +30,7 @@ public class SaveSlotsMenu : MonoBehaviour
             DataPersistenceManager.Instance.NewGame();
         }
 
+        DataPersistenceManager.Instance.SaveGame();
         SceneManager.LoadSceneAsync(slot.currentScene);
     }
 
@@ -37,6 +38,12 @@ public class SaveSlotsMenu : MonoBehaviour
     {
         mainMenu.ActivateMenu();
         this.DeactivateMenu();
+    }
+
+    public void Delete(SaveSlot slot)
+    {
+        DataPersistenceManager.Instance.Delete(slot.GetProfileID());
+        ActivateMenu();
     }
 
     public void ActivateMenu()

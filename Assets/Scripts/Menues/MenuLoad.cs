@@ -16,6 +16,11 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
 
     private void Start()
     {
+        DisableButtonsPerData();
+    }
+
+    private void DisableButtonsPerData()
+    {
         if (!DataPersistenceManager.Instance.HasGameData())
         {
             continueButton.interactable = false;
@@ -27,7 +32,7 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
         this.sceneToLoad = data.scene;
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         data.scene = this.sceneToLoad;
     }
@@ -41,6 +46,7 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
     public void Continue()
     {
         DisableButtons();
+        DataPersistenceManager.Instance.SaveGame();
         Debug.Log("continue game");
         SceneManager.LoadSceneAsync(sceneToLoad);
     }
@@ -64,6 +70,7 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
     public void ActivateMenu()
     {
         this.gameObject.SetActive(true);
+        DisableButtonsPerData();
     }
 
     public void DeactivateMenu()

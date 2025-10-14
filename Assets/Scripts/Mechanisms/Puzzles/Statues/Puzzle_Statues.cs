@@ -41,7 +41,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         data.solvedPuzzles.TryGetValue(id, out solved);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.solvedPuzzles.ContainsKey(id))
         {

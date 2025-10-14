@@ -16,6 +16,9 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lvlText;
     [SerializeField] private Button slotButton;
 
+    [Header("Clear Data")]
+    [SerializeField] private Button deleteButton;
+
     private void Awake()
     {
         slotButton = this.GetComponent<Button>();
@@ -28,11 +31,13 @@ public class SaveSlot : MonoBehaviour
             noData.SetActive(true);
             hasData.SetActive(false);
             currentScene = "Scene Two";
+            deleteButton.gameObject.SetActive(false);
         }
         else
         {
             noData.SetActive(false);
             hasData.SetActive(true);
+            deleteButton.gameObject.SetActive(true);
 
             lvlText.text = data.scene;
             currentScene = data.scene;
@@ -47,5 +52,6 @@ public class SaveSlot : MonoBehaviour
     public void SetInteractable(bool inter)
     {
         slotButton.interactable = inter;
+        deleteButton.interactable = inter;
     }
 }

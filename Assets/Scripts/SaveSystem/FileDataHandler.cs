@@ -100,6 +100,32 @@ public class FileDataHandler
         }
     }
 
+    public void Delete(string profileID)
+    {
+        if (profileID == null)
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine (dataDirPath, profileID, dataFileName);
+
+        try
+        {
+            if (File.Exists(fullPath))
+            {
+                Directory.Delete(Path.GetDirectoryName(fullPath), true);
+            }
+            else
+            {
+                Debug.LogWarning("Tried to delete data but the directory didnt exist.");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to delete data from " + profileID + " at " + fullPath + "\n" + e); 
+        }
+    }
+
     public Dictionary<string, GameData> LoadAllProfiles()
     {
         Dictionary<string, GameData> profilesDictionary = new Dictionary<string, GameData>();

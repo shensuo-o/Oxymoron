@@ -20,7 +20,7 @@ public class ObjectToSave : MonoBehaviour, IDataPersistance
         data.solvedPuzzles.TryGetValue(id, out state);
     }
 
-    public void SaveData(ref GameData data)
+    public void SaveData(GameData data)
     {
         if (data.solvedPuzzles.ContainsKey(id))
         {
