@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 445711963181027452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.528, z: 0}
-  m_LocalScale: {x: 0.16834334, y: 0.17265292, z: 0.16834334}
+  m_LocalPosition: {x: 0.0133, y: -0.018999994, z: 0}
+  m_LocalScale: {x: 0.084171675, y: 0.086326465, z: 0.084171675}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3358157508144386642}
+  m_Father: {fileID: 2667227773711663896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &6829640869129041531
 Light:
@@ -45,8 +45,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8862745, g: 0.14909402, b: 0, a: 1}
-  m_Intensity: 43.9
-  m_Range: 6
+  m_Intensity: 44
+  m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -144,12 +144,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3017803151699851998}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.564, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.282, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3887392609048692318}
+  m_Father: {fileID: 2667227773711663896}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &974020303926327402
 ParticleSystem:
@@ -4990,7 +4990,6 @@ Transform:
   m_Children:
   - {fileID: 3887392609048692318}
   - {fileID: 3235846901149892090}
-  - {fileID: 1425006023406532830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1708158051121416183
@@ -5196,7 +5195,7 @@ PrefabInstance:
     - target: {fileID: 1969003848424348113, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220792832696163873, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
@@ -5221,7 +5220,22 @@ PrefabInstance:
     - target: {fileID: 2967989136017278402, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
       propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967989136017278402, guid: 75cf37d340615d042af3ff8a356581f8,
+        type: 3}
+      propertyPath: lengthInSec
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967989136017278402, guid: 75cf37d340615d042af3ff8a356581f8,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967989136017278402, guid: 75cf37d340615d042af3ff8a356581f8,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3101557707521207168, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
@@ -5256,12 +5270,22 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1018086386724952935, guid: 75cf37d340615d042af3ff8a356581f8,
+    - targetCorrespondingSourceObject: {fileID: 2220792832696163873, guid: 75cf37d340615d042af3ff8a356581f8,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 311916724298986220}
+    - targetCorrespondingSourceObject: {fileID: 2220792832696163873, guid: 75cf37d340615d042af3ff8a356581f8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425006023406532830}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cf37d340615d042af3ff8a356581f8, type: 3}
+--- !u!4 &2667227773711663896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2220792832696163873, guid: 75cf37d340615d042af3ff8a356581f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4310563696569310521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3887392609048692318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1018086386724952935, guid: 75cf37d340615d042af3ff8a356581f8,

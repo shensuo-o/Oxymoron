@@ -42,13 +42,13 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                //item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponent<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
-                /*for (int i = 0; i < parts.Length; i++)
+                for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
-                }*/
+                }
             }
             else
             {
@@ -77,12 +77,12 @@ public class Statue : MonoBehaviour
                     item.transform.rotation = dock.rotation;
                 }
 
-                item.GetComponent<MeshRenderer>().material = mActive;
+                item.GetComponent<MeshRenderer>().material.color = active;
                 particles.startColor = active;
 
                 for (int i = 0; i < parts.Length; i++)
                 {
-                    parts[i].GetComponent<MeshRenderer>().material = mActive;
+                    parts[i].GetComponent<MeshRenderer>().material.color = active;
                 }
             }
         }
@@ -90,22 +90,22 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                //item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponent<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
-                /*for (int i = 0; i < parts.Length; i++)
+                for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
-                }*/
+                }
             }
             else
             {
-                item.GetComponent<MeshRenderer>().material = mInactiveItem;
+                item.GetComponent<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
 
                 for (int i = 0; i < parts.Length; i++)
                 {
-                    parts[i].GetComponent<MeshRenderer>().material = mInactiveStatues;
+                    parts[i].GetComponent<MeshRenderer>().material.color = inActive;
                 }
             }
         }
