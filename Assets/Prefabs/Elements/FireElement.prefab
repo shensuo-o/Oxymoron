@@ -30,8 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7849046957185160238}
+  m_Children: []
   m_Father: {fileID: 1018086386724952935}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &2967989136017278402
@@ -4871,13 +4870,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -4918,6 +4919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7849046957185160238}
   - {fileID: 2220792832696163873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4968,8 +4970,33 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2220792832696163873}
+    m_TransformParent: {fileID: 1018086386724952935}
     m_Modifications:
+    - target: {fileID: 925930909281968795, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 925930909281968795, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Name
+      value: Color 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 925930909281968795, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 2.4150944
+      objectReference: {fileID: 0}
+    - target: {fileID: 925930909281968795, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 0.047790483
+      objectReference: {fileID: 0}
+    - target: {fileID: 925930909281968795, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1947846116242601241, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4993,7 +5020,7 @@ PrefabInstance:
     - target: {fileID: 1947846116242601241, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.179
+      value: -0.17900002
       objectReference: {fileID: 0}
     - target: {fileID: 1947846116242601241, guid: 6494377cd3b428c4ea0ee08baa2cb0a5,
         type: 3}
