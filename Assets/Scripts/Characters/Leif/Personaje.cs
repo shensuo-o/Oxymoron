@@ -75,6 +75,8 @@ public class Personaje : MonoBehaviour, IDataPersistance
     //variable de animacion
     public float PreAction;
 
+    public bool alive = true;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -99,6 +101,8 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     private void Start()
     {
+        HP = 100;
+        alive = true;
         healthBar = GameObject.Find("FillHP").GetComponent<Image>();
 
         HitMaterial.SetFloat("_DistDist2", 1f);
@@ -110,58 +114,63 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     void Update()
     {
-        if (!isRolling)
+        if (alive)
         {
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
-
-            animator.SetFloat("Speed", rb.velocity.magnitude);
-
-            if (HorizontalInput == -1)
+            if (!isRolling)
             {
-                rollDirection = -1;
+                HorizontalInput = Input.GetAxisRaw("Horizontal");
+
+                animator.SetFloat("Speed", rb.velocity.magnitude);
+
+                if (HorizontalInput == -1)
+                {
+                    rollDirection = -1;
+                }
+                if (HorizontalInput == 1)
+                {
+                    rollDirection = 1;
+                }
             }
-            if (HorizontalInput == 1)
+
+            if (isGrounded)
             {
-                rollDirection = 1;
+                coyoteCount = coyoteTime;
             }
-        }
-
-        if (isGrounded)
-        {
-            coyoteCount = coyoteTime;
-        }
-        else
-        {
-            coyoteCount -= Time.deltaTime;
-        }
-
-        Jump();
-
-        if (isGrounded && !isJumping && canRoll)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            else
             {
-                StartCoroutine(Roll());
+                coyoteCount -= Time.deltaTime;
+            }
+
+            Jump();
+
+            if (isGrounded && !isJumping && canRoll)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    StartCoroutine(Roll());
+                }
+            }
+
+            if (combat.isAttacking == true)
+            {
+                Speed = 1;
+            }
+            else
+            {
+                Speed = tempSpeed;
             }
         }
-
-        if(combat.isAttacking == true)
-        {
-            Speed = 1;
-        }
-        else
-        {
-            Speed = tempSpeed;
-        }
-
         healthBar.fillAmount = HP / 100f;
     }
 
     private void FixedUpdate()
     {
-        if (!isRolling && !knockBack.isHit)
+        if (alive)
         {
-            Movement(HorizontalInput);
+            if (!isRolling && !knockBack.isHit)
+            {
+                Movement(HorizontalInput);
+            }
         }
         Gravity();
         Grounded();
@@ -293,6 +302,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         if (HP <= 0)
         {
             StartCoroutine("Death");
+            alive = false;
         }
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
         StartCoroutine(Invulnerable(timeInv));
@@ -307,7 +317,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
         HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
         yield return new WaitForSeconds(2f);
-        HP = 100;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
