@@ -75,6 +75,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     //variable de animacion
     public float PreAction;
 
+    //Death Variables
     public bool alive = true;
 
     private void Awake()
@@ -165,13 +166,11 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     private void FixedUpdate()
     {
-        if (alive)
+        if (!isRolling && !knockBack.isHit)
         {
-            if (!isRolling && !knockBack.isHit)
-            {
-                Movement(HorizontalInput);
-            }
+            Movement(HorizontalInput);
         }
+        
         Gravity();
         Grounded();
     }
@@ -310,6 +309,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     private IEnumerator Death()
     {
+        HorizontalInput = 0;
         leifMaterial.color = Color.white;
         leifAttackDetection.enabled = false;
         animator.SetTrigger("Die");

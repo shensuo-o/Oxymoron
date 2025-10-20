@@ -8,7 +8,6 @@ public class SaveSlotsMenu : MonoBehaviour
 {
     [Header("Menu Navigation")]
     [SerializeField] private MenuLoad mainMenu;
-    [SerializeField] private Button back;
 
     private SaveSlot[] saveSlots;
 
@@ -43,6 +42,7 @@ public class SaveSlotsMenu : MonoBehaviour
     public void Delete(SaveSlot slot)
     {
         DataPersistenceManager.Instance.Delete(slot.GetProfileID());
+        mainMenu.ActivateMenu();
         ActivateMenu();
     }
 
@@ -71,6 +71,5 @@ public class SaveSlotsMenu : MonoBehaviour
         {
             saveSlot.SetInteractable(false);
         }
-        back.interactable = false;
     }
 }

@@ -7,6 +7,10 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused = false;
 
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject audioPanel;
+    [SerializeField] private GameObject controlsPanel;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -37,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
+
     public void ExitGame()
     {
         Application.Quit();

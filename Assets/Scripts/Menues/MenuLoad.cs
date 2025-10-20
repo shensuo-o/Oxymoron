@@ -7,7 +7,12 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
     [SerializeField] private string sceneToLoad;
 
     [Header("Menu Navigation")]
+
     [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+    [SerializeField] private GameObject OptionsPanel;
+    [SerializeField] private GameObject ControlsPanel;
+    [SerializeField] private GameObject AudioPanel;
+    [SerializeField] private GameObject QuitPanel;
 
     [Header("Menu Buttons")]
 
@@ -40,7 +45,7 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
     public void NewGame()
     {
         saveSlotsMenu.ActivateMenu();
-        this.DeactivateMenu();
+        OptionsPanel.SetActive(false);
     }
 
     public void Continue()
@@ -49,6 +54,28 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
         DataPersistenceManager.Instance.SaveGame();
         Debug.Log("continue game");
         SceneManager.LoadSceneAsync(sceneToLoad);
+    }
+
+    public void Options()
+    {
+        saveSlotsMenu.DeactivateMenu();
+        ActivateMenu();
+        OptionsPanel.SetActive(true);
+        QuitPanel.SetActive(false);
+    }
+
+    public void Audio()
+    {
+        AudioPanel.SetActive(true);
+        ControlsPanel.SetActive(false);
+        QuitPanel.SetActive(false);
+    }
+
+    public void Controls()
+    {
+        ControlsPanel.SetActive(true);
+        AudioPanel.SetActive(false);
+        QuitPanel.SetActive(false);
     }
 
     private void DisableButtons()
@@ -69,13 +96,20 @@ public class MenuLoad : MonoBehaviour, IDataPersistance
 
     public void ActivateMenu()
     {
-        this.gameObject.SetActive(true);
         DisableButtonsPerData();
     }
 
-    public void DeactivateMenu()
+    public void Quit()
     {
-        this.gameObject.SetActive(false);
+        saveSlotsMenu.DeactivateMenu();
+        ActivateMenu();
+        QuitPanel.SetActive(true);
+        OptionsPanel.SetActive(false);
+    }
+
+    public void DontExit()
+    {
+        QuitPanel.SetActive(false);
     }
 
     public void ExitGame()
