@@ -6,6 +6,8 @@ public class LoadLevel : MonoBehaviour
 {
     public static LoadLevel Instance;
     [SerializeField] private Animator animator;
+    public GameObject image;
+
     private void Awake()
     {
         Instance = this;
@@ -15,5 +17,15 @@ public class LoadLevel : MonoBehaviour
     public void PlayStart()
     {
         animator.SetTrigger("Start");
+    }
+
+    public void HideImage()
+    {
+        image.SetActive(false);
+    }
+
+    public void ShowImage()
+    {
+        image.SetActive(true);
     }
 }
