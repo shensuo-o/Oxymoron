@@ -36,13 +36,17 @@ public class Statue : MonoBehaviour
 
     public Material mInactiveItem;
 
+    public Animator animator;
+
+    public AnimationClip clip;
+
     private void Update()
     {
         if (solved)
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -52,32 +56,11 @@ public class Statue : MonoBehaviour
             }
             else
             {
-                pull.GetComponent<Rigidbody>().useGravity = false;
+                item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
 
-                float distance = Vector3.Distance(item.transform.position, dock.position);
-                float quat = Quaternion.Angle(item.transform.rotation, dock.rotation);
+                item.transform.rotation = dock.rotation;
 
-                if(distance >= proximity)
-                {
-                    item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
-                    
-                }
-                else
-                {
-                    item.transform.position = dock.position;
-                    
-                }
-
-                if(quat >= proximity)
-                {
-                    item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 80 * Time.deltaTime);
-                }
-                else
-                {
-                    item.transform.rotation = dock.rotation;
-                }
-
-                item.GetComponent<MeshRenderer>().material.color = active;
+                item.GetComponentInChildren<MeshRenderer>().material.color = active;
                 particles.startColor = active;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -90,7 +73,7 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -100,7 +83,7 @@ public class Statue : MonoBehaviour
             }
             else
             {
-                item.GetComponent<MeshRenderer>().material.color = inActive;
+                item.GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -118,7 +101,6 @@ public class Statue : MonoBehaviour
             if (other.gameObject.layer == 20)
             {
                 pull.GetComponent<Rigidbody>().useGravity = false;
-                item = other.gameObject;
                 puzzle.CheckStatues(index);
                 solved = true;
                 particles.Play();
