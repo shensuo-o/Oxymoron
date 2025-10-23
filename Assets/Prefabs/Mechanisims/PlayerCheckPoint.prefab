@@ -870,7 +870,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 109.33
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1654,7 +1654,7 @@ ParticleSystem:
     orbitalX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1707,7 +1707,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1760,7 +1760,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1813,7 +1813,7 @@ ParticleSystem:
     orbitalOffsetX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1866,7 +1866,7 @@ ParticleSystem:
     orbitalOffsetY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1919,7 +1919,7 @@ ParticleSystem:
     orbitalOffsetZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2689,7 +2689,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 11.87
+      scalar: 11.94
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2846,7 +2846,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.4
+    frequency: 0.2
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -5058,9 +5058,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 0, b: 0.17789984, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.92958754, g: 0.037137777, b: 0, a: 0}
+        key0: {r: 0.7924528, g: 0.030093146, b: 0, a: 0}
         key1: {r: 1, g: 0, b: 0, a: 1}
-        key2: {r: 0.839182, g: 0.032920036, b: 0, a: 1}
+        key2: {r: 0.6886792, g: 0.02574502, b: 0, a: 1}
         key3: {r: 1, g: 1, b: 1, a: 1}
         key4: {r: 1, g: 1, b: 1, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
