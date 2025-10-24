@@ -126,10 +126,10 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistance>(dataPersistenceObject);
     }
 
-    private void OnApplicationQuit()
+    /*private void OnApplicationQuit()
     {
         SaveGame();
-    }
+    }*/
 
     public bool HasGameData()
     {
