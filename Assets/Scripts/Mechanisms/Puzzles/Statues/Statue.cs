@@ -86,7 +86,14 @@ public class Statue : MonoBehaviour, IDataPersistance
             }
             else
             {
-                item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
+                if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
+                {
+                    item.transform.position = dock.position;
+                }
+                else
+                {
+                    item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
+                }
 
                 item.transform.rotation = dock.rotation;
 

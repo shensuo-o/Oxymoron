@@ -632,7 +632,7 @@ Transform:
   m_GameObject: {fileID: 1078430032122837424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.33, y: 9.45, z: 0.12}
+  m_LocalPosition: {x: -5.58, y: 8.3, z: 0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -756,12 +756,12 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316864288107154062}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 137843254416053091}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 18.000628, y: 0.00064373016, z: -6.728949}
+  m_ConnectedAnchor: {x: -0.19091415, y: -0.1454382, z: 0.08971932}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -5970,7 +5970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845813227579816133}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.013333332, y: 0.013333333, z: 0.013333333}
   m_ConstrainProportionsScale: 1
