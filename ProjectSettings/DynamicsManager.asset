@@ -18,7 +18,7 @@ PhysicsManager:
   m_ClothInterCollisionDistance: 0.1
   m_ClothInterCollisionStiffness: 0.2
   m_ContactsGeneration: 1
-  m_LayerCollisionMatrix: 000000e0000000e0400000e0001800e0000000e0800000e0043312fa20241cec402009f8400000f0800820e0080400f1480000f0c00108e8008000e0004000e0000110e040000ce8800002e0802102e0c00001e0000400e0000000f0000000f0000800e0400000e8800000e0c02102fa401bc0f8ffffffffffffffffffffffff
+  m_LayerCollisionMatrix: 000000e0000000e0400000e0001800e0000000e0800000e0043312fa20241cec402009e8400000e0800820e0080400f1480000f0c00108e8008000e0004000e0000110e040000ce8800002e0802102e0c00001e0000400e0000000f0000000f0000800e0400000e8800000e0c02102fa4018c0f8ffffffffffffffffffffffff
   m_SimulationMode: 0
   m_AutoSyncTransforms: 0
   m_ReuseCollisionCallbacks: 1
@@ -37,3 +37,4 @@ PhysicsManager:
   m_ImprovedPatchFriction: 0
   m_SolverType: 0
   m_DefaultMaxAngularSpeed: 50
+  m_FastMotionThreshold: 3.4028235e+38

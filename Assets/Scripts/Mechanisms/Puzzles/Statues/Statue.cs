@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Statue : MonoBehaviour
+public class Statue : MonoBehaviour, IDataPersistance
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     [SerializeField] private Puzzle_Statues puzzle;
 
     public int index;
@@ -39,6 +48,27 @@ public class Statue : MonoBehaviour
     public Animator animator;
 
     public AnimationClip clip;
+
+    public void LoadData(GameData data)
+    {
+        if (data.statuesOrder.TryGetValue(id, out var temp) && temp == 0)
+        {
+            Debug.Log("Not Loading Statues Index");
+        }
+        else
+        {
+            data.statuesOrder.TryGetValue(id, out index);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        if (data.statuesOrder.ContainsKey(id))
+        {
+            data.statuesOrder.Remove(id);
+        }
+        data.statuesOrder.Add(id, index);
+    }
 
     private void Update()
     {

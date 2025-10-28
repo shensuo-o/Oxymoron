@@ -218,8 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9038de3d879ff8948808ca485081b862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 481176fb-1d86-4a0a-95fc-34225ac5b269
   puzzle: {fileID: 7689177114953744052}
-  index: 2
+  index: 0
   solved: 0
   error: 0
   dock: {fileID: 2955480258360250006}
@@ -6259,8 +6260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9038de3d879ff8948808ca485081b862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 4ee698a1-fe6c-4a54-a8d4-c76b4cdaa3e3
   puzzle: {fileID: 7689177114953744052}
-  index: 1
+  index: 0
   solved: 0
   error: 0
   dock: {fileID: 2963211302801721560}
@@ -22554,6 +22556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9038de3d879ff8948808ca485081b862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 8c72f214-3074-43ec-93f9-2dcfbc64d6f2
   puzzle: {fileID: 7689177114953744052}
   index: 0
   solved: 0
@@ -23405,10 +23408,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7760110003363248156}
   - {fileID: 1329421078276685540}
   - {fileID: 5032361386144400327}
   - {fileID: 3787027688900547976}
-  - {fileID: 7760110003363248156}
   - {fileID: 4816815549908520402}
   - {fileID: 4809590460463873379}
   m_Father: {fileID: 0}
@@ -23433,6 +23436,7 @@ MonoBehaviour:
   - {fileID: 7264057874530805653}
   - {fileID: 2334464780004855773}
   - {fileID: 9009777896524342382}
+  orden: []
   doorBranches:
   - {fileID: 0}
   - {fileID: 0}
@@ -23635,8 +23639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9038de3d879ff8948808ca485081b862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 84bc0adb-8aa9-4531-984f-de5e0a502d25
   puzzle: {fileID: 7689177114953744052}
-  index: 3
+  index: 0
   solved: 0
   error: 0
   dock: {fileID: 3711876180244187233}
