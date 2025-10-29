@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Statue : MonoBehaviour
+public class Statue : MonoBehaviour, IDataPersistance
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     [SerializeField] private Puzzle_Statues puzzle;
 
     public int index;
@@ -36,13 +45,38 @@ public class Statue : MonoBehaviour
 
     public Material mInactiveItem;
 
+    public Animator animator;
+
+    public AnimationClip clip;
+
+    public void LoadData(GameData data)
+    {
+        if (data.statuesOrder.TryGetValue(id, out var temp) && temp == 0)
+        {
+            Debug.Log("Not Loading Statues Index");
+        }
+        else
+        {
+            data.statuesOrder.TryGetValue(id, out index);
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        if (data.statuesOrder.ContainsKey(id))
+        {
+            data.statuesOrder.Remove(id);
+        }
+        data.statuesOrder.Add(id, index);
+    }
+
     private void Update()
     {
         if (solved)
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -52,32 +86,18 @@ public class Statue : MonoBehaviour
             }
             else
             {
-                pull.GetComponent<Rigidbody>().useGravity = false;
-
-                float distance = Vector3.Distance(item.transform.position, dock.position);
-                float quat = Quaternion.Angle(item.transform.rotation, dock.rotation);
-
-                if(distance >= proximity)
-                {
-                    item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
-                    
-                }
-                else
+                if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
                 {
                     item.transform.position = dock.position;
-                    
-                }
-
-                if(quat >= proximity)
-                {
-                    item.transform.rotation = Quaternion.RotateTowards(item.transform.rotation, dock.rotation, 80 * Time.deltaTime);
                 }
                 else
                 {
-                    item.transform.rotation = dock.rotation;
+                    item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
                 }
 
-                item.GetComponent<MeshRenderer>().material.color = active;
+                item.transform.rotation = dock.rotation;
+
+                item.GetComponentInChildren<MeshRenderer>().material.color = active;
                 particles.startColor = active;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -90,7 +110,7 @@ public class Statue : MonoBehaviour
         {
             if (error)
             {
-                item.GetComponent<MeshRenderer>().material.color = mistake;
+                item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -100,7 +120,7 @@ public class Statue : MonoBehaviour
             }
             else
             {
-                item.GetComponent<MeshRenderer>().material.color = inActive;
+                item.GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
 
                 for (int i = 0; i < parts.Length; i++)
@@ -118,7 +138,6 @@ public class Statue : MonoBehaviour
             if (other.gameObject.layer == 20)
             {
                 pull.GetComponent<Rigidbody>().useGravity = false;
-                item = other.gameObject;
                 puzzle.CheckStatues(index);
                 solved = true;
                 particles.Play();

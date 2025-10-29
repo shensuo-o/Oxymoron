@@ -11,7 +11,7 @@ public class PlayerCheckPoint : MonoBehaviour
 
     private void Start()
     {
-        prompt = GameObject.Find("PressEToElement");
+        //prompt = GameObject.Find("PressEToElement");
     }
 
     private void OnTriggerEnter(Collider other)

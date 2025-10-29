@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 using Random = UnityEngine.Random;
 
 public class Puzzle_Statues : MonoBehaviour, IDataPersistance
@@ -21,6 +23,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     public bool[] status;
 
     public GameObject[] estatuas;
+
+    public List<GameObject> orden;
 
     public List<Rigidbody> doorBranches;
 
@@ -53,21 +57,40 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
     private void Awake()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
+    }
 
-        CheckPuzzle();
-
+    private void Start()
+    {
         if (!solved)
         {
-            for (int i = 0; i < estatuas.Length - 1; i++)
+            if (estatuas[0].GetComponent<Statue>().index == 0 && estatuas[1].GetComponent<Statue>().index == 0)
             {
-                int rand = Random.Range(i, estatuas.Length - 1);
-                var temp = estatuas[rand];
+                estatuas[3].GetComponent<Statue>().index = 3;
 
-                estatuas[rand] = estatuas[i];
-                estatuas[rand].GetComponent<Statue>().index = rand;
+                for (int i = 0; i < estatuas.Length - 1; i++)
+                {
+                    int rand = Random.Range(i, estatuas.Length - 1);
+                    var temp = estatuas[rand];
 
-                estatuas[i] = temp;
-                estatuas[i].GetComponent<Statue>().index = i;
+                    estatuas[rand] = estatuas[i];
+                    estatuas[rand].GetComponent<Statue>().index = rand;
+
+                    estatuas[i] = temp;
+                    estatuas[i].GetComponent<Statue>().index = i;
+                }
+            }
+            else
+            {
+                Debug.Log("Loaded order.");
+                for (int i = 0; i < estatuas.Length; i++)
+                {
+                    orden[estatuas[i].GetComponent<Statue>().index] = estatuas[i];
+                }
+
+                for (int i = 0;i < estatuas.Length; i++)
+                {
+                    estatuas[i] = orden[i];
+                }
             }
 
             for (int p = 0; p < traps.Length; p++)
@@ -82,6 +105,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 estatuas[i].gameObject.GetComponent<Statue>().solved = true;
             }
         }
+
+        CheckPuzzle();
     }
 
     public void CheckStatues(int index)
