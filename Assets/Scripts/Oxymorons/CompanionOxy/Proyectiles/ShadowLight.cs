@@ -74,6 +74,10 @@ public class ShadowLightCast : StatsOximorones
                 {
                     other.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 }
+                else
+                {
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                }
             }
         } 
     }
