@@ -15,6 +15,7 @@ public class ShowText : MonoBehaviour
     public string fullMessage;
     public float delay = 0.05f;
     public CompanionMovement comp;
+    public AnimationClip readClip;
 
     private void Start()
     {
@@ -54,7 +55,8 @@ public class ShowText : MonoBehaviour
         cuadro.SetActive(true);
         text.SetActive(true);
         StartCoroutine(TypeText());
-        comp.animator.SetBool("IsReading", true);
+        //comp.animator.SetBool("IsReading", true);
+        CompanionAnimations.Instance.PlayAnimation(readClip, true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -63,6 +65,7 @@ public class ShowText : MonoBehaviour
         text.SetActive(false);
         StopAllCoroutines();
         textMesh.text = " ";
-        comp.animator.SetBool("IsReading", false);
+        //comp.animator.SetBool("IsReading", false);
+        CompanionAnimations.Instance.PlayAnimation(readClip, false);
     }
 }

@@ -8,6 +8,13 @@ public class OpenBridge : MonoBehaviour
     public CameraFollow mainCam;
 
     public Transform wheel;
+    public Transform bridge;
+
+    public Animator animator;
+
+    public AnimationClip clipError;
+    public AnimationClip clipSucces;
+    public AnimationClip clipOpen;
 
     private void Awake()
     {
@@ -36,7 +43,8 @@ public class OpenBridge : MonoBehaviour
         {
             if (movedStones[i] == false)
             {
-                mainCam.CallMoveAndShake(1, wheel.position);
+                mainCam.CallMoveAndShake(3, wheel.position);
+                animator.SetTrigger(clipError.name);
                 return;
             }
             else
@@ -44,9 +52,16 @@ public class OpenBridge : MonoBehaviour
                 checks++;
                 if (checks == 4)
                 {
-                    mainCam.CallMoveAndShake(3, wheel.position);
+                    mainCam.CallMoveAndShake(5, wheel.position);
+                    animator.SetTrigger(clipSucces.name);
                 }
             }
         }
+    }
+
+    public void Open()
+    {
+        mainCam.CallMoveAndShake(2, bridge.position);
+        animator.SetTrigger(clipOpen.name);
     }
 }
