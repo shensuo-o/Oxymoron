@@ -89,10 +89,12 @@ public class Statue : MonoBehaviour, IDataPersistance
                 if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
                 {
                     item.transform.position = dock.position;
+                    animator.SetTrigger(clip.name);
                 }
                 else
                 {
                     item.transform.position = Vector3.MoveTowards(item.transform.position, dock.position, 5 * Time.deltaTime);
+                    //animator.SetTrigger(clip.name);
                 }
 
                 item.transform.rotation = dock.rotation;
