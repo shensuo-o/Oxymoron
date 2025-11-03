@@ -1010,10 +1010,11 @@ MonoBehaviour:
   textMesh: {fileID: 0}
   cuadro: {fileID: 7210517880729407259}
   numero: 
-  message: Morvyn, erudito de lo arcana y interprete de las contradicciones,
+  message: Morvyn, erudito de lo arcana e interprete de las contradicciones,
   fullMessage: 
-  delay: 0.05
+  delay: 0.03
   comp: {fileID: 0}
+  readClip: {fileID: 7400000, guid: 6488647bf8f15ef4a8e1198d2c8501b5, type: 2}
 --- !u!1 &1618945887628576509
 GameObject:
   m_ObjectHideFlags: 0
@@ -22399,6 +22400,7 @@ MonoBehaviour:
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
+  readClip: {fileID: 0}
 --- !u!1 &6899328274458998921
 GameObject:
   m_ObjectHideFlags: 0
@@ -23016,6 +23018,7 @@ MonoBehaviour:
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
+  readClip: {fileID: 0}
 --- !u!1 &8283324394596717007
 GameObject:
   m_ObjectHideFlags: 0
@@ -23270,6 +23273,7 @@ MonoBehaviour:
   fullMessage: 
   delay: 0.05
   comp: {fileID: 0}
+  readClip: {fileID: 0}
 --- !u!1 &8694309352434560790
 GameObject:
   m_ObjectHideFlags: 0
@@ -23436,7 +23440,11 @@ MonoBehaviour:
   - {fileID: 7264057874530805653}
   - {fileID: 2334464780004855773}
   - {fileID: 9009777896524342382}
-  orden: []
+  orden:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   doorBranches:
   - {fileID: 0}
   - {fileID: 0}
@@ -23448,8 +23456,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   traps:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

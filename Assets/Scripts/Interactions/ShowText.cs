@@ -14,12 +14,17 @@ public class ShowText : MonoBehaviour
     public string message;
     public string fullMessage;
     public float delay = 0.05f;
-    public CompanionMovement comp;
     public AnimationClip readClip;
-
+    
     private void Start()
     {
-        comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
+        StartCoroutine(GetIndex());
+        textMesh = text.GetComponent<TextMeshProUGUI>();
+    }
+
+    IEnumerator GetIndex()
+    {
+        yield return new WaitForSeconds(1);
 
         if (estatua.index == 0)
         {
@@ -38,9 +43,8 @@ public class ShowText : MonoBehaviour
             numero = "el cuarto...";
         }
         fullMessage = message + numero;
-        textMesh = text.GetComponent<TextMeshProUGUI>();
     }
-
+    
     IEnumerator TypeText()
     {
         foreach (char character in fullMessage.ToCharArray())
@@ -55,7 +59,6 @@ public class ShowText : MonoBehaviour
         cuadro.SetActive(true);
         text.SetActive(true);
         StartCoroutine(TypeText());
-        //comp.animator.SetBool("IsReading", true);
         CompanionAnimations.Instance.PlayAnimation(readClip, true);
     }
 
@@ -65,7 +68,6 @@ public class ShowText : MonoBehaviour
         text.SetActive(false);
         StopAllCoroutines();
         textMesh.text = " ";
-        //comp.animator.SetBool("IsReading", false);
         CompanionAnimations.Instance.PlayAnimation(readClip, false);
     }
 }
