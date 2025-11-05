@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 4513022801479393075}
   - component: {fileID: 4911106950330636793}
   - component: {fileID: 3094372028022315747}
-  - component: {fileID: 229492130256140072}
   m_Layer: 16
   m_Name: EstatuaHermanoLibro
   m_TagString: Untagged
@@ -287,27 +286,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 3, z: 1}
   m_Center: {x: 0, y: 3.7, z: -1.11}
---- !u!95 &229492130256140072
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622534116173182487}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9599cc865ad3505478b5b90e5cc922a8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &707963638957088557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +991,6 @@ MonoBehaviour:
   message: Morvyn, erudito de lo arcana e interprete de las contradicciones,
   fullMessage: 
   delay: 0.03
-  comp: {fileID: 0}
   readClip: {fileID: 7400000, guid: 6488647bf8f15ef4a8e1198d2c8501b5, type: 2}
 --- !u!1 &1618945887628576509
 GameObject:
@@ -22399,7 +22376,6 @@ MonoBehaviour:
   message: ...
   fullMessage: 
   delay: 0.05
-  comp: {fileID: 0}
   readClip: {fileID: 0}
 --- !u!1 &6899328274458998921
 GameObject:
@@ -23017,7 +22993,6 @@ MonoBehaviour:
   message: "Vaelion, general de la milicia y h\xE9roe entre soldados, "
   fullMessage: 
   delay: 0.05
-  comp: {fileID: 0}
   readClip: {fileID: 0}
 --- !u!1 &8283324394596717007
 GameObject:
@@ -23272,7 +23247,6 @@ MonoBehaviour:
   message: ' Nytheron, el escudo del pueblo y el favorito del rey,'
   fullMessage: 
   delay: 0.05
-  comp: {fileID: 0}
   readClip: {fileID: 0}
 --- !u!1 &8694309352434560790
 GameObject:

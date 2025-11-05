@@ -79,6 +79,8 @@ public class Statue : MonoBehaviour, IDataPersistance
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
+                animator.SetBool(clip.name, false);
+
                 for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
@@ -89,7 +91,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
                 {
                     item.transform.position = dock.position;
-                    animator.SetTrigger(clip.name);
+                    animator.SetBool(clip.name, true);
                 }
                 else
                 {
@@ -114,6 +116,8 @@ public class Statue : MonoBehaviour, IDataPersistance
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
+                animator.SetBool(clip.name, false);
+
                 for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
@@ -123,6 +127,8 @@ public class Statue : MonoBehaviour, IDataPersistance
             {
                 item.GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
+
+                animator.SetBool(clip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
