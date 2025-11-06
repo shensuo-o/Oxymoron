@@ -8,6 +8,8 @@ public class PlayerCheckPoint : MonoBehaviour
     public ParticleSystem particles;
     public bool isSaving = false;
     public Personaje player;
+    public Animator animator;
+    public AnimationClip clip;
 
     private void Start()
     {
@@ -45,6 +47,7 @@ public class PlayerCheckPoint : MonoBehaviour
     IEnumerator Save()
     {
         isSaving = true;
+        animator.SetBool(clip.name, isSaving);
         prompt.SetActive(false);
         player.HP = 100;
         Debug.LogWarning("Saved Game bya player CheckPoint.");
@@ -52,5 +55,6 @@ public class PlayerCheckPoint : MonoBehaviour
         DataPersistenceManager.Instance.SaveGame();
         yield return new WaitForSeconds(3);
         isSaving = false;
+        animator.SetBool(clip.name, isSaving);
     }
 }
