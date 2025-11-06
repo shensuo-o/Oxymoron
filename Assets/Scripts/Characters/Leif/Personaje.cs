@@ -16,7 +16,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     #region Variables Movimiento 
 
     //variables para el movimiento
-    [SerializeField] private Rigidbody rb;
+    public Rigidbody rb;
     public float HorizontalInput;
 
     //variables para el salto
