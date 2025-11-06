@@ -49,6 +49,11 @@ public class Statue : MonoBehaviour, IDataPersistance
 
     public AnimationClip clip;
 
+    public Animator statueAnimator;
+
+    public AnimationClip statueClip;
+
+    public AnimationClip statueDef;
     public void LoadData(GameData data)
     {
         if (data.statuesOrder.TryGetValue(id, out var temp) && temp == 0)
@@ -70,6 +75,11 @@ public class Statue : MonoBehaviour, IDataPersistance
         data.statuesOrder.Add(id, index);
     }
 
+    private void Start()
+    {
+        statueAnimator.SetBool(statueDef.name, true);
+    }
+
     private void Update()
     {
         if (solved)
@@ -80,6 +90,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 particles.startColor = mistake;
 
                 animator.SetBool(clip.name, false);
+                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
@@ -92,6 +103,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     item.transform.position = dock.position;
                     animator.SetBool(clip.name, true);
+                    statueAnimator.SetBool(statueClip.name, true);
                 }
                 else
                 {
@@ -117,6 +129,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 particles.startColor = mistake;
 
                 animator.SetBool(clip.name, false);
+                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
@@ -129,6 +142,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 particles.startColor = inActive;
 
                 animator.SetBool(clip.name, false);
+                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
