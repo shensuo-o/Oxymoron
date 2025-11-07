@@ -15,11 +15,14 @@ public class ShowText : MonoBehaviour
     public string fullMessage;
     public float delay = 0.05f;
     public AnimationClip readClip;
-    
+
+    public CompanionMovement comp;
+
     private void Start()
     {
         StartCoroutine(GetIndex());
         textMesh = text.GetComponent<TextMeshProUGUI>();
+        comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
     }
 
     IEnumerator GetIndex()
@@ -54,12 +57,22 @@ public class ShowText : MonoBehaviour
         }
     }
 
+    private IEnumerator CompStartReading(bool set)
+    {
+        while (comp.rb.velocity.magnitude > 0)
+        {
+            yield return null;
+        }
+
+        CompanionAnimations.Instance.PlayAnimation(readClip, set);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         cuadro.SetActive(true);
         text.SetActive(true);
         StartCoroutine(TypeText());
-        CompanionAnimations.Instance.PlayAnimation(readClip, true);
+        StartCoroutine(CompStartReading(true));
     }
 
     private void OnTriggerExit(Collider other)
@@ -68,6 +81,6 @@ public class ShowText : MonoBehaviour
         text.SetActive(false);
         StopAllCoroutines();
         textMesh.text = " ";
-        CompanionAnimations.Instance.PlayAnimation(readClip, false);
+        StartCoroutine(CompStartReading(false));
     }
 }
