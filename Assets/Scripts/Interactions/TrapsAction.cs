@@ -36,7 +36,6 @@ public class TrapsAction : MonoBehaviour
                 if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
                 {
                     Leif.rb.AddForce((transform.position - Leif.transform.position).normalized * 0.07f, ForceMode.Force);
-                    Debug.Log("ahhhhhhhhhhhhhhhhhhhhh");
                 }
             }
             else if (element.particles.activeInHierarchy == false)

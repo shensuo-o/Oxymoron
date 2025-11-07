@@ -32,10 +32,10 @@ public class OpenBridge : MonoBehaviour
     public void StoneMoved(int stoneID)
     {
         movedStones[stoneID] = true;
-        CheckBridge();
+        StartCoroutine(CheckBridge());
     }
 
-    public void CheckBridge()
+    private IEnumerator CheckBridge()
     {
         int checks = 0;
 
@@ -45,15 +45,17 @@ public class OpenBridge : MonoBehaviour
             {
                 mainCam.CallMoveAndShake(3, wheel.position);
                 animator.SetTrigger(clipError.name);
-                return;
+                yield break;
             }
             else
             {
                 checks++;
                 if (checks == 4)
                 {
-                    mainCam.CallMoveAndShake(5, wheel.position);
+                    mainCam.CallMoveAndShake(4, wheel.position);
                     animator.SetTrigger(clipSucces.name);
+                    yield return new WaitForSeconds(4);
+                    Open();
                 }
             }
         }
@@ -61,7 +63,7 @@ public class OpenBridge : MonoBehaviour
 
     public void Open()
     {
-        mainCam.CallMoveAndShake(2, bridge.position);
+        mainCam.CallMoveAndShake(3, bridge.position);
         animator.SetTrigger(clipOpen.name);
     }
 }
