@@ -10,11 +10,7 @@ public class PlayerCheckPoint : MonoBehaviour
     public Personaje player;
     public Animator animator;
     public AnimationClip clip;
-
-    private void Start()
-    {
-        //prompt = GameObject.Find("PressEToElement");
-    }
+    public AnimationClip compClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,13 +43,16 @@ public class PlayerCheckPoint : MonoBehaviour
     IEnumerator Save()
     {
         isSaving = true;
+        CompanionAnimations.Instance.PlayAnimation(compClip, true);
         animator.SetBool(clip.name, isSaving);
         prompt.SetActive(false);
         player.HP = 100;
         Debug.LogWarning("Saved Game bya player CheckPoint.");
         particles.Play();
         DataPersistenceManager.Instance.SaveGame();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.4f);
+        CompanionAnimations.Instance.PlayAnimation(compClip, false);
+        yield return new WaitForSeconds(2f);
         isSaving = false;
         animator.SetBool(clip.name, isSaving);
     }
