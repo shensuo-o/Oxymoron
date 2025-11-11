@@ -10046,10 +10046,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0f007a3e7271e174ba36a8f554e391ef, type: 2}
+    - target: {fileID: -1230002879745056882, guid: e7dc07d755e7eb044b17412f7980e7c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7dc07d755e7eb044b17412f7980e7c3,
         type: 3}
       propertyPath: m_Name
       value: Farol
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7dc07d755e7eb044b17412f7980e7c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100854971590290145, guid: e7dc07d755e7eb044b17412f7980e7c3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 6444263678948303042, guid: e7dc07d755e7eb044b17412f7980e7c3,
         type: 3}
