@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental;
 using UnityEngine;
 
-public class ShadowLightCast : StatsOximorones
+public class ShadowLight : StatsOximorones
 {
     [SerializeField] private Vector3 velocity = Vector3.zero;
     [SerializeField] private float damp = 0.03f;

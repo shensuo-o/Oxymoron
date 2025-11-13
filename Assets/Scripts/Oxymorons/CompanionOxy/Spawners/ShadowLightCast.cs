@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowLight : Oximorons
+public class ShadowLightCast : Oximorons
 {
     //public AudioSource source;
     //public AudioClip AudioCast;
