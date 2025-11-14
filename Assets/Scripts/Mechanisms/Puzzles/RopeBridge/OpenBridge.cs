@@ -16,6 +16,10 @@ public class OpenBridge : MonoBehaviour
     public AnimationClip clipSucces;
     public AnimationClip clipOpen;
 
+    public Material ropeMaterial;
+    public LineRenderer ropeLineRenderer;
+    public Transform ropeTarget;
+
     private void Awake()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
@@ -23,10 +27,16 @@ public class OpenBridge : MonoBehaviour
 
     void Start()
     {
+        ropeMaterial.SetFloat("_Speed", 0f);
         for (int i = 0; i < movedStones.Length; i++)
         {
             movedStones[i] = false;
         }
+    }
+
+    private void Update()
+    {
+        ropeLineRenderer.SetPosition(0, ropeTarget.position);
     }
 
     public void StoneMoved(int stoneID)
@@ -45,6 +55,11 @@ public class OpenBridge : MonoBehaviour
             {
                 mainCam.CallMoveAndShake(3, wheel.position);
                 animator.SetTrigger(clipError.name);
+                ropeMaterial.SetFloat("_Speed", -1f); ;
+                yield return new WaitForSeconds(1.5f);
+                ropeMaterial.SetFloat("_Speed", 1f);
+                yield return new WaitForSeconds(1.5f);
+                ropeMaterial.SetFloat("_Speed", 0f);
                 yield break;
             }
             else
@@ -54,16 +69,19 @@ public class OpenBridge : MonoBehaviour
                 {
                     mainCam.CallMoveAndShake(4, wheel.position);
                     animator.SetTrigger(clipSucces.name);
+                    ropeMaterial.SetFloat("_Speed", -3f);
                     yield return new WaitForSeconds(4);
-                    Open();
+                    StartCoroutine(Open());
                 }
             }
         }
     }
 
-    public void Open()
+    private IEnumerator Open()
     {
         mainCam.CallMoveAndShake(3, bridge.position);
         animator.SetTrigger(clipOpen.name);
+        yield return new WaitForSeconds(2.5f);
+        ropeMaterial.SetFloat("_Speed", 0f);
     }
 }

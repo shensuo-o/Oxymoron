@@ -32,15 +32,4 @@ public class Stones : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<ShadowLight>())
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                stones[i].constraints = RigidbodyConstraints.FreezeAll;
-            }
-        }
-    }
 }

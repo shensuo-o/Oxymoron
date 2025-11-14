@@ -236,7 +236,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         }
         else if (isGrounded && !isJumping)
         {
-            timer = 1.2f;
+            timer = 1.3f;
             Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
             rb.AddForce(gravity, ForceMode.Acceleration);
         }

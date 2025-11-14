@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &117010592982833693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238679045532767961}
+  m_Layer: 6
+  m_Name: RopePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1238679045532767961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117010592982833693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -220.6, y: 41.3, z: -760}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3261804669196408972}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286514420907434269
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +63,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 571533918015991941}
+  - {fileID: 1238679045532767961}
   m_Father: {fileID: 50819837801766305}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &6207763210316438127
@@ -308,6 +340,9 @@ MonoBehaviour:
   clipError: {fileID: 7400000, guid: 17cf6f8f072b8f241a0978ae84d6cc60, type: 2}
   clipSucces: {fileID: 7400000, guid: aacfd8f342eb52a459ab91de127a3019, type: 2}
   clipOpen: {fileID: 7400000, guid: 17c6c0e708e403d4eb1387ebf55fd6b5, type: 2}
+  ropeMaterial: {fileID: 2100000, guid: 3e8d7c3fc9897e440aeb9b0f3b92ba16, type: 2}
+  ropeLineRenderer: {fileID: 7620426982259073449}
+  ropeTarget: {fileID: 1238679045532767961}
 --- !u!95 &5526691746328809841
 Animator:
   serializedVersion: 5
@@ -582,7 +617,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98dc5e0f81e096842ae3e28becc7f979, type: 2}
+  - {fileID: 2100000, guid: 3e8d7c3fc9897e440aeb9b0f3b92ba16, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -604,19 +639,35 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 296.85684, y: 5.4, z: 7.12}
-  - {x: 352.05408, y: 45.1, z: 7.12}
-  - {x: 353.05408, y: 46.3, z: 7.12}
-  - {x: 353.65405, y: 48.1, z: 7.12}
-  - {x: 353.36896, y: 80.586, z: 7.12}
-  - {x: 353.05408, y: 82.086, z: 7.12}
-  - {x: 351.55408, y: 82.586, z: 7.12}
-  - {x: 296.70258, y: 84.7, z: 7.12}
-  - {x: 295.20258, y: 84.2, z: 7.12}
-  - {x: 294.00256, y: 82.7, z: 7.12}
-  - {x: 282.20377, y: 61.8, z: 7.12}
-  - {x: 280.96667, y: 59, z: 7.12}
-  - {x: 271.15442, y: 15.075504, z: 7.12}
+  - {x: 296.85684, y: 4.4, z: 5.5}
+  - {x: 352.05408, y: 45.1, z: 5.5}
+  - {x: 353.05408, y: 46.3, z: 5.5}
+  - {x: 353.65405, y: 48.1, z: 5.5}
+  - {x: 353.36896, y: 80.586, z: 5.5}
+  - {x: 353.05408, y: 82.086, z: 5.5}
+  - {x: 351.55408, y: 82.586, z: 5.5}
+  - {x: 318.34402, y: 84, z: 4.3}
+  - {x: 316.9, y: 84.2, z: 4}
+  - {x: 315.7, y: 84.3, z: 4.2}
+  - {x: 296.70258, y: 84.7, z: 5.5}
+  - {x: 295.20258, y: 84.2, z: 5.5}
+  - {x: 294.00256, y: 82.7, z: 5.5}
+  - {x: 282.20377, y: 61.8, z: 5.5}
+  - {x: 280.96667, y: 59, z: 5.5}
+  - {x: 269.1, y: 15.1, z: 5.5}
+  - {x: 269.1, y: 13, z: 5.5}
+  - {x: 269.7, y: 11.6, z: 5.5}
+  - {x: 272.5, y: 9.9, z: 5.5}
+  - {x: 275.7, y: 10, z: 5.5}
+  - {x: 278.1, y: 12.4, z: 5.5}
+  - {x: 278.4, y: 13.5, z: 5.5}
+  - {x: 278.3, y: 15.3, z: 5.5}
+  - {x: 277.7, y: 16.6, z: 5.5}
+  - {x: 276.6, y: 18, z: 5.5}
+  - {x: 275.5, y: 18.8, z: 5.5}
+  - {x: 273.5, y: 19.2, z: 5.5}
+  - {x: 271.6, y: 18.7, z: 5.5}
+  - {x: 269.4, y: 17.1, z: 6}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -625,7 +676,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.84615326
+        value: 0.72334623
         inSlope: 0
         outSlope: 0
         tangentMode: 0
