@@ -86,6 +86,7 @@ public class Statue : MonoBehaviour, IDataPersistance
         {
             if (error)
             {
+                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
@@ -99,6 +100,7 @@ public class Statue : MonoBehaviour, IDataPersistance
             }
             else
             {
+                animator.gameObject.layer = 28;
                 if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
                 {
                     item.transform.position = dock.position;
@@ -125,6 +127,7 @@ public class Statue : MonoBehaviour, IDataPersistance
         {
             if (error)
             {
+                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
 
@@ -138,6 +141,7 @@ public class Statue : MonoBehaviour, IDataPersistance
             }
             else
             {
+                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
 
