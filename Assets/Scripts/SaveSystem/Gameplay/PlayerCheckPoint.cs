@@ -11,6 +11,7 @@ public class PlayerCheckPoint : MonoBehaviour
     public Animator animator;
     public AnimationClip clip;
     public AnimationClip compClip;
+    public CompanionMovement comp;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,19 +41,32 @@ public class PlayerCheckPoint : MonoBehaviour
         }
     }
 
+    private IEnumerator CompStartReading(bool set)
+    {
+        while (comp.rb.velocity.magnitude > 0)
+        {
+            yield return null;
+        }
+
+        CompanionAnimations.Instance.PlayAnimation(compClip, set);
+    }
+
     IEnumerator Save()
     {
         isSaving = true;
-        CompanionAnimations.Instance.PlayAnimation(compClip, true);
+        StartCoroutine(CompStartReading(true));
         animator.SetBool(clip.name, isSaving);
         prompt.SetActive(false);
         player.HP = 100;
         Debug.LogWarning("Saved Game bya player CheckPoint.");
         particles.Play();
         DataPersistenceManager.Instance.SaveGame();
-        yield return new WaitForSeconds(1.4f);
-        CompanionAnimations.Instance.PlayAnimation(compClip, false);
-        yield return new WaitForSeconds(2f);
+        while (comp.rb.velocity.magnitude > 0)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(3.4f);
+        StartCoroutine(CompStartReading(false));
         isSaving = false;
         animator.SetBool(clip.name, isSaving);
     }
