@@ -81,7 +81,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             }
             else
             {
-                Debug.Log("Loaded order.");
                 for (int i = 0; i < estatuas.Length; i++)
                 {
                     orden[estatuas[i].GetComponent<Statue>().index] = estatuas[i];
@@ -123,20 +122,22 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             if (status[i] == false)
             {
+                yield return new WaitForSeconds(1.8f);
                 mainCam.CallShake(1f);
                 source.PlayOneShot(errorClip, 1);
                 estatuas[index].gameObject.GetComponent<Statue>().error = true;
                 estatuas[index].gameObject.GetComponent<Statue>().solved = false;
-                yield return new WaitForSeconds(3.2f);
+                yield return new WaitForSeconds(1.4f);
                 estatuas[index].gameObject.GetComponent<Statue>().error = false;
 
                 for (int j = 0; j <= index; j++)
                 {
                     if (j != index)
                     {
+                        yield return new WaitForSeconds(1.8f);
                         estatuas[j].gameObject.GetComponent<Statue>().error = true;
                         estatuas[j].gameObject.GetComponent<Statue>().solved = false;
-                        yield return new WaitForSeconds(3.2f);
+                        yield return new WaitForSeconds(1.4f);
                         estatuas[j].gameObject.GetComponent<Statue>().error = false;
                     }
                 }
@@ -167,13 +168,13 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                 }
 
                 status[ind] = false;
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(1.8f);
                 estatuas[ind].GetComponent<Statue>().item.layer = 20;
                 estatuas[ind].GetComponent<Statue>().pull.SetActive(true);
                 estatuas[ind].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                 estatuas[ind].gameObject.GetComponent<Statue>().particles.Play();
                 estatuas[ind].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[ind].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(1.4f);
 
                 for (int p = 0; p < traps.Length; p++)
                 {
@@ -185,13 +186,13 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
                     if (j != ind)
                     {
                         status[j] = false;
-                        yield return new WaitForSeconds(0.2f);
+                        yield return new WaitForSeconds(1.8f);
                         estatuas[j].GetComponent<Statue>().item.layer = 20;
                         estatuas[j].GetComponent<Statue>().pull.SetActive(true);
                         estatuas[j].GetComponent<Statue>().pull.GetComponent<Rigidbody>().useGravity = true;
                         estatuas[j].gameObject.GetComponent<Statue>().particles.Play();
                         estatuas[j].GetComponent<Statue>().item.GetComponent<Rigidbody>().AddForce(estatuas[j].GetComponent<Statue>().direction * errorForce, ForceMode.Impulse);
-                        yield return new WaitForSeconds(3f);
+                        yield return new WaitForSeconds(1.4f);
                     }
                 }
 
