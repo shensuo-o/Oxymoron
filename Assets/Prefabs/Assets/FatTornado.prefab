@@ -74,7 +74,6 @@ MonoBehaviour:
   coll: {fileID: 7211374486549100741}
   element: {fileID: 6352381243977044389}
   detectorSize: {x: 10, y: 1, z: 1}
-  center: {x: 0, y: 0, z: 0}
   detectorDistance: 3
   mask:
     serializedVersion: 2
@@ -164,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 5406638232705639728, guid: 0150dfc3cf503384d8c80986da480251,
         type: 3}
       propertyPath: m_Radius
-      value: 0.8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5551866885093753792, guid: 0150dfc3cf503384d8c80986da480251,
         type: 3}
