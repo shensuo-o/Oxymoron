@@ -49,6 +49,15 @@ public class TrapsAction : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
+            if (transform.position.x - Leif.transform.position.x > 0)
+            {
+                dir.x = -1;
+            }
+            else if(transform.position.x - Leif.transform.position.x < 0)
+            {
+                dir.x = 1;
+            }
+            
             Leif.TakeDamage(0, (dir * force));
         }
     }
