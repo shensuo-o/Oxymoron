@@ -293,15 +293,19 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
+        
         animator.SetTrigger("Hit");
-        HP -= damage;
-
-        HitMaterial.SetFloat("_DistDist2", 1f);
-        StartCoroutine(DamageShaderEffect());
-        if (HP <= 0)
+        if (damage != 0)
         {
-            StartCoroutine("Death");
-            alive = false;
+            HP -= damage;
+
+            HitMaterial.SetFloat("_DistDist2", 1f);
+            StartCoroutine(DamageShaderEffect());
+            if (HP <= 0)
+            {
+                StartCoroutine("Death");
+                alive = false;
+            }
         }
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
         StartCoroutine(Invulnerable(timeInv));
