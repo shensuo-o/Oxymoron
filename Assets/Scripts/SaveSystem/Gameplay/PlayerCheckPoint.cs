@@ -13,6 +13,8 @@ public class PlayerCheckPoint : MonoBehaviour
     public AnimationClip compClip;
     public CompanionMovement comp;
     public CompanionAnimations companionAnimations;
+    public GameObject animTarget;
+    public GameObject tempTarget;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,9 +46,18 @@ public class PlayerCheckPoint : MonoBehaviour
 
     private IEnumerator CompStartReading(bool set)
     {
-        while (comp.rb.velocity.magnitude > 0)
+        if (set == true)
         {
-            yield return null;
+            tempTarget = comp.target;
+            comp.target = animTarget;
+            while (comp.rb.velocity.magnitude > 0)
+            {
+                yield return null;
+            }
+        }
+        else if (set == false)
+        {
+            comp.target = tempTarget;
         }
 
         companionAnimations.PlayAnimation(compClip, set);

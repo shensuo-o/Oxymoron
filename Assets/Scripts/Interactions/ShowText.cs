@@ -18,6 +18,8 @@ public class ShowText : MonoBehaviour
 
     public CompanionMovement comp;
     public CompanionAnimations companionAnimations;
+    public GameObject animTarget;
+    public GameObject tempTarget;
 
     private void Start()
     {
@@ -60,11 +62,20 @@ public class ShowText : MonoBehaviour
 
     private IEnumerator CompStartReading(bool set)
     {
-        while (comp.rb.velocity.magnitude > 0)
+        if (set == true)
         {
-            yield return null;
+            tempTarget = comp.target;
+            comp.target = animTarget;
+            while (comp.rb.velocity.magnitude > 0)
+            {
+                yield return null;
+            }
         }
-
+        else if (set == false)
+        {
+            comp.target = tempTarget;
+        }
+        
         companionAnimations.PlayAnimation(readClip, set);
     }
 

@@ -6,7 +6,7 @@ public class CompanionMovement : MonoBehaviour
 {
     #region VariablesMovimiento
 
-    [SerializeField] private GameObject target;
+    public GameObject target;
     public Rigidbody rb;
 
     [SerializeField] private float speed;
