@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &11552722472893506
 Transform:
@@ -95,10 +95,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a2d28c3215dbfb74fa0c9ba7aa7cfab9, type: 2}
+    - target: {fileID: -24685266256480798, guid: acd665da5d3d6824abe86180b355b3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: acd665da5d3d6824abe86180b355b3e8,
         type: 3}
       propertyPath: m_Name
       value: TroncosCortos
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: acd665da5d3d6824abe86180b355b3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4434931785416118742, guid: acd665da5d3d6824abe86180b355b3e8,
         type: 3}

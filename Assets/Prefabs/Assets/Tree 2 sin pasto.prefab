@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8024753853643211826
 Transform:
@@ -90,6 +90,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8581276830398318322, guid: 023d27c6e45d2ed449c3f90d3a67bcef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -7811405956669866783, guid: 023d27c6e45d2ed449c3f90d3a67bcef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -4865379158505629094, guid: 023d27c6e45d2ed449c3f90d3a67bcef,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -99,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArbolConHojasTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 023d27c6e45d2ed449c3f90d3a67bcef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6575128403957043355, guid: 023d27c6e45d2ed449c3f90d3a67bcef,
         type: 3}
