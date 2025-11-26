@@ -28,6 +28,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public List<Rigidbody> doorBranches;
 
+    public GameObject invisibleWall;
+
     public FallTrap[] traps;
 
     public float errorForce;
@@ -233,5 +235,6 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             doorBranches[i].constraints = RigidbodyConstraints.None;
             doorBranches[i].AddForce(Vector3.right * 2, ForceMode.Impulse);
         }
+        invisibleWall.SetActive(false);
     }
 }

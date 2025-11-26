@@ -5,8 +5,6 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class CompanionAnimations : MonoBehaviour
 {
-    public static CompanionAnimations Instance { get; private set; }
-
     public Animator animator;
 
     public MeshRenderer[] animationRenderers;
@@ -14,11 +12,6 @@ public class CompanionAnimations : MonoBehaviour
     public TrailRenderer trail;
     public Light spotLightAnimation;
     public Light SpotLightGameplay;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public void PlayAnimation(AnimationClip clip, bool value)
     {

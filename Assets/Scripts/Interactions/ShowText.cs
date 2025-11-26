@@ -17,6 +17,7 @@ public class ShowText : MonoBehaviour
     public AnimationClip readClip;
 
     public CompanionMovement comp;
+    public CompanionAnimations companionAnimations;
 
     private void Start()
     {
@@ -64,7 +65,7 @@ public class ShowText : MonoBehaviour
             yield return null;
         }
 
-        CompanionAnimations.Instance.PlayAnimation(readClip, set);
+        companionAnimations.PlayAnimation(readClip, set);
     }
 
     private void OnTriggerEnter(Collider other)

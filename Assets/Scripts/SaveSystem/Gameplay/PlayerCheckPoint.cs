@@ -12,6 +12,7 @@ public class PlayerCheckPoint : MonoBehaviour
     public AnimationClip clip;
     public AnimationClip compClip;
     public CompanionMovement comp;
+    public CompanionAnimations companionAnimations;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -48,7 +49,7 @@ public class PlayerCheckPoint : MonoBehaviour
             yield return null;
         }
 
-        CompanionAnimations.Instance.PlayAnimation(compClip, set);
+        companionAnimations.PlayAnimation(compClip, set);
     }
 
     IEnumerator Save()
