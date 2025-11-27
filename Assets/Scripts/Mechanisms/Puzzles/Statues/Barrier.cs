@@ -8,7 +8,6 @@ public class Barrier : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("choco la barrera.");
         particles.Play();
         if (collision.gameObject.layer == 20)
         {

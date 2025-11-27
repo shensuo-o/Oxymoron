@@ -214,6 +214,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             if (status[i])
             {
+                estatuas[i].GetComponent<Statue>().pointLight.SetActive(true);
                 t++;
             }
         }

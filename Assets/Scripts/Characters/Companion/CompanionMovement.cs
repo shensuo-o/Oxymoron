@@ -17,7 +17,7 @@ public class CompanionMovement : MonoBehaviour
     [SerializeField] private float maxTimePrediction;
     [SerializeField] private float deviationAmount;
     [SerializeField] private float deviationSpeed;
-    [SerializeField] private float distance;
+    public float distance;
 
     [SerializeField] private bool isShooting;
     [SerializeField] private Transform aim;

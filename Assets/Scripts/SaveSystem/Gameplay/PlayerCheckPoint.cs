@@ -50,6 +50,7 @@ public class PlayerCheckPoint : MonoBehaviour
         {
             tempTarget = comp.target;
             comp.target = animTarget;
+            comp.distance = 0.5f;
             while (comp.rb.velocity.magnitude > 0)
             {
                 yield return null;
@@ -58,6 +59,7 @@ public class PlayerCheckPoint : MonoBehaviour
         else if (set == false)
         {
             comp.target = tempTarget;
+            comp.distance = 2;
         }
 
         companionAnimations.PlayAnimation(compClip, set);

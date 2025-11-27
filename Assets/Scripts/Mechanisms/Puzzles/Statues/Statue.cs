@@ -54,6 +54,8 @@ public class Statue : MonoBehaviour, IDataPersistance
     public AnimationClip statueClip;
 
     public AnimationClip statueDef;
+
+    public GameObject pointLight;
     public void LoadData(GameData data)
     {
         if (data.statuesOrder.TryGetValue(id, out var temp) && temp == 0)
@@ -97,6 +99,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
                 }
+                pointLight.SetActive(false);
             }
             else
             {
@@ -121,6 +124,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = active;
                 }
+                //pointLight.SetActive(true);
             }
         }
         else if (!solved)
@@ -138,6 +142,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
                 }
+                pointLight.SetActive(false);
             }
             else
             {
@@ -152,6 +157,7 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = inActive;
                 }
+                pointLight.SetActive(false);
             }
         }
     }
