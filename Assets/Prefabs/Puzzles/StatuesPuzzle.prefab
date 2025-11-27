@@ -576,17 +576,18 @@ MonoBehaviour:
   particles: {fileID: 873211895074600149}
   direction: {x: -1, y: 0, z: 0}
   proximity: 25
-  active: {r: 2.828427, g: 2.828427, b: 2.828427, a: 1}
+  active: {r: 1, g: 1, b: 1, a: 1}
   inActive: {r: 1, g: 1, b: 1, a: 1}
-  mistake: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  mistake: {r: 1, g: 1, b: 1, a: 1}
   mActive: {fileID: 2100000, guid: 419fa34d0e522704bb270796ad73e0fe, type: 2}
   mInactiveStatues: {fileID: 2100000, guid: da5552be67bf4aa44988b060d9686dc2, type: 2}
   mInactiveItem: {fileID: 2100000, guid: ec1750307ee31fb4c93131aaf9717987, type: 2}
   animator: {fileID: 2722136720074952649}
   clip: {fileID: 7400000, guid: 44926ce361cf5a44fad2070dac7b8f25, type: 2}
   statueAnimator: {fileID: 0}
-  statueClip: {fileID: 0}
-  statueDef: {fileID: 0}
+  statueClip: {fileID: 7400000, guid: 744cde77abf234f48922c8188ddf638f, type: 2}
+  statueDef: {fileID: 7400000, guid: ae0026a1487fb024bafe5bf80e21022b, type: 2}
+  pointLight: {fileID: 4000806634505387423}
 --- !u!54 &4911106950330636793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12053,8 +12054,9 @@ MonoBehaviour:
   animator: {fileID: 7985026457099524982}
   clip: {fileID: 7400000, guid: 4d47b16e1e12d7c4f897032488da288c, type: 2}
   statueAnimator: {fileID: 0}
-  statueClip: {fileID: 0}
-  statueDef: {fileID: 0}
+  statueClip: {fileID: 7400000, guid: 814dc8e852f9f7e469190a38609d498c, type: 2}
+  statueDef: {fileID: 7400000, guid: cc39e3c32174db04f8bd9a19de6356c2, type: 2}
+  pointLight: {fileID: 459130933716291903}
 --- !u!54 &5854812398340308606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44846,6 +44848,7 @@ MonoBehaviour:
   statueAnimator: {fileID: 0}
   statueClip: {fileID: 7400000, guid: 2f4fcf53ee9fde54d8d79beeb6e4e126, type: 2}
   statueDef: {fileID: 7400000, guid: 73cc8884e90c1f34d817b8bcaad14fa2, type: 2}
+  pointLight: {fileID: 4107592320431294650}
 --- !u!54 &8216246271936234571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46264,7 +46267,8 @@ MonoBehaviour:
   clip: {fileID: 7400000, guid: 8336715bd9f5b8a4dab117dec2dba2fb, type: 2}
   statueAnimator: {fileID: 0}
   statueClip: {fileID: 0}
-  statueDef: {fileID: 0}
+  statueDef: {fileID: 7400000, guid: 97389b6fe933d8540becbefc91463431, type: 2}
+  pointLight: {fileID: 483437689575821153}
 --- !u!54 &4261575022935955008
 Rigidbody:
   m_ObjectHideFlags: 0

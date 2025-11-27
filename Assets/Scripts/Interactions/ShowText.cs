@@ -74,8 +74,13 @@ public class ShowText : MonoBehaviour
         }
         else if (set == false)
         {
+           
             comp.target = tempTarget;
             comp.distance = 2;
+            while (comp.rb.velocity.magnitude > 0)
+            {
+                yield return null;
+            }
         }
         
         companionAnimations.PlayAnimation(readClip, set);
@@ -93,8 +98,9 @@ public class ShowText : MonoBehaviour
     {
         cuadro.SetActive(false);
         text.SetActive(false);
-        StopAllCoroutines();
+        //StopAllCoroutines();
         textMesh.text = " ";
         StartCoroutine(CompStartReading(false));
+        comp.target = tempTarget;
     }
 }
