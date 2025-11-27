@@ -16,6 +16,8 @@ public class ShowText : MonoBehaviour
     public float delay = 0.05f;
     public AnimationClip readClip;
 
+    public Coroutine typeTextCo;
+
     public CompanionMovement comp;
     public CompanionAnimations companionAnimations;
     public GameObject animTarget;
@@ -90,7 +92,7 @@ public class ShowText : MonoBehaviour
     {
         cuadro.SetActive(true);
         text.SetActive(true);
-        StartCoroutine(TypeText());
+        typeTextCo = StartCoroutine(TypeText());
         StartCoroutine(CompStartReading(true));
     }
 
@@ -98,7 +100,7 @@ public class ShowText : MonoBehaviour
     {
         cuadro.SetActive(false);
         text.SetActive(false);
-        //StopAllCoroutines();
+        StopCoroutine(typeTextCo);
         textMesh.text = " ";
         StartCoroutine(CompStartReading(false));
         comp.target = tempTarget;

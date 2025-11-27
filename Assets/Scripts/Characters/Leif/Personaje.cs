@@ -40,7 +40,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     [SerializeField] private float globalGravity;
     [SerializeField] private float gravityScale;
     [SerializeField] private float afterJumpScale;
-    [SerializeField] private float maxFallSpeed;
+    public float maxFallSpeed;
     [SerializeField] private float timer = 1f;
 
     //Variables para roll
@@ -71,6 +71,9 @@ public class Personaje : MonoBehaviour, IDataPersistance
     [SerializeField] private float timeInv;
     [SerializeField] private Material leifMaterial;
     [SerializeField] private Material HitMaterial;
+
+    public bool died;
+    public Vector3 savePos;
 
     //variable de animacion
     public float PreAction;
@@ -105,7 +108,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         HP = 100;
         alive = true;
         healthBar = GameObject.Find("FillHP").GetComponent<Image>();
-
+        leifAttackDetection.enabled = true;
         HitMaterial.SetFloat("_DistDist2", 1f);
         if (SaveSpawn.Instance != null)
         {
@@ -117,6 +120,8 @@ public class Personaje : MonoBehaviour, IDataPersistance
     {
         if (alive)
         {
+            died = false;
+
             if (!isRolling)
             {
                 HorizontalInput = Input.GetAxisRaw("Horizontal");
@@ -160,6 +165,17 @@ public class Personaje : MonoBehaviour, IDataPersistance
             {
                 Speed = tempSpeed;
             }
+        }
+        else
+        {
+            if (died == false)
+            {
+                savePos = transform.position;
+                died = true;
+            }
+            leifAttackDetection.enabled = false;
+            transform.position = new Vector3 (savePos.x, transform.position.y, savePos.z);
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
         healthBar.fillAmount = HP / 100f;
     }
@@ -293,7 +309,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
-        
         animator.SetTrigger("Hit");
         if (damage != 0)
         {

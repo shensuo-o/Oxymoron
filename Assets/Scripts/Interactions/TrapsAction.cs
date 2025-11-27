@@ -32,7 +32,7 @@ public class TrapsAction : MonoBehaviour
 
             if (element.particles.activeInHierarchy)
             {
-                coll.enabled = true;
+                StartCoroutine(EnableColl(true));
                 if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
                 {
                     Leif.rb.AddForce((transform.position - Leif.transform.position).normalized * 0.07f, ForceMode.Force);
@@ -43,6 +43,12 @@ public class TrapsAction : MonoBehaviour
                 coll.enabled = false;
             }
         }
+    }
+
+    private IEnumerator EnableColl(bool set)
+    {
+        yield return new WaitForSeconds(2.5f);
+        coll.enabled = set;
     }
 
     private void OnTriggerEnter(Collider collision)

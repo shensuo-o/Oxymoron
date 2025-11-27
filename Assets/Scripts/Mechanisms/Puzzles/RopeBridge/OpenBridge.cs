@@ -20,6 +20,8 @@ public class OpenBridge : MonoBehaviour
     public LineRenderer ropeLineRenderer;
     public Transform ropeTarget;
 
+    public Personaje leif;
+
     private void Awake()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
@@ -53,6 +55,8 @@ public class OpenBridge : MonoBehaviour
         {
             if (movedStones[i] == false)
             {
+                leif.alive = false;
+                yield return new WaitForSeconds(1.5f);
                 mainCam.CallMoveAndShake(3, wheel.position);
                 animator.SetTrigger(clipError.name);
                 ropeMaterial.SetFloat("_Speed", -1f); ;
@@ -60,6 +64,8 @@ public class OpenBridge : MonoBehaviour
                 ropeMaterial.SetFloat("_Speed", 1f);
                 yield return new WaitForSeconds(1.5f);
                 ropeMaterial.SetFloat("_Speed", 0f);
+                yield return new WaitForSeconds(1f);
+                leif.alive = true;
                 yield break;
             }
             else
@@ -67,6 +73,8 @@ public class OpenBridge : MonoBehaviour
                 checks++;
                 if (checks == 4)
                 {
+                    leif.alive = false;
+                    yield return new WaitForSeconds(1.5f);
                     mainCam.CallMoveAndShake(4, wheel.position);
                     animator.SetTrigger(clipSucces.name);
                     ropeMaterial.SetFloat("_Speed", -3f);
@@ -83,5 +91,7 @@ public class OpenBridge : MonoBehaviour
         animator.SetTrigger(clipOpen.name);
         yield return new WaitForSeconds(2.5f);
         ropeMaterial.SetFloat("_Speed", 0f);
+        yield return new WaitForSeconds(1f);
+        leif.alive = true;
     }
 }
