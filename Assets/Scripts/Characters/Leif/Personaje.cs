@@ -173,7 +173,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
                 savePos = transform.position;
                 died = true;
             }
-            //leifAttackDetection.enabled = false;
             transform.position = new Vector3 (savePos.x, transform.position.y, savePos.z);
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }

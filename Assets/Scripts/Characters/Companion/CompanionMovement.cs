@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompanionMovement : MonoBehaviour
+public class CompanionMovement : MonoBehaviour, IDataPersistance
 {
     #region VariablesMovimiento
 
@@ -28,6 +28,16 @@ public class CompanionMovement : MonoBehaviour
     public Animator animator;
 
     #endregion
+
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.companionPosition;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.companionPosition = this.transform.position;
+    }
 
     void Awake ()
     {

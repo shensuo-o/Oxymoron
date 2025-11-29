@@ -124,7 +124,6 @@ public class Statue : MonoBehaviour, IDataPersistance
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = active;
                 }
-                //pointLight.SetActive(true);
             }
         }
         else if (!solved)

@@ -42,6 +42,8 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
 
     public Material openRoots;
 
+    public Personaje leif;
+
     public void LoadData(GameData data)
     {
         data.solvedPuzzles.TryGetValue(id, out solved);
@@ -223,11 +225,12 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         {
             solved = true;
             mainCam.CallMoveAndShake(5, scenePoint.position);
-            OpenTheDoor();
+            leif.alive = false;
+            StartCoroutine(OpenTheDoor());
         }
     }
 
-    public void OpenTheDoor()
+    private IEnumerator OpenTheDoor()
     {
         for (int i = 0;i < doorBranches.Count;i++)
         {
@@ -237,5 +240,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             doorBranches[i].AddForce(Vector3.right * 2, ForceMode.Impulse);
         }
         invisibleWall.SetActive(false);
+        yield return new WaitForSeconds(5);
+        leif.alive = true;
     }
 }
