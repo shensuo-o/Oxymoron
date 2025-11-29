@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3358157508144386642}
-  - component: {fileID: 1708158051121416183}
   - component: {fileID: 7211374486549100741}
+  - component: {fileID: 3664845499353503040}
   m_Layer: 13
   m_Name: FatTornado
   m_TagString: Untagged
@@ -34,23 +34,6 @@ Transform:
   - {fileID: 2889010827789919510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1708158051121416183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4327599402099581267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6fea7911462a0e448ddd52a331f9ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 10
-  Leif: {fileID: 0}
-  interactable: 1
-  coll: {fileID: 7211374486549100741}
-  element: {fileID: 6352381243977044389}
 --- !u!135 &7211374486549100741
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +55,29 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.93
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &3664845499353503040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327599402099581267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50cb2b9d5284c44883d9fd4d989467d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 3
+  dir: {x: -1, y: 0.12, z: 0}
+  Leif: {fileID: 0}
+  interactable: 1
+  coll: {fileID: 7211374486549100741}
+  element: {fileID: 6352381243977044389}
+  detectorSize: {x: 10, y: 1, z: 1}
+  detectorDistance: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &2115032160250411189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,6 +90,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Vfx_FatTornado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283729190033164984, guid: 124c97d142fb18548b5187f8023fb267,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283729190033164984, guid: 124c97d142fb18548b5187f8023fb267,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283729190033164984, guid: 124c97d142fb18548b5187f8023fb267,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7283729190033164984, guid: 124c97d142fb18548b5187f8023fb267,
         type: 3}
@@ -135,6 +156,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7283729190033164984, guid: 124c97d142fb18548b5187f8023fb267,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -157,7 +183,12 @@ PrefabInstance:
     - target: {fileID: 5406638232705639728, guid: 0150dfc3cf503384d8c80986da480251,
         type: 3}
       propertyPath: m_Radius
-      value: 0.8
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406638232705639728, guid: 0150dfc3cf503384d8c80986da480251,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5551866885093753792, guid: 0150dfc3cf503384d8c80986da480251,
         type: 3}

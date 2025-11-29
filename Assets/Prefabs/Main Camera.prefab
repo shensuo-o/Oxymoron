@@ -322,7 +322,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   follow: 1
-  dampMove: 0
+  dampMove: 0.2
 --- !u!82 &2929633856671038361
 AudioSource:
   m_ObjectHideFlags: 0

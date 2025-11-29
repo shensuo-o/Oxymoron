@@ -38,19 +38,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture1:
-        m_Texture: {fileID: 2800000, guid: c972fa10f3cf97249adda4e65b3f1722, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c7518576d7dc0f4f83b4f2d7c6ffc2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture2:
-        m_Texture: {fileID: 2800000, guid: 2b95e8d983df1c6408c034175e7e9b5c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 559ca156de69b6b45bc9eb123e23a2c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture3:
-        m_Texture: {fileID: 2800000, guid: 27d70b9215508d148ab1353618c9d3dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 036a4e0d718f463418cdd5786187ec17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoTexture4:
-        m_Texture: {fileID: 2800000, guid: b984e8d0ceb77d94a92a3e7e7f32ddf5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7f36425bbc7107f4bb8eb3463b200e56, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -148,5 +148,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _Tiling: {r: 0.01, g: 0.01, b: 0, a: 0}
   m_BuildTextureStacks: []
