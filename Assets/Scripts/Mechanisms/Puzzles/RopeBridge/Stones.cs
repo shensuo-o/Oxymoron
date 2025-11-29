@@ -15,11 +15,8 @@ public class Stones : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Whirlwind>())
             {
-                bridge.StoneMoved(ID); 
-                for (int i = 0; i < stones.Length; i++)
-                {
-                    stones[i].constraints = RigidbodyConstraints.None;
-                }
+                bridge.StoneMoved(ID);
+                LetGo();
             }
             if (other.gameObject.GetComponent<ShadowLight>())
             {
@@ -30,6 +27,14 @@ public class Stones : MonoBehaviour
                     stones[i].constraints = RigidbodyConstraints.None;
                 }
             }
+        }
+    }
+
+    public void LetGo()
+    {
+        for (int i = 0; i < stones.Length; i++)
+        {
+            stones[i].constraints = RigidbodyConstraints.None;
         }
     }
 }

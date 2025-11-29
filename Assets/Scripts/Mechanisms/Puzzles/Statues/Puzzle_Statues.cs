@@ -103,9 +103,10 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
         }
         else if (solved)
         {
-            for (int i = 0; i < estatuas.Length - 1; i++)
+            for (int i = 0; i < estatuas.Length; i++)
             {
                 estatuas[i].gameObject.GetComponent<Statue>().solved = true;
+                status[i] = true;
             }
         }
 
@@ -221,7 +222,11 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             }
         }
 
-        if (t == 4)
+        if (t == 4 && solved == true)
+        {
+            StartCoroutine(OpenTheDoor());
+        }
+        else if (t == 4 && solved == false)
         {
             solved = true;
             mainCam.CallMoveAndShake(5, scenePoint.position);

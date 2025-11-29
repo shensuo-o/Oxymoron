@@ -332,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c3d6deacb1ddc46a0ff197ea545e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 88a00400-d9a1-4ef7-aef3-f81887d95eb6
+  solved: 0
   movedStones: 00000000
   mainCam: {fileID: 0}
   wheel: {fileID: 9189655131530108820}
@@ -343,6 +345,7 @@ MonoBehaviour:
   ropeMaterial: {fileID: 2100000, guid: 3e8d7c3fc9897e440aeb9b0f3b92ba16, type: 2}
   ropeLineRenderer: {fileID: 7620426982259073449}
   ropeTarget: {fileID: 1238679045532767961}
+  leif: {fileID: 0}
 --- !u!95 &5526691746328809841
 Animator:
   serializedVersion: 5
