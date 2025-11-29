@@ -42,6 +42,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     [SerializeField] private float afterJumpScale;
     public float maxFallSpeed;
     [SerializeField] private float timer = 1f;
+    public bool gravityOn;
 
     //Variables para roll
     [SerializeField] private float rollSpeed;
@@ -238,24 +239,30 @@ public class Personaje : MonoBehaviour, IDataPersistance
 
     private void Gravity()//Simula gravedad para matener al jugador en el piso y para tener saltos mas realistas.
     {
-        if(!isGrounded && !isJumping)
+        if (gravityOn)
         {
-            isLanding = true;
-            timer += Time.fixedDeltaTime;
-            Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
-            rb.AddForce(gravity * timer, ForceMode.Acceleration);
-            if (timer >= 1.3f)
+            if (!isGrounded && !isJumping)
             {
+                isLanding = true;
+                timer += Time.fixedDeltaTime;
+                Vector3 gravity = Mathf.Clamp(globalGravity * afterJumpScale, 9.8f, maxFallSpeed) * Vector3.down;
                 rb.AddForce(gravity * timer, ForceMode.Acceleration);
+                if (timer >= 1.3f)
+                {
+                    rb.AddForce(gravity * timer, ForceMode.Acceleration);
+                }
+            }
+            else if (isGrounded && !isJumping)
+            {
+                timer = 1.3f;
+                Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
+                rb.AddForce(gravity, ForceMode.Acceleration);
             }
         }
-        else if (isGrounded && !isJumping)
+        else
         {
-            timer = 1.3f;
-            Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
-            rb.AddForce(gravity, ForceMode.Acceleration);
+            rb.velocity = Vector3.zero;
         }
-
     }
 
     private IEnumerator Roll() //Temporalmente aumenta la velocidad de Leif y achica su hitbox

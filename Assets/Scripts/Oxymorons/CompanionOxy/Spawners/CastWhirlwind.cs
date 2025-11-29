@@ -23,32 +23,16 @@ public class CastWhirlwind : Oximorons
 
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                //PlaySound(AudioCast);
-                StartCoroutine(SpawnAttack());
+                PlayCast();
+                Instantiate(proyectile, spawnPoint.position, spawnPoint.rotation);
+                charges--;
+                ResetCoolDown();
+                if (charges <= 0)
+                {
+                    TurnOff();
+                }
+                ClearSlot();
             }
         } 
     }
-
-    private IEnumerator SpawnAttack()
-    {
-        trailSpawner.trailRenderer.gameObject.SetActive(true);
-        trailSpawner.moveOn = true;
-        yield return new WaitForSeconds(0.8f);
-        trailSpawner.trailRenderer.gameObject.SetActive(false);
-        trailSpawner.moveOn = false;
-        PlayCast();
-        Instantiate(proyectile, spawnPoint.position, spawnPoint.rotation);
-        charges--;
-        ResetCoolDown();
-        if (charges <= 0)
-        {
-            TurnOff();
-        }
-        ClearSlot();
-    }
-    /*public void PlaySound(AudioClip clip)
-    {
-        source.clip = clip;
-        source.Play();
-    }*/
 }

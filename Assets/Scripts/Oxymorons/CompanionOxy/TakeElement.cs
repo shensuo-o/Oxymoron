@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 
@@ -20,8 +21,18 @@ public class TakeElement : MonoBehaviour
     [SerializeField] private ParticleSystem absorbEffect;
     [SerializeField] private VisualEffect nearElement;
     [SerializeField] private float size;
+
     [ColorUsage(hdr: true, showAlpha: true)]
-    [SerializedField] private Color nearColor;
+    public Color nearColor, errorColor;
+
+    public Light companionSpotLight;
+    public Material companionMaterial;
+    public Material[] facesMaterials;
+
+    [ColorUsage(hdr: true, showAlpha: true)]
+    public Color[] tempColors;
+
+    
 
     private void Start()
     {
@@ -94,9 +105,28 @@ public class TakeElement : MonoBehaviour
 
     private IEnumerator CantGrab()
     {
+        var tempColor = companionMaterial.GetColor("_EmissionColor");
+        var tempLight = companionSpotLight.color;
+        
+        for (int i = 0;i < tempColors.Length; i++)
+        {
+            tempColors[i] = facesMaterials[i].GetColor("_OximoronColor");
+            facesMaterials[i].SetColor("_OximoronColor", errorColor);
+        }
+        companionSpotLight.color = errorColor;
+
         redWarning.SetActive(true);
+        companionMaterial.SetColor("_EmissionColor", errorColor);
         yield return new WaitForSeconds(0.5f);
         redWarning.SetActive(false);
+        companionMaterial.SetColor("_EmissionColor", tempColor);
+
+        for (int i = 0;i < facesMaterials.Length  ; i++)
+        {
+            facesMaterials[i].SetColor("_OximoronColor", tempColors[i]);
+        }
+
+        companionSpotLight.color = tempLight;
     }
 
     private void CheckSlots(Element element)

@@ -19,11 +19,9 @@ public class Oximorons : MonoBehaviour
     public GameObject proyectile;
     public VisualEffect vfx;
     public Animator leif;
-    public SpawnTrails trailSpawner;
 
     public void PlayCast()
     {
-        //leif.SetTrigger("Cast");
         vfx.SetVector4("MagicColor", iconColor);
         vfx.Play();
     }

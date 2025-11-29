@@ -1053,6 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trail: {fileID: 4493508833742438683}
+  trailRenderer: {fileID: 0}
   target: {fileID: 3951541671598447745}
   moveOn: 0
 --- !u!1 &1930352223280957447
@@ -3828,6 +3829,11 @@ PrefabInstance:
       propertyPath: rollDust
       value: 
       objectReference: {fileID: 2843305324705067127}
+    - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
+        type: 3}
+      propertyPath: gravityOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8515811175037119981, guid: fc3ed42427b20194fa7e020fe04ea61a,
         type: 3}
       propertyPath: coyoteTime

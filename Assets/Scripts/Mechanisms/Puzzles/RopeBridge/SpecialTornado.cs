@@ -6,6 +6,7 @@ public class SpecialTornado : MonoBehaviour
 {
     [SerializeField] private float force;
     [SerializeField] private Vector3 dir;
+    [SerializeField] private GameObject target;
     [SerializeField] private Personaje Leif;
     public bool interactable;
     public Collider coll;
@@ -18,9 +19,9 @@ public class SpecialTornado : MonoBehaviour
 
     public bool goHigh;
     public Transform targetHigh;
-    public bool goEnd;
     public Transform targetEnd;
     public float timer;
+    public bool isLeif;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class SpecialTornado : MonoBehaviour
                     StartCoroutine(EnableColl(true));
                     if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
                     {
-                        Leif.rb.AddForce((transform.position - Leif.transform.position).normalized * 0.07f, ForceMode.Force);
+                        hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((transform.position - hit.transform.gameObject.transform.position).normalized * 0.07f, ForceMode.Force);
                     }
                 }
                 else if (element.particles.activeInHierarchy == false)
@@ -53,24 +54,52 @@ public class SpecialTornado : MonoBehaviour
             }
             else if (goHigh == true)
             {
-                float temp = 10;
-                Leif.maxFallSpeed = 0;
-                if (timer <= 0.5f)
+                if (isLeif)
                 {
-                    Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetHigh.position, 50 * Time.deltaTime);
-                    timer += Time.deltaTime;
-                }
-                else if (timer > 0.5f && timer <= 1)
-                {
-                    Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetEnd.position, 50 * Time.deltaTime);
-                    timer += Time.deltaTime;
+                    Leif.gravityOn = false;
+                    if (timer <= 0.5f)
+                    {
+                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetHigh.position, 50 * Time.deltaTime);
+                        timer += Time.deltaTime;
+                    }
+                    else if (timer > 0.5f && timer <= 1)
+                    {
+                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetEnd.position, 50 * Time.deltaTime);
+                        timer += Time.deltaTime;
+                    }
+                    else
+                    {
+                        goHigh = false;
+                        timer = 0;
+                        Leif.gravityOn = true;
+                    }
                 }
                 else
                 {
-                    goHigh = false;
-                    timer = 0;
-                    Leif.maxFallSpeed = temp;
+                    if (target != null)
+                    {
+                        target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        target.GetComponent<Rigidbody>().useGravity = false;
+                        if (timer <= 0.5f)
+                        {
+                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetHigh.position, 50 * Time.deltaTime);
+                            timer += Time.deltaTime;
+                        }
+                        else if (timer > 0.5f && timer <= 1)
+                        {
+                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetEnd.position, 50 * Time.deltaTime);
+                            timer += Time.deltaTime;
+                        }
+                        else
+                        {
+                            goHigh = false;
+                            timer = 0;
+                            target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                            target.GetComponent<Rigidbody>().useGravity = true;
+                        }
+                    }
                 }
+                
             }
             
         }
@@ -84,6 +113,15 @@ public class SpecialTornado : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.layer == 20)
+        {
+            isLeif = false;
+            target = collision.gameObject;
+        }
+        else if (collision.gameObject.layer == 7)
+        {
+            isLeif = true;
+        }
         goHigh = true;
     }
 

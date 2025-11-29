@@ -6375,6 +6375,7 @@ MonoBehaviour:
   afterJumpScale: 1.5
   maxFallSpeed: 40
   timer: 1
+  gravityOn: 0
   rollSpeed: 18
   normalSpeed: 0
   rollTime: 0.25
@@ -6396,6 +6397,8 @@ MonoBehaviour:
   timeInv: 0
   leifMaterial: {fileID: 0}
   HitMaterial: {fileID: 2100000, guid: 4d9f13071e0eefb4f979cdbdd3a7b511, type: 2}
+  died: 0
+  savePos: {x: 0, y: 0, z: 0}
   PreAction: 0.2
   alive: 1
 --- !u!114 &3554180541096354204
@@ -28075,7 +28078,7 @@ MonoBehaviour:
   foundElement: {fileID: 0}
   elementFound: 0
   timer: 0
-  absorbTime: 1
+  absorbTime: 0
   abailableSlots: []
   clock: {fileID: 0}
   fill: {fileID: 0}
@@ -28083,6 +28086,20 @@ MonoBehaviour:
   absorbEffect: {fileID: 2059704682738945492}
   nearElement: {fileID: 0}
   size: 0
+  nearColor: {r: 0, g: 0, b: 0, a: 0}
+  errorColor: {r: 3.509434, g: 0, b: 0, a: 1}
+  companionSpotLight: {fileID: 0}
+  companionMaterial: {fileID: 2100000, guid: 7b5386d610533714790b4bc70e9d2b45, type: 2}
+  facesMaterials:
+  - {fileID: 2100000, guid: 3544278108afa0942b4826f348ec4217, type: 2}
+  - {fileID: 2100000, guid: 2533e3a4f7ef9624690f219270319531, type: 2}
+  - {fileID: 2100000, guid: c1056712792d76e42b002bfc136d441a, type: 2}
+  - {fileID: 2100000, guid: bc24441f3fcefc84b87d5fa9f7bff58a, type: 2}
+  tempColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &2375799465239460791
 PrefabInstance:
   m_ObjectHideFlags: 0
