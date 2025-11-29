@@ -19,7 +19,6 @@ public class EnviromentProjectile : MonoBehaviour
     public void ResetProjectile()
     {
         mesh.enabled = true;
-        trigger.enabled = true;
         if (containedElement != null )
         {
             containedElement.SingleReset();

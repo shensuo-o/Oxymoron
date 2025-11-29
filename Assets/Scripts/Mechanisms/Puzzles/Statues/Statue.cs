@@ -49,13 +49,6 @@ public class Statue : MonoBehaviour, IDataPersistance
 
     public AnimationClip clip;
 
-    public Animator statueAnimator;
-
-    public AnimationClip statueClip;
-
-    public AnimationClip statueDef;
-
-    public GameObject pointLight;
     public void LoadData(GameData data)
     {
         if (data.statuesOrder.TryGetValue(id, out var temp) && temp == 0)
@@ -77,38 +70,25 @@ public class Statue : MonoBehaviour, IDataPersistance
         data.statuesOrder.Add(id, index);
     }
 
-    private void Start()
-    {
-        statueAnimator.SetBool(statueDef.name, true);
-    }
-
     private void Update()
     {
         if (solved)
         {
             if (error)
             {
-                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
-
-                animator.SetBool(clip.name, false);
-                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
                 }
-                pointLight.SetActive(false);
             }
             else
             {
-                animator.gameObject.layer = 28;
                 if (Vector3.Distance(item.transform.position, dock.position) <= proximity)
                 {
                     item.transform.position = dock.position;
-                    animator.SetBool(clip.name, true);
-                    statueAnimator.SetBool(statueClip.name, true);
                 }
                 else
                 {
@@ -130,33 +110,23 @@ public class Statue : MonoBehaviour, IDataPersistance
         {
             if (error)
             {
-                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = mistake;
                 particles.startColor = mistake;
-
-                animator.SetBool(clip.name, false);
-                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = mistake;
                 }
-                pointLight.SetActive(false);
             }
             else
             {
-                animator.gameObject.layer = 20;
                 item.GetComponentInChildren<MeshRenderer>().material.color = inActive;
                 particles.startColor = inActive;
-
-                animator.SetBool(clip.name, false);
-                statueAnimator.SetBool(statueClip.name, false);
 
                 for (int i = 0; i < parts.Length; i++)
                 {
                     parts[i].GetComponent<MeshRenderer>().material.color = inActive;
                 }
-                pointLight.SetActive(false);
             }
         }
     }

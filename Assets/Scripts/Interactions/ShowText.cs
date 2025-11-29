@@ -14,25 +14,11 @@ public class ShowText : MonoBehaviour
     public string message;
     public string fullMessage;
     public float delay = 0.05f;
-    public AnimationClip readClip;
-
-    public Coroutine typeTextCo;
-
     public CompanionMovement comp;
-    public CompanionAnimations companionAnimations;
-    public GameObject animTarget;
-    public GameObject tempTarget;
 
     private void Start()
     {
-        StartCoroutine(GetIndex());
-        textMesh = text.GetComponent<TextMeshProUGUI>();
         comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
-    }
-
-    IEnumerator GetIndex()
-    {
-        yield return new WaitForSeconds(1);
 
         if (estatua.index == 0)
         {
@@ -51,8 +37,9 @@ public class ShowText : MonoBehaviour
             numero = "el cuarto...";
         }
         fullMessage = message + numero;
+        textMesh = text.GetComponent<TextMeshProUGUI>();
     }
-    
+
     IEnumerator TypeText()
     {
         foreach (char character in fullMessage.ToCharArray())
@@ -62,47 +49,20 @@ public class ShowText : MonoBehaviour
         }
     }
 
-    private IEnumerator CompStartReading(bool set)
-    {
-        if (set == true)
-        {
-            tempTarget = comp.target;
-            comp.target = animTarget;
-            comp.distance = 0.5f;
-            while (comp.rb.velocity.magnitude > 0)
-            {
-                yield return null;
-            }
-        }
-        else if (set == false)
-        {
-           
-            comp.target = tempTarget;
-            comp.distance = 2;
-            while (comp.rb.velocity.magnitude > 0)
-            {
-                yield return null;
-            }
-        }
-        
-        companionAnimations.PlayAnimation(readClip, set);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         cuadro.SetActive(true);
         text.SetActive(true);
-        typeTextCo = StartCoroutine(TypeText());
-        StartCoroutine(CompStartReading(true));
+        StartCoroutine(TypeText());
+        comp.animator.SetBool("IsReading", true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         cuadro.SetActive(false);
         text.SetActive(false);
-        StopCoroutine(typeTextCo);
+        StopAllCoroutines();
         textMesh.text = " ";
-        StartCoroutine(CompStartReading(false));
-        comp.target = tempTarget;
+        comp.animator.SetBool("IsReading", false);
     }
 }

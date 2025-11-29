@@ -16,7 +16,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     #region Variables Movimiento 
 
     //variables para el movimiento
-    public Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
     public float HorizontalInput;
 
     //variables para el salto
@@ -40,7 +40,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
     [SerializeField] private float globalGravity;
     [SerializeField] private float gravityScale;
     [SerializeField] private float afterJumpScale;
-    public float maxFallSpeed;
+    [SerializeField] private float maxFallSpeed;
     [SerializeField] private float timer = 1f;
 
     //Variables para roll
@@ -71,9 +71,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
     [SerializeField] private float timeInv;
     [SerializeField] private Material leifMaterial;
     [SerializeField] private Material HitMaterial;
-
-    public bool died;
-    public Vector3 savePos;
 
     //variable de animacion
     public float PreAction;
@@ -108,7 +105,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         HP = 100;
         alive = true;
         healthBar = GameObject.Find("FillHP").GetComponent<Image>();
-        leifAttackDetection.enabled = true;
+
         HitMaterial.SetFloat("_DistDist2", 1f);
         if (SaveSpawn.Instance != null)
         {
@@ -120,8 +117,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
     {
         if (alive)
         {
-            died = false;
-
             if (!isRolling)
             {
                 HorizontalInput = Input.GetAxisRaw("Horizontal");
@@ -165,16 +160,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
             {
                 Speed = tempSpeed;
             }
-        }
-        else
-        {
-            if (died == false)
-            {
-                savePos = transform.position;
-                died = true;
-            }
-            transform.position = new Vector3 (savePos.x, transform.position.y, savePos.z);
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
         }
         healthBar.fillAmount = HP / 100f;
     }
@@ -251,7 +236,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         }
         else if (isGrounded && !isJumping)
         {
-            timer = 1.3f;
+            timer = 1.2f;
             Vector3 gravity = Mathf.Clamp(globalGravity * gravityScale, 0, maxFallSpeed) * Vector3.down;
             rb.AddForce(gravity, ForceMode.Acceleration);
         }
@@ -309,17 +294,14 @@ public class Personaje : MonoBehaviour, IDataPersistance
     public void TakeDamage(float damage, Vector3 dir)//Llama a este script cada vez que recibe daño de algo.
     {
         animator.SetTrigger("Hit");
-        if (damage != 0)
-        {
-            HP -= damage;
+        HP -= damage;
 
-            HitMaterial.SetFloat("_DistDist2", 1f);
-            StartCoroutine(DamageShaderEffect());
-            if (HP <= 0)
-            {
-                StartCoroutine("Death");
-                alive = false;
-            }
+        HitMaterial.SetFloat("_DistDist2", 1f);
+        StartCoroutine(DamageShaderEffect());
+        if (HP <= 0)
+        {
+            StartCoroutine("Death");
+            alive = false;
         }
         knockBack.Knock(dir, Vector3.up, HorizontalInput);
         StartCoroutine(Invulnerable(timeInv));

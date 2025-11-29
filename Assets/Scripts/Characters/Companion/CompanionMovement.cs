@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompanionMovement : MonoBehaviour, IDataPersistance
+public class CompanionMovement : MonoBehaviour
 {
     #region VariablesMovimiento
 
-    public GameObject target;
-    public Rigidbody rb;
+    [SerializeField] private GameObject target;
+    [SerializeField] private Rigidbody rb;
 
     [SerializeField] private float speed;
     [SerializeField] private float normSpeed;
@@ -17,7 +17,7 @@ public class CompanionMovement : MonoBehaviour, IDataPersistance
     [SerializeField] private float maxTimePrediction;
     [SerializeField] private float deviationAmount;
     [SerializeField] private float deviationSpeed;
-    public float distance;
+    [SerializeField] private float distance;
 
     [SerializeField] private bool isShooting;
     [SerializeField] private Transform aim;
@@ -28,16 +28,6 @@ public class CompanionMovement : MonoBehaviour, IDataPersistance
     public Animator animator;
 
     #endregion
-
-    public void LoadData(GameData data)
-    {
-        this.transform.position = data.companionPosition;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.companionPosition = this.transform.position;
-    }
 
     void Awake ()
     {

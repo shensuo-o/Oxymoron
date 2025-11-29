@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental;
 using UnityEngine;
 
-public class ShadowLight : StatsOximorones
+public class ShadowLightCast : StatsOximorones
 {
     [SerializeField] private Vector3 velocity = Vector3.zero;
     [SerializeField] private float damp = 0.03f;
@@ -73,10 +73,6 @@ public class ShadowLight : StatsOximorones
                 if (timer >= lifeTime - 0.5f)
                 {
                     other.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                }
-                else
-                {
-                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 }
             }
         } 

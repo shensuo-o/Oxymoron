@@ -117,10 +117,10 @@ public class CameraFollow : MonoBehaviour
         while (time < duration)
         {
             time += Time.deltaTime;
-            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(target.x, target.y, target.z - 50), ref velocity, dampMove);
+            Vector3 temp = Vector3.SmoothDamp(transform.position, new Vector3(target.x, target.y, -50), ref velocity, dampMove);
             float strength = curve.Evaluate(time / duration);
             Vector3 shake = temp + Random.insideUnitSphere * strength;
-            transform.position = new Vector3 (shake.x, shake.y, target.z - 50);
+            transform.position = new Vector3 (shake.x, shake.y, -50);
             yield return null;
         }
         CallMove(duration);

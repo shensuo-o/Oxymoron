@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowLightCast : Oximorons
+public class ShadowLight : Oximorons
 {
     //public AudioSource source;
     //public AudioClip AudioCast;
@@ -21,31 +21,22 @@ public class ShadowLightCast : Oximorons
 
             if (Input.GetMouseButtonDown(1) && time >= cooldown)
             {
-                StartCoroutine(SpawnAttack());
+                PlayCast();
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = 50;
+                Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
+                Instantiate(proyectile, pos, Quaternion.identity);
+                //PlaySound(AudioCast);
+                charges--;
+                ResetCoolDown();
+                if (charges <= 0)
+                {
+                    TurnOff();
+                }
+                ClearSlot();
+
             }
         }
-    }
-
-    private IEnumerator SpawnAttack()
-    {
-        trailSpawner.trailRenderer.gameObject.SetActive(true);
-        trailSpawner.moveOn = true;
-        yield return new WaitForSeconds(0.8f);
-        trailSpawner.trailRenderer.gameObject.SetActive(false);
-        trailSpawner.moveOn = false;
-        PlayCast();
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 50;
-        Vector3 pos = Camera.main.ScreenToWorldPoint(mousePos);
-        Instantiate(proyectile, pos, Quaternion.identity);
-        //PlaySound(AudioCast);
-        charges--;
-        ResetCoolDown();
-        if (charges <= 0)
-        {
-            TurnOff();
-        }
-        ClearSlot();
     }
     /*public void PlaySound(AudioClip clip)
     {
