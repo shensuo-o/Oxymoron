@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6409950922523825456
 Transform:
@@ -109,6 +109,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hongos
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5e752867529de764f99d1e114910cccd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714539461630907806, guid: 5e752867529de764f99d1e114910cccd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7097298342727834345, guid: 5e752867529de764f99d1e114910cccd,
         type: 3}
