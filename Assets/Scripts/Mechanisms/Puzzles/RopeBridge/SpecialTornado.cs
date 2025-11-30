@@ -21,7 +21,8 @@ public class SpecialTornado : MonoBehaviour
     public float time2;
     public float time3;
 
-    public bool goHigh;
+    public bool goTarget;
+    public bool goLeif;
     public Transform targetHigh;
     public Transform targetMid;
     public Transform targetEnd;
@@ -42,79 +43,78 @@ public class SpecialTornado : MonoBehaviour
             Vector3 dir = transform.up;
             Quaternion orientation = transform.rotation;
 
-            if(goHigh == false)
+            if (element.particles.activeInHierarchy)
             {
-                if (element.particles.activeInHierarchy)
+                StartCoroutine(EnableColl(true));
+                if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
                 {
-                    StartCoroutine(EnableColl(true));
-                    if (Physics.BoxCast(center, detectorSize, dir, out hit, orientation, detectorDistance, mask))
-                    {
-                        hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((transform.position - hit.transform.gameObject.transform.position).normalized * 0.07f, ForceMode.Force);
-                    }
-                }
-                else if (element.particles.activeInHierarchy == false)
-                {
-                    coll.enabled = false;
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce((transform.position - hit.transform.gameObject.transform.position).normalized * 0.07f, ForceMode.Force);
                 }
             }
-            else if (goHigh == true)
+            else if (element.particles.activeInHierarchy == false)
             {
-                if (isLeif)
+                coll.enabled = false;
+            }
+
+            if (goLeif == true)
+            {
+                Leif.gravityOn = false;
+                if (timer <= time1)
                 {
-                    Leif.gravityOn = false;
+                    Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetHigh.position, 50 * Time.deltaTime);
+                    timer += Time.deltaTime;
+                }
+                else if (timer > time1 && timer <= time2)
+                {
+                    Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetMid.position, 50 * Time.deltaTime);
+                    timer += Time.deltaTime;
+                }
+                else if (timer > time2 && timer <= time3)
+                {
+                    Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetEnd.position, 50 * Time.deltaTime);
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    goLeif = false;
+                    timer = 0;
+                    Leif.gravityOn = true;
+                }
+            }
+
+            if (goTarget == true)
+            {
+                target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                if (target != null)
+                {
+                    target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    target.GetComponent<Rigidbody>().useGravity = false;
                     if (timer <= time1)
                     {
-                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetHigh.position, 50 * Time.deltaTime);
+                        target.transform.position = Vector3.MoveTowards(target.transform.position, targetHigh.position, 50 * Time.deltaTime);
                         timer += Time.deltaTime;
                     }
                     else if (timer > time1 && timer <= time2)
                     {
-                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetMid.position, 50 * Time.deltaTime);
+                        target.transform.position = Vector3.MoveTowards(target.transform.position, targetMid.position, 50 * Time.deltaTime);
                         timer += Time.deltaTime;
                     }
                     else if (timer > time2 && timer <= time3)
                     {
-                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetEnd.position, 50 * Time.deltaTime);
+                        target.transform.position = Vector3.MoveTowards(target.transform.position, targetEnd.position, 50 * Time.deltaTime);
                         timer += Time.deltaTime;
                     }
                     else
                     {
-                        goHigh = false;
+                        goTarget = false;
                         timer = 0;
-                        Leif.gravityOn = true;
-                    }
-                }
-                else
-                {
-                    if (target != null)
-                    {
                         target.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        target.GetComponent<Rigidbody>().useGravity = false;
-                        if (timer <= time1)
-                        {
-                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetHigh.position, 50 * Time.deltaTime);
-                            timer += Time.deltaTime;
-                        }
-                        else if (timer > time1 && timer <= time2)
-                        {
-                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetMid.position, 50 * Time.deltaTime);
-                            timer += Time.deltaTime;
-                        }
-                        else if (timer > time2 && timer <= time3)
-                        {
-                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetEnd.position, 50 * Time.deltaTime);
-                            timer += Time.deltaTime;
-                        }
-                        else
-                        {
-                            goHigh = false;
-                            timer = 0;
-                            target.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                            target.GetComponent<Rigidbody>().useGravity = true;
-                        }
+                        target.GetComponent<Rigidbody>().rotation = Quaternion.identity;
+                        target.GetComponent<Rigidbody>().useGravity = true;
+                        target.transform.position = targetEnd.position;
                     }
+                    target.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 }
-                
             }
             
         }
@@ -130,14 +130,13 @@ public class SpecialTornado : MonoBehaviour
     {
         if (collision.gameObject.layer == 20)
         {
-            isLeif = false;
+            goTarget = true;
             target = collision.gameObject;
         }
         else if (collision.gameObject.layer == 7)
         {
-            isLeif = true;
+            goLeif = true;
         }
-        goHigh = true;
     }
 
     void OnDrawGizmos()

@@ -72,7 +72,6 @@ public class PlayerCheckPoint : MonoBehaviour
         animator.SetBool(clip.name, isSaving);
         prompt.SetActive(false);
         player.HP = 100;
-        Debug.LogWarning("Saved Game bya player CheckPoint.");
         particles.Play();
         DataPersistenceManager.Instance.SaveGame();
         while (comp.rb.velocity.magnitude > 0)

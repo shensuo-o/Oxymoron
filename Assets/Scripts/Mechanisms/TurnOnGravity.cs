@@ -33,8 +33,14 @@ public class TurnOnGravity : MonoBehaviour
         obj =  other.gameObject;
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         rb.useGravity = true;
+        rb.velocity = Vector3.zero;
     }
 }

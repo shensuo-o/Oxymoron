@@ -11,18 +11,19 @@ public class ShowTutorial : MonoBehaviour
     public GameObject cuadro;
     public string message;
     public float delay = 0.05f;
-    public AnimationClip readClip;
+    //public AnimationClip readClip;
 
     public Coroutine typeTextCo;
 
-    public CompanionMovement comp;
+    /*public CompanionMovement comp;
     public CompanionAnimations companionAnimations;
     public GameObject animTarget;
-    public GameObject tempTarget;
+    public GameObject tempTarget;*/
+
     void Start()
     {
         textMesh = text.GetComponent<TextMeshProUGUI>();
-        comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
+        //comp = GameObject.Find("Companion").GetComponent<CompanionMovement>();
     }
 
     IEnumerator TypeText()
@@ -34,7 +35,7 @@ public class ShowTutorial : MonoBehaviour
         }
     }
 
-    private IEnumerator CompStartReading(bool set)
+    /*private IEnumerator CompStartReading(bool set)
     {
         if (set == true)
         {
@@ -58,14 +59,14 @@ public class ShowTutorial : MonoBehaviour
         }
 
         companionAnimations.PlayAnimation(readClip, set);
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
         cuadro.SetActive(true);
         text.SetActive(true);
         typeTextCo = StartCoroutine(TypeText());
-        StartCoroutine(CompStartReading(true));
+        //StartCoroutine(CompStartReading(true));
     }
 
     private void OnTriggerExit(Collider other)
@@ -74,7 +75,7 @@ public class ShowTutorial : MonoBehaviour
         text.SetActive(false);
         StopCoroutine(typeTextCo);
         textMesh.text = " ";
-        StartCoroutine(CompStartReading(false));
-        comp.target = tempTarget;
+        //tartCoroutine(CompStartReading(false));
+        //comp.target = tempTarget;
     }
 }

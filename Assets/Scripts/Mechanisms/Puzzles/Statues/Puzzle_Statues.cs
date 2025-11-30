@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
+using static UnityEngine.InputManagerEntry;
 using Random = UnityEngine.Random;
 
 public class Puzzle_Statues : MonoBehaviour, IDataPersistance
@@ -107,6 +108,7 @@ public class Puzzle_Statues : MonoBehaviour, IDataPersistance
             {
                 estatuas[i].gameObject.GetComponent<Statue>().solved = true;
                 status[i] = true;
+                estatuas[i].GetComponent<Statue>().pull.SetActive(false);
             }
         }
 
