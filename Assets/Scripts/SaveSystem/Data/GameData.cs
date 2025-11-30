@@ -20,7 +20,7 @@ public class GameData
     public GameData()
     {
         this.hp = 100;
-        this.playerPosition = new Vector3 (-35, 3, 0);
+        this.playerPosition = new Vector3 (-33, 3, 0);
         this.companionPosition = new Vector3(-39, 4, 0);
         solvedPuzzles = new SerializedDictionary<string, bool>();
         statuesOrder = new SerializedDictionary<string, int>();
