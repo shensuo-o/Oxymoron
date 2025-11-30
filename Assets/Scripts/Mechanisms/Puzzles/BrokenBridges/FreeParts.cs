@@ -6,6 +6,7 @@ public class FreeParts : MonoBehaviour
 {
     public Rigidbody piece;
     public Rigidbody[] rb;
+    public bool hasPiece;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +14,11 @@ public class FreeParts : MonoBehaviour
         {
             if (other.GetComponent<Whirlwind>() != null)
             {
-                piece.constraints = RigidbodyConstraints.None;
+                if (hasPiece)
+                {
+                    piece.constraints = RigidbodyConstraints.None;
+                }
+               
                 for (int i = 0; i < rb.Length; i++)
                 {
                     rb[i].constraints = RigidbodyConstraints.None;

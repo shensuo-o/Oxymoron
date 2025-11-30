@@ -32,7 +32,7 @@ public class TakeElement : MonoBehaviour
     [ColorUsage(hdr: true, showAlpha: true)]
     public Color[] tempColors;
 
-    
+    public bool error;
 
     private void Start()
     {
@@ -87,9 +87,13 @@ public class TakeElement : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && abailableSlots.Count <= 0)
+            if (Input.GetKeyDown(KeyCode.E) && abailableSlots.Count <= 0 && !error)
             {
-                StartCoroutine("CantGrab");
+                StartCoroutine(CantGrab());
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && abailableSlots.Count <= 0 && error)
+            {
+                StartCoroutine(SimpleCantGrab());
             }
         }
         else if (!elementFound)
@@ -103,8 +107,16 @@ public class TakeElement : MonoBehaviour
         }
     }
 
+    private IEnumerator SimpleCantGrab()
+    {
+        redWarning.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        redWarning.SetActive(false);
+    }
+
     private IEnumerator CantGrab()
     {
+        error = true;
         var tempColor = companionMaterial.GetColor("_EmissionColor");
         var tempLight = companionSpotLight.color;
         
@@ -127,6 +139,7 @@ public class TakeElement : MonoBehaviour
         }
 
         companionSpotLight.color = tempLight;
+        error = false;
     }
 
     private void CheckSlots(Element element)

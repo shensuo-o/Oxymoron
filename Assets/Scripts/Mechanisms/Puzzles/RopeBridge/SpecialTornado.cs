@@ -17,8 +17,13 @@ public class SpecialTornado : MonoBehaviour
     public float detectorDistance = 10;
     public LayerMask mask;
 
+    public float time1;
+    public float time2;
+    public float time3;
+
     public bool goHigh;
     public Transform targetHigh;
+    public Transform targetMid;
     public Transform targetEnd;
     public float timer;
     public bool isLeif;
@@ -57,12 +62,17 @@ public class SpecialTornado : MonoBehaviour
                 if (isLeif)
                 {
                     Leif.gravityOn = false;
-                    if (timer <= 0.5f)
+                    if (timer <= time1)
                     {
                         Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetHigh.position, 50 * Time.deltaTime);
                         timer += Time.deltaTime;
                     }
-                    else if (timer > 0.5f && timer <= 1)
+                    else if (timer > time1 && timer <= time2)
+                    {
+                        Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetMid.position, 50 * Time.deltaTime);
+                        timer += Time.deltaTime;
+                    }
+                    else if (timer > time2 && timer <= time3)
                     {
                         Leif.transform.position = Vector3.MoveTowards(Leif.transform.position, targetEnd.position, 50 * Time.deltaTime);
                         timer += Time.deltaTime;
@@ -80,12 +90,17 @@ public class SpecialTornado : MonoBehaviour
                     {
                         target.GetComponent<Rigidbody>().velocity = Vector3.zero;
                         target.GetComponent<Rigidbody>().useGravity = false;
-                        if (timer <= 0.5f)
+                        if (timer <= time1)
                         {
                             target.transform.position = Vector3.MoveTowards(target.transform.position, targetHigh.position, 50 * Time.deltaTime);
                             timer += Time.deltaTime;
                         }
-                        else if (timer > 0.5f && timer <= 1)
+                        else if (timer > time1 && timer <= time2)
+                        {
+                            target.transform.position = Vector3.MoveTowards(target.transform.position, targetMid.position, 50 * Time.deltaTime);
+                            timer += Time.deltaTime;
+                        }
+                        else if (timer > time2 && timer <= time3)
                         {
                             target.transform.position = Vector3.MoveTowards(target.transform.position, targetEnd.position, 50 * Time.deltaTime);
                             timer += Time.deltaTime;
