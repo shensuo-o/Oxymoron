@@ -176,6 +176,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
             }
             transform.position = new Vector3 (savePos.x, transform.position.y, savePos.z);
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            animator.SetFloat("Speed", 0);
         }
         healthBar.fillAmount = HP / 100f;
     }

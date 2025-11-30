@@ -5,7 +5,6 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
-using static UnityEngine.InputManagerEntry;
 using Random = UnityEngine.Random;
 
 public class Puzzle_Statues : MonoBehaviour, IDataPersistance
