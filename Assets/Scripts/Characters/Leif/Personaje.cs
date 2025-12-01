@@ -148,8 +148,6 @@ public class Personaje : MonoBehaviour, IDataPersistance
                 coyoteCount -= Time.deltaTime;
             }
 
-            Jump();
-
             if (isGrounded && !isJumping && canRoll)
             {
                 if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -178,6 +176,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
             animator.SetFloat("Speed", 0);
         }
+        Jump();
         healthBar.fillAmount = HP / 100f;
     }
 
@@ -205,13 +204,16 @@ public class Personaje : MonoBehaviour, IDataPersistance
     {
         if (knockBack.isHit == false)
         {
-            if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
+            if (alive)
             {
-                isJumping = true;
-                animator.SetBool("IsJumping", isJumping);
-                jumpTime = JumpStartTime;
+                if (coyoteCount > 0 && Input.GetButtonDown("Jump"))
+                {
+                    isJumping = true;
+                    animator.SetBool("IsJumping", isJumping);
+                    jumpTime = JumpStartTime;
 
-                rb.velocity = Vector2.up * jumpForce;
+                    rb.velocity = Vector2.up * jumpForce;
+                }
             }
 
             if (Input.GetButton("Jump") && isJumping)

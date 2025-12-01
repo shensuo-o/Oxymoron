@@ -25,8 +25,7 @@ public class ConectBridge : MonoBehaviour
 
     private IEnumerator WaitForClip()
     {
-        animator.SetTrigger(clip.name);
-        yield return new WaitForSeconds(clip.length + 0.1f);
+        yield return new WaitForSeconds(0);
         fixedPiece.SetActive(true);
         piece.SetActive(false);
         yield break;

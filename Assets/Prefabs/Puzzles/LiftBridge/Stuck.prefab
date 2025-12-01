@@ -176,6 +176,12 @@ MonoBehaviour:
   - {fileID: 4856719650379035060}
   - {fileID: 9086239026506533735}
   - {fileID: 8135927061722836597}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &3362620154547022126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2392,7 +2398,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &4095149416617863486
 MeshCollider:
   m_ObjectHideFlags: 0
