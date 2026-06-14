@@ -9,6 +9,9 @@ public class Personaje : MonoBehaviour, IDataPersistance
 {
     public string currentScene;
 
+    [SerializeField] private Material fadeToBlackMaterial;
+    [SerializeField] private float fadeSpeed = 1.5f;
+
     //Stats de Leif
     public float HP;
     public float Speed;
@@ -111,6 +114,7 @@ public class Personaje : MonoBehaviour, IDataPersistance
         healthBar = GameObject.Find("FillHP").GetComponent<Image>();
         leifAttackDetection.enabled = true;
         HitMaterial.SetFloat("_DistDist2", 1f);
+        fadeToBlackMaterial.SetFloat("_IntensityScreen", 0f);
         if (SaveSpawn.Instance != null)
         {
             transform.position = SaveSpawn.Instance.transform.position;
@@ -341,7 +345,15 @@ public class Personaje : MonoBehaviour, IDataPersistance
         leifMaterial.color = Color.white;
         leifAttackDetection.enabled = false;
         animator.SetTrigger("Die");
-        yield return new WaitForSeconds(1.5f);
+
+        float intensity = 0f;
+        while (intensity < 1f)
+        {
+            intensity += Time.deltaTime * fadeSpeed;
+            fadeToBlackMaterial.SetFloat("_IntensityScreen", Mathf.Clamp01(intensity));
+            yield return null;
+        }
+
         HitMaterial.SetFloat("_DistDist2", 1f);
         LoadLevel.Instance.PlayStart();
         yield return new WaitForSeconds(2f);

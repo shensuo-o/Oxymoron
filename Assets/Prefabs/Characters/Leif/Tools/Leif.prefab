@@ -6351,6 +6351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 
+  fadeToBlackMaterial: {fileID: 2100000, guid: be6e9ee047e77234592344a330fbd088, type: 2}
+  fadeSpeed: 1.5
   HP: 100
   Speed: 4
   rb: {fileID: 0}

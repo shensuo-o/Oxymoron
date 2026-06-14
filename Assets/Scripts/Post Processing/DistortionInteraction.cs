@@ -19,7 +19,6 @@ public class DistortionInteraction : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Leif");
         _particleSystem = _chimenea.GetComponentInChildren<ParticleSystem>();
-        Debug.Log("Particle System encontrado: " + (_particleSystem != null ? _particleSystem.name : "NULL"));
     }
 
     private void Update()
