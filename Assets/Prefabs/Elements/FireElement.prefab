@@ -4901,6 +4901,7 @@ GameObject:
   - component: {fileID: 1018086386724952935}
   - component: {fileID: 7555374779016647104}
   - component: {fileID: 3101557707521207168}
+  - component: {fileID: 6726125494551515126}
   m_Layer: 14
   m_Name: FireElement
   m_TagString: Element
@@ -4965,6 +4966,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6726125494551515126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737366157275433630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8da28dce829a5e4dbbc660389e89fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sqrDistName: _DistDist
+  _fire: {fileID: 2100000, guid: 762fcd28f61430b4bb02779f9e250f1f, type: 2}
+  _chimenea: {fileID: 7737366157275433630}
+  distortionRadius: 7
 --- !u!1001 &6759304566114259032
 PrefabInstance:
   m_ObjectHideFlags: 0
